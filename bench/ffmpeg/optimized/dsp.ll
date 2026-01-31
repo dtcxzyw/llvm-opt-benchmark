@@ -6800,8 +6800,7 @@ cclm_get_luma_rec_pixels_12.exit:                 ; preds = %74, %..loopexit88_c
   %215 = lshr i32 %indvars.iv225.sroa.phi394.sroa.speculated, %209
   %216 = tail call i32 @llvm.umax.i32(i32 %215, i32 1)
   %217 = lshr i32 %indvars.iv225.sroa.phi394.sroa.speculated, %208
-  %smax = tail call i32 @llvm.smax.i32(i32 %213, i32 1)
-  %wide.trip.count223 = zext nneg i32 %smax to i64
+  %wide.trip.count223 = zext nneg i32 %213 to i64
   br label %218
 
 ._crit_edge:                                      ; preds = %218, %211
@@ -19574,8 +19573,7 @@ cclm_get_luma_rec_pixels_10.exit:                 ; preds = %74, %..loopexit88_c
   %215 = lshr i32 %indvars.iv225.sroa.phi394.sroa.speculated, %209
   %216 = tail call i32 @llvm.umax.i32(i32 %215, i32 1)
   %217 = lshr i32 %indvars.iv225.sroa.phi394.sroa.speculated, %208
-  %smax = tail call i32 @llvm.smax.i32(i32 %213, i32 1)
-  %wide.trip.count223 = zext nneg i32 %smax to i64
+  %wide.trip.count223 = zext nneg i32 %213 to i64
   br label %218
 
 ._crit_edge:                                      ; preds = %218, %211
@@ -32253,8 +32251,7 @@ cclm_get_luma_rec_pixels_8.exit:                  ; preds = %70, %..loopexit88_c
   %211 = lshr i32 %indvars.iv221.sroa.phi388.sroa.speculated, %205
   %212 = tail call i32 @llvm.umax.i32(i32 %211, i32 1)
   %213 = lshr i32 %indvars.iv221.sroa.phi388.sroa.speculated, %204
-  %smax = tail call i32 @llvm.smax.i32(i32 %209, i32 1)
-  %wide.trip.count219 = zext nneg i32 %smax to i64
+  %wide.trip.count219 = zext nneg i32 %209 to i64
   br label %214
 
 ._crit_edge:                                      ; preds = %214, %207

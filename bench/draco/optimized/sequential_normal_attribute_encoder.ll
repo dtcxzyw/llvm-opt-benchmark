@@ -3101,10 +3101,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit184:            ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %._crit_edge642, label %.lr.ph641
 
 .lr.ph641:                                        ; preds = %.preheader
-  %smax776 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %107 = zext nneg i32 %smax776 to i64
+  %107 = zext nneg i32 %4 to i64
   %108 = shl nuw nsw i64 %107, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.pre780, i8 0, i64 %108, i1 false), !tbaa !3
+  call void @llvm.memset.p0.i64(ptr align 4 %.pre780, i8 0, i64 %108, i1 false), !tbaa !3
   br label %._crit_edge642
 
 109:                                              ; preds = %28, %27
@@ -8706,10 +8705,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit184:            ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %._crit_edge636, label %.lr.ph635
 
 .lr.ph635:                                        ; preds = %.preheader
-  %smax770 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %106 = zext nneg i32 %smax770 to i64
+  %106 = zext nneg i32 %4 to i64
   %107 = shl nuw nsw i64 %106, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.pre774, i8 0, i64 %107, i1 false), !tbaa !3
+  call void @llvm.memset.p0.i64(ptr align 4 %.pre774, i8 0, i64 %107, i1 false), !tbaa !3
   br label %._crit_edge636
 
 108:                                              ; preds = %28, %27
@@ -12305,9 +12303,6 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17

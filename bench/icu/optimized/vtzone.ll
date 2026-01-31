@@ -6886,33 +6886,33 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_
 
 17:                                               ; preds = %12
   %18 = icmp sgt i64 %.0, -1
-  br i1 %18, label %.lr.ph.preheader, label %19
+  br i1 %18, label %.preheader, label %19
 
 19:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 45, ptr %4, align 2, !tbaa !10
   %20 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.lr.ph.preheader
+  br label %.preheader
 
-.lr.ph.preheader:                                 ; preds = %17, %19
-  br label %.lr.ph
+.preheader:                                       ; preds = %19, %17
+  br label %21
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.lr.ph ], [ %indvars.iv, %.lr.ph.preheader ]
+21:                                               ; preds = %.preheader, %21
+  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %21 ], [ %indvars.iv, %.preheader ]
   %indvars.iv.next23 = add nsw i64 %indvars.iv22, -1
-  %21 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv22
-  %22 = load i32, ptr %21, align 4, !tbaa !42
-  %23 = trunc i32 %22 to i16
-  %24 = add i16 %23, 48
+  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv22
+  %23 = load i32, ptr %22, align 4, !tbaa !42
+  %24 = trunc i32 %23 to i16
+  %25 = add i16 %24, 48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i16 %24, ptr %3, align 2, !tbaa !10
-  %25 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 1)
+  store i16 %25, ptr %3, align 2, !tbaa !10
+  %26 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %26 = icmp sgt i64 %indvars.iv22, 0
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !75
+  %27 = icmp sgt i64 %indvars.iv22, 0
+  br i1 %27, label %21, label %28, !llvm.loop !75
 
-._crit_edge:                                      ; preds = %.lr.ph
+28:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %1
 }

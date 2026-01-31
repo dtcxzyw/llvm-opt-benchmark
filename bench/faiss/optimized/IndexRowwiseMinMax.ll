@@ -1413,14 +1413,10 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
 .lr.ph140.i:                                      ; preds = %.preheader.i
   %125 = sext i32 %12 to i64
   %126 = icmp sgt i32 %12, 0
-  br i1 %126, label %.lr.ph137.us.preheader.i, label %._crit_edge141.i
+  br i1 %126, label %.lr.ph137.us.i, label %._crit_edge141.i
 
-.lr.ph137.us.preheader.i:                         ; preds = %.lr.ph140.i
-  %smax.i = call i64 @llvm.smax.i64(i64 %1, i64 1)
-  br label %.lr.ph137.us.i
-
-.lr.ph137.us.i:                                   ; preds = %._crit_edge138.us.i, %.lr.ph137.us.preheader.i
-  %.057139.us.i = phi i64 [ %170, %._crit_edge138.us.i ], [ 0, %.lr.ph137.us.preheader.i ]
+.lr.ph137.us.i:                                   ; preds = %.lr.ph140.i, %._crit_edge138.us.i
+  %.057139.us.i = phi i64 [ %170, %._crit_edge138.us.i ], [ 0, %.lr.ph140.i ]
   %127 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::StorageMinMaxFP16", ptr %.sroa.095.0106.i, i64 %.057139.us.i
   %.val.us.i = load i16, ptr %127, align 2, !tbaa !37
   %128 = getelementptr i8, ptr %127, i64 2
@@ -1477,7 +1473,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
 
 ._crit_edge138.us.i:                              ; preds = %165
   %170 = add nuw nsw i64 %.057139.us.i, 1
-  %exitcond147.not.i = icmp eq i64 %170, %smax.i
+  %exitcond147.not.i = icmp eq i64 %170, %1
   br i1 %exitcond147.not.i, label %._crit_edge141.thread.i, label %.lr.ph137.us.i, !llvm.loop !52
 
 ._crit_edge141.i:                                 ; preds = %.lr.ph140.i, %.preheader.i
@@ -2513,14 +2509,10 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i: 
 .lr.ph124.i:                                      ; preds = %.preheader.i
   %61 = sext i32 %12 to i64
   %62 = icmp sgt i32 %12, 0
-  br i1 %62, label %.lr.ph.us126.preheader.i, label %._crit_edge125.i
+  br i1 %62, label %.lr.ph.us126.i, label %._crit_edge125.i
 
-.lr.ph.us126.preheader.i:                         ; preds = %.lr.ph124.i
-  %smax.i = call i64 @llvm.smax.i64(i64 %1, i64 1)
-  br label %.lr.ph.us126.i
-
-.lr.ph.us126.i:                                   ; preds = %._crit_edge.us127.i, %.lr.ph.us126.preheader.i
-  %.057123.us.i = phi i64 [ %74, %._crit_edge.us127.i ], [ 0, %.lr.ph.us126.preheader.i ]
+.lr.ph.us126.i:                                   ; preds = %.lr.ph124.i, %._crit_edge.us127.i
+  %.057123.us.i = phi i64 [ %74, %._crit_edge.us127.i ], [ 0, %.lr.ph124.i ]
   %63 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.087.097.i, i64 %.057123.us.i
   %64 = load float, ptr %63, align 4, !tbaa !59
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -2541,7 +2533,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i: 
 
 ._crit_edge.us127.i:                              ; preds = %69
   %74 = add nuw nsw i64 %.057123.us.i, 1
-  %exitcond135.not.i = icmp eq i64 %74, %smax.i
+  %exitcond135.not.i = icmp eq i64 %74, %1
   br i1 %exitcond135.not.i, label %._crit_edge125.thread.i, label %.lr.ph.us126.i, !llvm.loop !71
 
 ._crit_edge125.i:                                 ; preds = %.lr.ph124.i, %.preheader.i
@@ -2806,9 +2798,6 @@ declare i64 @llvm.smin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #20
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #20
 
 attributes #0 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

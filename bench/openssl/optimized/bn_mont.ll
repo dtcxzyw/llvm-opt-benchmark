@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BN_mod_mul_montgomery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  tail call void @bn_correct_top(ptr noundef %0) #5
+  tail call void @bn_correct_top(ptr noundef %0) #4
   ret i32 %6
 }
 
@@ -36,7 +36,7 @@ define range(i32 0, 2) i32 @bn_mul_mont_fixed_top(ptr noundef %0, ptr noundef %1
   br i1 %17, label %18, label %36
 
 18:                                               ; preds = %14
-  %19 = tail call ptr @bn_wexpand(ptr noundef %0, i32 noundef %8) #5
+  %19 = tail call ptr @bn_wexpand(ptr noundef %0, i32 noundef %8) #4
   %20 = icmp eq ptr %19, null
   br i1 %20, label %56, label %21
 
@@ -46,7 +46,7 @@ define range(i32 0, 2) i32 @bn_mul_mont_fixed_top(ptr noundef %0, ptr noundef %1
   %24 = load ptr, ptr %2, align 8, !tbaa !12
   %25 = load ptr, ptr %6, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %27 = tail call i32 @bn_mul_mont(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef nonnull %26, i32 noundef %8) #5
+  %27 = tail call i32 @bn_mul_mont(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef nonnull %26, i32 noundef %8) #4
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %36, label %28
 
@@ -73,8 +73,8 @@ define range(i32 0, 2) i32 @bn_mul_mont_fixed_top(ptr noundef %0, ptr noundef %1
   br i1 %43, label %56, label %44
 
 44:                                               ; preds = %36
-  tail call void @BN_CTX_start(ptr noundef %4) #5
-  %45 = tail call ptr @BN_CTX_get(ptr noundef %4) #5
+  tail call void @BN_CTX_start(ptr noundef %4) #4
+  %45 = tail call ptr @BN_CTX_get(ptr noundef %4) #4
   %46 = icmp eq ptr %45, null
   br i1 %46, label %55, label %47
 
@@ -83,12 +83,12 @@ define range(i32 0, 2) i32 @bn_mul_mont_fixed_top(ptr noundef %0, ptr noundef %1
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = tail call i32 @bn_sqr_fixed_top(ptr noundef nonnull %45, ptr noundef nonnull %1, ptr noundef %4) #5
+  %50 = tail call i32 @bn_sqr_fixed_top(ptr noundef nonnull %45, ptr noundef nonnull %1, ptr noundef %4) #4
   %.not48 = icmp eq i32 %50, 0
   br i1 %.not48, label %55, label %53
 
 51:                                               ; preds = %47
-  %52 = tail call i32 @bn_mul_fixed_top(ptr noundef nonnull %45, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %4) #5
+  %52 = tail call i32 @bn_mul_fixed_top(ptr noundef nonnull %45, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %4) #4
   %.not47 = icmp eq i32 %52, 0
   br i1 %.not47, label %55, label %53
 
@@ -98,7 +98,7 @@ define range(i32 0, 2) i32 @bn_mul_mont_fixed_top(ptr noundef %0, ptr noundef %1
 
 55:                                               ; preds = %53, %51, %49, %44
   %.042 = phi i32 [ 0, %44 ], [ 0, %51 ], [ %54, %53 ], [ 0, %49 ]
-  tail call void @BN_CTX_end(ptr noundef %4) #5
+  tail call void @BN_CTX_end(ptr noundef %4) #4
   br label %56
 
 56:                                               ; preds = %36, %18, %55, %28
@@ -135,7 +135,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
 
 10:                                               ; preds = %3
   %11 = shl nsw i32 %6, 1
-  %12 = tail call ptr @bn_wexpand(ptr noundef nonnull %1, i32 noundef %11) #5
+  %12 = tail call ptr @bn_wexpand(ptr noundef nonnull %1, i32 noundef %11) #4
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %14
 
@@ -154,8 +154,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   br i1 %24, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %14
-  %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %11 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -188,7 +187,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   %.07882 = phi i64 [ 0, %.lr.ph86 ], [ %42, %33 ]
   %34 = load i64, ptr %.07783, align 8, !tbaa !15
   %35 = mul i64 %34, %31
-  %36 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %.07783, ptr noundef %20, i32 noundef %6, i64 noundef %35) #5
+  %36 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %.07783, ptr noundef %20, i32 noundef %6, i64 noundef %35) #4
   %37 = add i64 %36, %.07882
   %38 = getelementptr inbounds nuw i64, ptr %.07783, i64 %32
   %39 = load i64, ptr %38, align 8, !tbaa !15
@@ -207,7 +206,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
 
 ._crit_edge87:                                    ; preds = %33, %._crit_edge
   %.078.lcssa = phi i64 [ 0, %._crit_edge ], [ %42, %33 ]
-  %45 = tail call ptr @bn_wexpand(ptr noundef %0, i32 noundef %6) #5
+  %45 = tail call ptr @bn_wexpand(ptr noundef %0, i32 noundef %6) #4
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.loopexit, label %47
 
@@ -221,7 +220,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   %52 = load ptr, ptr %1, align 8, !tbaa !12
   %53 = sext i32 %6 to i64
   %54 = getelementptr inbounds i64, ptr %52, i64 %53
-  %55 = tail call i64 @bn_sub_words(ptr noundef %51, ptr noundef nonnull %54, ptr noundef %20, i32 noundef %6) #5
+  %55 = tail call i64 @bn_sub_words(ptr noundef %51, ptr noundef nonnull %54, ptr noundef %20, i32 noundef %6) #4
   %56 = sub i64 %.078.lcssa, %55
   br i1 %24, label %.lr.ph90, label %.loopexit
 
@@ -254,13 +253,13 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BN_from_montgomery(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
-  tail call void @BN_CTX_start(ptr noundef %3) #5
-  %5 = tail call ptr @BN_CTX_get(ptr noundef %3) #5
+  tail call void @BN_CTX_start(ptr noundef %3) #4
+  %5 = tail call ptr @BN_CTX_get(ptr noundef %3) #4
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %bn_from_mont_fixed_top.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @BN_copy(ptr noundef nonnull %5, ptr noundef %1) #5
+  %7 = tail call ptr @BN_copy(ptr noundef nonnull %5, ptr noundef %1) #4
   %.not9.i = icmp eq ptr %7, null
   br i1 %.not9.i, label %bn_from_mont_fixed_top.exit, label %8
 
@@ -270,20 +269,20 @@ define range(i32 0, 2) i32 @BN_from_montgomery(ptr noundef %0, ptr noundef %1, p
 
 bn_from_mont_fixed_top.exit:                      ; preds = %4, %6, %8
   %.0.i = phi i32 [ %9, %8 ], [ 0, %6 ], [ 0, %4 ]
-  tail call void @BN_CTX_end(ptr noundef %3) #5
-  tail call void @bn_correct_top(ptr noundef %0) #5
+  tail call void @BN_CTX_end(ptr noundef %3) #4
+  tail call void @bn_correct_top(ptr noundef %0) #4
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @bn_from_mont_fixed_top(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
-  tail call void @BN_CTX_start(ptr noundef %3) #5
-  %5 = tail call ptr @BN_CTX_get(ptr noundef %3) #5
+  tail call void @BN_CTX_start(ptr noundef %3) #4
+  %5 = tail call ptr @BN_CTX_get(ptr noundef %3) #4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @BN_copy(ptr noundef nonnull %5, ptr noundef %1) #5
+  %7 = tail call ptr @BN_copy(ptr noundef nonnull %5, ptr noundef %1) #4
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %10, label %8
 
@@ -293,7 +292,7 @@ define range(i32 0, 2) i32 @bn_from_mont_fixed_top(ptr noundef %0, ptr noundef %
 
 10:                                               ; preds = %8, %6, %4
   %.0 = phi i32 [ %9, %8 ], [ 0, %6 ], [ 0, %4 ]
-  tail call void @BN_CTX_end(ptr noundef %3) #5
+  tail call void @BN_CTX_end(ptr noundef %3) #4
   ret i32 %.0
 }
 
@@ -308,18 +307,18 @@ define range(i32 0, 2) i32 @bn_to_mont_fixed_top(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define ptr @BN_MONT_CTX_new() local_unnamed_addr #0 {
-  %1 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 104, ptr noundef nonnull @.str, i32 noundef 232) #5
+  %1 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 104, ptr noundef nonnull @.str, i32 noundef 232) #4
   %2 = icmp eq ptr %1, null
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %0
   store i32 0, ptr %1, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @bn_init(ptr noundef nonnull %4) #5
+  tail call void @bn_init(ptr noundef nonnull %4) #4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @bn_init(ptr noundef nonnull %5) #5
+  tail call void @bn_init(ptr noundef nonnull %5) #4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  tail call void @bn_init(ptr noundef nonnull %6) #5
+  tail call void @bn_init(ptr noundef nonnull %6) #4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -336,11 +335,11 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 define void @BN_MONT_CTX_init(ptr noundef initializes((0, 4)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8, !tbaa !21
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @bn_init(ptr noundef nonnull %2) #5
+  tail call void @bn_init(ptr noundef nonnull %2) #4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @bn_init(ptr noundef nonnull %3) #5
+  tail call void @bn_init(ptr noundef nonnull %3) #4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @bn_init(ptr noundef nonnull %4) #5
+  tail call void @bn_init(ptr noundef nonnull %4) #4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
   ret void
@@ -355,11 +354,11 @@ define void @BN_MONT_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @BN_clear_free(ptr noundef nonnull %4) #5
+  tail call void @BN_clear_free(ptr noundef nonnull %4) #4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @BN_clear_free(ptr noundef nonnull %5) #5
+  tail call void @BN_clear_free(ptr noundef nonnull %5) #4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @BN_clear_free(ptr noundef nonnull %6) #5
+  tail call void @BN_clear_free(ptr noundef nonnull %6) #4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i32, ptr %7, align 8, !tbaa !22
   %9 = and i32 %8, 1
@@ -367,7 +366,7 @@ define void @BN_MONT_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 258) #5
+  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 258) #4
   br label %11
 
 11:                                               ; preds = %1, %10, %3
@@ -382,30 +381,30 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.bignum_st, align 8
   %5 = alloca [2 x i64], align 16
-  %6 = tail call i32 @BN_is_zero(ptr noundef %1) #5
+  %6 = tail call i32 @BN_is_zero(ptr noundef %1) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %81
 
 7:                                                ; preds = %3
-  tail call void @BN_CTX_start(ptr noundef %2) #5
-  %8 = tail call ptr @BN_CTX_get(ptr noundef %2) #5
+  tail call void @BN_CTX_start(ptr noundef %2) #4
+  %8 = tail call ptr @BN_CTX_get(ptr noundef %2) #4
   %9 = icmp eq ptr %8, null
   br i1 %9, label %80, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = tail call ptr @BN_copy(ptr noundef nonnull %12, ptr noundef %1) #5
+  %13 = tail call ptr @BN_copy(ptr noundef nonnull %12, ptr noundef %1) #4
   %.not56 = icmp eq ptr %13, null
   br i1 %.not56, label %80, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #5
+  %15 = tail call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #4
   %.not57 = icmp eq i32 %15, 0
   br i1 %.not57, label %17, label %16
 
 16:                                               ; preds = %14
-  tail call void @BN_set_flags(ptr noundef nonnull %12, i32 noundef 4) #5
+  tail call void @BN_set_flags(ptr noundef nonnull %12, i32 noundef 4) #4
   br label %17
 
 17:                                               ; preds = %16, %14
@@ -413,28 +412,28 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
   store i32 0, ptr %18, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @bn_init(ptr noundef nonnull %4) #5
+  call void @bn_init(ptr noundef nonnull %4) #4
   store ptr %5, ptr %4, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2, ptr %19, align 4, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %20, align 8, !tbaa !14
-  %21 = call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #5
+  %21 = call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #4
   %.not58 = icmp eq i32 %21, 0
   br i1 %.not58, label %23, label %22
 
 22:                                               ; preds = %17
-  call void @BN_set_flags(ptr noundef nonnull %4, i32 noundef 4) #5
+  call void @BN_set_flags(ptr noundef nonnull %4, i32 noundef 4) #4
   br label %23
 
 23:                                               ; preds = %22, %17
-  %24 = call i32 @BN_num_bits(ptr noundef %1) #5
+  %24 = call i32 @BN_num_bits(ptr noundef %1) #4
   %25 = add nsw i32 %24, 63
   %26 = sdiv i32 %25, 64
   %27 = shl nsw i32 %26, 6
   store i32 %27, ptr %0, align 8, !tbaa !21
-  call void @BN_zero_ex(ptr noundef nonnull %11) #5
-  %28 = call i32 @BN_set_bit(ptr noundef nonnull %11, i32 noundef 64) #5
+  call void @BN_zero_ex(ptr noundef nonnull %11) #4
+  %28 = call i32 @BN_set_bit(ptr noundef nonnull %11, i32 noundef 64) #4
   %.not59 = icmp eq i32 %28, 0
   br i1 %.not59, label %.thread, label %29
 
@@ -448,41 +447,41 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
   %33 = zext i1 %.not60 to i32
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %33, ptr %34, align 8, !tbaa !11
-  %35 = call i32 @BN_is_one(ptr noundef nonnull %4) #5
+  %35 = call i32 @BN_is_one(ptr noundef nonnull %4) #4
   %.not61 = icmp eq i32 %35, 0
   br i1 %.not61, label %37, label %36
 
 36:                                               ; preds = %29
-  call void @BN_zero_ex(ptr noundef nonnull %8) #5
+  call void @BN_zero_ex(ptr noundef nonnull %8) #4
   br label %40
 
 37:                                               ; preds = %29
-  %38 = call ptr @BN_mod_inverse(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef %2) #5
+  %38 = call ptr @BN_mod_inverse(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef %2) #4
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %37, %36
-  %41 = call i32 @BN_lshift(ptr noundef nonnull %8, ptr noundef nonnull %8, i32 noundef 64) #5
+  %41 = call i32 @BN_lshift(ptr noundef nonnull %8, ptr noundef nonnull %8, i32 noundef 64) #4
   %.not62 = icmp eq i32 %41, 0
   br i1 %.not62, label %.thread, label %42
 
 42:                                               ; preds = %40
-  %43 = call i32 @BN_is_zero(ptr noundef nonnull %8) #5
+  %43 = call i32 @BN_is_zero(ptr noundef nonnull %8) #4
   %.not63 = icmp eq i32 %43, 0
   br i1 %.not63, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = call i32 @BN_sub_word(ptr noundef nonnull %8, i64 noundef 1) #5
+  %45 = call i32 @BN_sub_word(ptr noundef nonnull %8, i64 noundef 1) #4
   %.not64 = icmp eq i32 %45, 0
   br i1 %.not64, label %.thread, label %48
 
 46:                                               ; preds = %42
-  %47 = call i32 @BN_set_word(ptr noundef nonnull %8, i64 noundef -1) #5
+  %47 = call i32 @BN_set_word(ptr noundef nonnull %8, i64 noundef -1) #4
   %.not65 = icmp eq i32 %47, 0
   br i1 %.not65, label %.thread, label %48
 
 48:                                               ; preds = %46, %44
-  %49 = call i32 @BN_div(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %2) #5
+  %49 = call i32 @BN_div(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %2) #4
   %.not66 = icmp eq i32 %49, 0
   br i1 %.not66, label %.thread, label %50
 
@@ -510,15 +509,15 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
   store i64 0, ptr %60, align 8, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @BN_zero_ex(ptr noundef nonnull %11) #5
+  call void @BN_zero_ex(ptr noundef nonnull %11) #4
   %61 = load i32, ptr %0, align 8, !tbaa !21
   %62 = shl nsw i32 %61, 1
-  %63 = call i32 @BN_set_bit(ptr noundef nonnull %11, i32 noundef %62) #5
+  %63 = call i32 @BN_set_bit(ptr noundef nonnull %11, i32 noundef %62) #4
   %.not67 = icmp eq i32 %63, 0
   br i1 %.not67, label %80, label %64
 
 64:                                               ; preds = %57
-  %65 = call i32 @BN_div(ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %2) #5
+  %65 = call i32 @BN_div(ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %2) #4
   %.not68 = icmp eq i32 %65, 0
   br i1 %.not68, label %80, label %66
 
@@ -549,7 +548,7 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
 
 80:                                               ; preds = %.thread, %64, %57, %10, %7, %._crit_edge
   %.053 = phi i32 [ 0, %7 ], [ 1, %._crit_edge ], [ 0, %64 ], [ 0, %57 ], [ 0, %.thread ], [ 0, %10 ]
-  call void @BN_CTX_end(ptr noundef %2) #5
+  call void @BN_CTX_end(ptr noundef %2) #4
   br label %81
 
 81:                                               ; preds = %3, %80
@@ -589,21 +588,21 @@ define noundef ptr @BN_MONT_CTX_copy(ptr noundef %0, ptr noundef %1) local_unnam
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = tail call ptr @BN_copy(ptr noundef nonnull %5, ptr noundef nonnull %6) #5
+  %7 = tail call ptr @BN_copy(ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %24, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = tail call ptr @BN_copy(ptr noundef nonnull %9, ptr noundef nonnull %10) #5
+  %11 = tail call ptr @BN_copy(ptr noundef nonnull %9, ptr noundef nonnull %10) #4
   %.not19 = icmp eq ptr %11, null
   br i1 %.not19, label %24, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %15 = tail call ptr @BN_copy(ptr noundef nonnull %13, ptr noundef nonnull %14) #5
+  %15 = tail call ptr @BN_copy(ptr noundef nonnull %13, ptr noundef nonnull %14) #4
   %.not20 = icmp eq ptr %15, null
   br i1 %.not20, label %24, label %16
 
@@ -627,29 +626,29 @@ define noundef ptr @BN_MONT_CTX_copy(ptr noundef %0, ptr noundef %1) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %1) #5
+  %5 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %1) #4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %BN_MONT_CTX_free.exit, label %6
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8, !tbaa !27
-  %8 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %1) #5
+  %8 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %1) #4
   %.not23 = icmp eq ptr %7, null
   br i1 %.not23, label %9, label %BN_MONT_CTX_free.exit
 
 9:                                                ; preds = %6
-  %10 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 104, ptr noundef nonnull @.str, i32 noundef 232) #5
+  %10 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 104, ptr noundef nonnull @.str, i32 noundef 232) #4
   %11 = icmp eq ptr %10, null
   br i1 %11, label %BN_MONT_CTX_free.exit, label %12
 
 12:                                               ; preds = %9
   store i32 0, ptr %10, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  tail call void @bn_init(ptr noundef nonnull %13) #5
+  tail call void @bn_init(ptr noundef nonnull %13) #4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  tail call void @bn_init(ptr noundef nonnull %14) #5
+  tail call void @bn_init(ptr noundef nonnull %14) #4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  tail call void @bn_init(ptr noundef nonnull %15) #5
+  tail call void @bn_init(ptr noundef nonnull %15) #4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 96
@@ -659,34 +658,34 @@ define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1
   br i1 %.not24, label %19, label %23
 
 19:                                               ; preds = %12
-  tail call void @BN_clear_free(ptr noundef nonnull %13) #5
-  tail call void @BN_clear_free(ptr noundef nonnull %14) #5
-  tail call void @BN_clear_free(ptr noundef nonnull %15) #5
+  tail call void @BN_clear_free(ptr noundef nonnull %13) #4
+  tail call void @BN_clear_free(ptr noundef nonnull %14) #4
+  tail call void @BN_clear_free(ptr noundef nonnull %15) #4
   %20 = load i32, ptr %17, align 8, !tbaa !22
   %21 = and i32 %20, 1
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %BN_MONT_CTX_free.exit, label %22
 
 22:                                               ; preds = %19
-  tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 258) #5
+  tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 258) #4
   br label %BN_MONT_CTX_free.exit
 
 23:                                               ; preds = %12
-  %24 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #5
+  %24 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #4
   %.not25 = icmp eq i32 %24, 0
   br i1 %.not25, label %25, label %29
 
 25:                                               ; preds = %23
-  tail call void @BN_clear_free(ptr noundef nonnull %13) #5
-  tail call void @BN_clear_free(ptr noundef nonnull %14) #5
-  tail call void @BN_clear_free(ptr noundef nonnull %15) #5
+  tail call void @BN_clear_free(ptr noundef nonnull %13) #4
+  tail call void @BN_clear_free(ptr noundef nonnull %14) #4
+  tail call void @BN_clear_free(ptr noundef nonnull %15) #4
   %26 = load i32, ptr %17, align 8, !tbaa !22
   %27 = and i32 %26, 1
   %.not.i27 = icmp eq i32 %27, 0
   br i1 %.not.i27, label %BN_MONT_CTX_free.exit, label %28
 
 28:                                               ; preds = %25
-  tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 258) #5
+  tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 258) #4
   br label %BN_MONT_CTX_free.exit
 
 29:                                               ; preds = %23
@@ -695,16 +694,16 @@ define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1
   br i1 %.not26, label %36, label %31
 
 31:                                               ; preds = %29
-  tail call void @BN_clear_free(ptr noundef nonnull %13) #5
-  tail call void @BN_clear_free(ptr noundef nonnull %14) #5
-  tail call void @BN_clear_free(ptr noundef nonnull %15) #5
+  tail call void @BN_clear_free(ptr noundef nonnull %13) #4
+  tail call void @BN_clear_free(ptr noundef nonnull %14) #4
+  tail call void @BN_clear_free(ptr noundef nonnull %15) #4
   %32 = load i32, ptr %17, align 8, !tbaa !22
   %33 = and i32 %32, 1
   %.not.i29 = icmp eq i32 %33, 0
   br i1 %.not.i29, label %BN_MONT_CTX_free.exit30, label %34
 
 34:                                               ; preds = %31
-  tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 258) #5
+  tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 258) #4
   br label %BN_MONT_CTX_free.exit30
 
 BN_MONT_CTX_free.exit30:                          ; preds = %31, %34
@@ -717,7 +716,7 @@ BN_MONT_CTX_free.exit30:                          ; preds = %31, %34
 
 37:                                               ; preds = %36, %BN_MONT_CTX_free.exit30
   %.0 = phi ptr [ %35, %BN_MONT_CTX_free.exit30 ], [ %10, %36 ]
-  %38 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %1) #5
+  %38 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %1) #4
   br label %BN_MONT_CTX_free.exit
 
 BN_MONT_CTX_free.exit:                            ; preds = %9, %28, %25, %22, %19, %6, %4, %37
@@ -734,14 +733,14 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_bn_mont_ctx_set(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = tail call ptr @BN_copy(ptr noundef nonnull %8, ptr noundef %1) #5
+  %9 = tail call ptr @BN_copy(ptr noundef nonnull %8, ptr noundef %1) #4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %23, label %11
 
 11:                                               ; preds = %7
   %12 = trunc i64 %4 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = tail call ptr @BN_bin2bn(ptr noundef %3, i32 noundef %12, ptr noundef nonnull %13) #5
+  %14 = tail call ptr @BN_bin2bn(ptr noundef %3, i32 noundef %12, ptr noundef nonnull %13) #4
   %15 = icmp eq ptr %14, null
   br i1 %15, label %23, label %16
 
@@ -774,7 +773,7 @@ define range(i32 0, 2) i32 @ossl_bn_mont_ctx_eq(ptr noundef %0, ptr noundef %1) 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = tail call i32 @BN_cmp(ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  %8 = tail call i32 @BN_cmp(ptr noundef nonnull %6, ptr noundef nonnull %7) #4
   %.not10 = icmp eq i32 %8, 0
   br i1 %.not10, label %9, label %24
 
@@ -820,18 +819,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #3
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

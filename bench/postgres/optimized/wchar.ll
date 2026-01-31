@@ -2335,8 +2335,8 @@ define internal i32 @pg_sjis_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %pg_sjis_verifychar.exit.thread19
-  %.01425 = phi ptr [ %18, %pg_sjis_verifychar.exit.thread19 ], [ %0, %2 ]
-  %.01524 = phi i32 [ %19, %pg_sjis_verifychar.exit.thread19 ], [ %1, %2 ]
+  %.01425 = phi ptr [ %19, %pg_sjis_verifychar.exit.thread19 ], [ %0, %2 ]
+  %.01524 = phi i32 [ %20, %pg_sjis_verifychar.exit.thread19 ], [ %1, %2 ]
   %4 = load i8, ptr %.01425, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
@@ -2348,9 +2348,8 @@ define internal i32 @pg_sjis_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 7:                                                ; preds = %.lr.ph
   %8 = add nsw i8 %4, 95
   %or.cond.i.i = icmp ult i8 %8, 63
-  %.0.i.i = select i1 %or.cond.i.i, i32 1, i32 2
-  %9 = icmp samesign ult i32 %.01524, %.0.i.i
-  %brmerge.i = or i1 %or.cond.i.i, %9
+  %9 = icmp samesign ult i32 %.01524, 2
+  %brmerge.i = select i1 %or.cond.i.i, i1 true, i1 %9
   br i1 %brmerge.i, label %pg_sjis_verifychar.exit, label %10
 
 10:                                               ; preds = %7
@@ -2371,23 +2370,25 @@ define internal i32 @pg_sjis_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %or.cond29.i, label %pg_sjis_verifychar.exit.thread19, label %.thread
 
 pg_sjis_verifychar.exit:                          ; preds = %7
-  br i1 %9, label %.thread, label %pg_sjis_verifychar.exit.thread19
+  %not.or.cond.i.i = xor i1 %or.cond.i.i, true
+  %17 = select i1 %not.or.cond.i.i, i1 %9, i1 false
+  br i1 %17, label %.thread, label %pg_sjis_verifychar.exit.thread19
 
 pg_sjis_verifychar.exit.thread19:                 ; preds = %13, %pg_sjis_verifychar.exit, %5
   %.013 = phi i32 [ 1, %pg_sjis_verifychar.exit ], [ 1, %5 ], [ 2, %13 ]
-  %17 = zext nneg i32 %.013 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %.01425, i64 %17
-  %19 = sub nsw i32 %.01524, %.013
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph, label %.thread
+  %18 = zext nneg i32 %.013 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %.01425, i64 %18
+  %20 = sub nsw i32 %.01524, %.013
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %pg_sjis_verifychar.exit.thread19, %5, %pg_sjis_verifychar.exit, %13, %10, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01425, %10 ], [ %.01425, %13 ], [ %.01425, %pg_sjis_verifychar.exit ], [ %.01425, %5 ], [ %18, %pg_sjis_verifychar.exit.thread19 ]
-  %21 = ptrtoint ptr %.014.lcssa to i64
-  %22 = ptrtoint ptr %0 to i64
-  %23 = sub i64 %21, %22
-  %24 = trunc i64 %23 to i32
-  ret i32 %24
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01425, %10 ], [ %.01425, %13 ], [ %.01425, %pg_sjis_verifychar.exit ], [ %.01425, %5 ], [ %19, %pg_sjis_verifychar.exit.thread19 ]
+  %22 = ptrtoint ptr %.014.lcssa to i64
+  %23 = ptrtoint ptr %0 to i64
+  %24 = sub i64 %22, %23
+  %25 = trunc i64 %24 to i32
+  ret i32 %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

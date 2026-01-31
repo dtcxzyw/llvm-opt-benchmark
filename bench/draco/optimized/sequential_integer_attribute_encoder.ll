@@ -4793,10 +4793,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit186:            ; preds = %_ZSt6fill_nIPimiET_
 
 .lr.ph657:                                        ; preds = %.preheader
   %144 = load ptr, ptr %9, align 16, !tbaa !104
-  %smax792 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %145 = zext nneg i32 %smax792 to i64
+  %145 = zext nneg i32 %4 to i64
   %146 = shl nuw nsw i64 %145, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %144, i8 0, i64 %146, i1 false), !tbaa !94
+  call void @llvm.memset.p0.i64(ptr align 4 %144, i8 0, i64 %146, i1 false), !tbaa !94
   br label %._crit_edge658
 
 147:                                              ; preds = %63, %62
@@ -11465,10 +11464,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit186:            ; preds = %_ZSt6fill_nIPimiET_
 
 .lr.ph651:                                        ; preds = %.preheader
   %143 = load ptr, ptr %9, align 16, !tbaa !104
-  %smax786 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %144 = zext nneg i32 %smax786 to i64
+  %144 = zext nneg i32 %4 to i64
   %145 = shl nuw nsw i64 %144, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %143, i8 0, i64 %145, i1 false), !tbaa !94
+  call void @llvm.memset.p0.i64(ptr align 4 %143, i8 0, i64 %145, i1 false), !tbaa !94
   br label %._crit_edge652
 
 146:                                              ; preds = %63, %62

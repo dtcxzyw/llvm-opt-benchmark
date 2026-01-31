@@ -3534,12 +3534,12 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
   invoke void @_ZN3vcg11PullPushMipER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef %1)
           to label %32 unwind label %.loopexit.split-lp
 
-.loopexit.loopexit:                               ; preds = %45
+.loopexit.loopexit:                               ; preds = %46
   %lpad.loopexit48 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.loopexit.loopexit.split-lp:                      ; preds = %48
+.loopexit.loopexit.split-lp:                      ; preds = %49
   %lpad.loopexit.split-lp49 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -3561,10 +3561,7 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
 
 35:                                               ; preds = %32
   %36 = icmp slt i32 %34, 5
-  br i1 %36, label %.lr.ph.preheader, label %37
-
-.lr.ph.preheader:                                 ; preds = %41, %35
-  br label %.lr.ph
+  br i1 %36, label %.preheader, label %37
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %2, align 8
@@ -3574,57 +3571,55 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
 
 41:                                               ; preds = %37
   %42 = icmp slt i32 %40, 5
-  br i1 %42, label %.lr.ph.preheader, label %43
+  br i1 %42, label %.preheader, label %43
+
+.preheader:                                       ; preds = %35, %41
+  br label %44
 
 43:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %12, !llvm.loop !15
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %49 ], [ %indvars.iv, %.lr.ph.preheader ]
+44:                                               ; preds = %.preheader, %50
+  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %50 ], [ %indvars.iv, %.preheader ]
   %.not35 = icmp eq i64 %indvars.iv42, 0
-  %44 = load ptr, ptr %2, align 8
-  br i1 %.not35, label %48, label %45
+  %45 = load ptr, ptr %2, align 8
+  br i1 %.not35, label %49, label %46
 
-45:                                               ; preds = %.lr.ph
-  %46 = getelementptr %class.QImage, ptr %44, i64 %indvars.iv42
-  %47 = getelementptr i8, ptr %46, i64 -32
-  invoke void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef %1)
-          to label %49 unwind label %.loopexit.loopexit
+46:                                               ; preds = %44
+  %47 = getelementptr %class.QImage, ptr %45, i64 %indvars.iv42
+  %48 = getelementptr i8, ptr %47, i64 -32
+  invoke void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef %1)
+          to label %50 unwind label %.loopexit.loopexit
 
-48:                                               ; preds = %.lr.ph
-  invoke void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef %1)
-          to label %._crit_edge unwind label %.loopexit.loopexit.split-lp
+49:                                               ; preds = %44
+  invoke void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef %1)
+          to label %.thread unwind label %.loopexit.loopexit.split-lp
 
-49:                                               ; preds = %45
+50:                                               ; preds = %46
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %50 = icmp sgt i64 %indvars.iv42, 0
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  %51 = icmp sgt i64 %indvars.iv42, 0
+  br i1 %51, label %44, label %.thread, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %49, %48
-  %.not4.i.i.i.i = icmp eq ptr %44, %9
+.thread:                                          ; preds = %50, %49
+  %.not4.i.i.i.i = icmp eq ptr %45, %9
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %44, %._crit_edge ]
-  %51 = load ptr, ptr %.05.i.i.i.i, align 8
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #36
-  %53 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
+.lr.ph.i.i.i.i:                                   ; preds = %.thread, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %45, %.thread ]
+  %52 = load ptr, ptr %.05.i.i.i.i, align 8
+  %53 = load ptr, ptr %52, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #36
+  %54 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %.05.i.i.i.i, %.08.i.i.i.i.i
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
-_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8
-  br label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
-
-_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i:  ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %54 = phi ptr [ %.pr.i, %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i ], [ %44, %._crit_edge ]
-  %.not.i.i.i = icmp eq ptr %54, null
+_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i:  ; preds = %.lr.ph.i.i.i.i, %.thread
+  %.not.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit, label %55
 
 55:                                               ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %54) #35
+  call void @_ZdlPv(ptr noundef nonnull %45) #35
   br label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI6QImageSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, %55
@@ -12231,8 +12226,7 @@ _ZNSt12_Vector_baseISt6vectorIjSaIjEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
   %.not634 = icmp eq i32 %316, 0
   %517 = fpext float %390 to double
   %518 = uitofp nneg i32 %323 to double
-  %smax1625 = call i32 @llvm.smax.i32(i32 %502, i32 1)
-  %wide.trip.count1626 = zext nneg i32 %smax1625 to i64
+  %wide.trip.count1626 = zext nneg i32 %502 to i64
   br label %565
 
 .lr.ph1523:                                       ; preds = %509, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
@@ -12410,7 +12404,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
 ._crit_edge1533:                                  ; preds = %585, %573, %.preheader1388
   %.0541.lcssa = phi i1 [ false, %.preheader1388 ], [ %.05411524, %573 ], [ %spec.select663, %585 ]
   %.0534.lcssa = phi double [ 0.000000e+00, %.preheader1388 ], [ %.05341529, %573 ], [ %598, %585 ]
-  %.0533.lcssa = phi i32 [ 0, %.preheader1388 ], [ %584, %573 ], [ %smax1625, %585 ]
+  %.0533.lcssa = phi i32 [ 0, %.preheader1388 ], [ %584, %573 ], [ %502, %585 ]
   %.0530.lcssa = phi i32 [ 0, %.preheader1388 ], [ %.05301531, %573 ], [ %spec.select662, %585 ]
   %602 = icmp ne i32 %.0533.lcssa, %502
   %or.cond664.not = or i1 %.0541.lcssa, %602
@@ -15104,8 +15098,6 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit1026: ; preds = %.l
   br i1 %.not1583, label %._crit_edge1477.thread, label %.lr.ph1476
 
 .lr.ph1476:                                       ; preds = %_ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit1026
-  %smax = call i32 @llvm.smax.i32(i32 %1210, i32 1)
-  %smax1604 = call i32 @llvm.smax.i32(i32 %1218, i32 1)
   %wide.trip.count1609 = and i64 %1473, 4294967295
   br label %1674
 
@@ -15142,12 +15134,12 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit1026: ; preds = %.l
 
 1687:                                             ; preds = %1683, %1680
   %1688 = add nuw nsw i32 %.04801470.us, 1
-  %exitcond1603.not = icmp eq i32 %1688, %smax
+  %exitcond1603.not = icmp eq i32 %1688, %1210
   br i1 %exitcond1603.not, label %._crit_edge1472.us, label %1676, !llvm.loop !62
 
 ._crit_edge1472.us:                               ; preds = %1687
   %1689 = add nuw nsw i32 %.04811473.us, 1
-  %exitcond1605.not = icmp eq i32 %1689, %smax1604
+  %exitcond1605.not = icmp eq i32 %1689, %1218
   br i1 %exitcond1605.not, label %._crit_edge1474, label %.preheader1412.us, !llvm.loop !63
 
 .loopexit.split-lp1403.loopexit.split-lp.loopexit.split.us: ; preds = %1683, %1676
@@ -25192,8 +25184,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %542 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %543 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %544 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %smax = call i32 @llvm.smax.i32(i32 %.0198, i32 1)
-  %wide.trip.count828 = zext nneg i32 %smax to i64
+  %wide.trip.count828 = zext nneg i32 %.0198 to i64
   br label %545
 
 545:                                              ; preds = %.lr.ph805, %616
@@ -26187,10 +26178,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit559: ; preds = %.lo
   br i1 %.not818, label %._crit_edge813.thread, label %.lr.ph812
 
 .lr.ph812:                                        ; preds = %_ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit559
-  %smax830 = call i32 @llvm.smax.i32(i32 %112, i32 1)
-  %smax832 = call i32 @llvm.smax.i32(i32 %120, i32 1)
-  %smax837 = call i32 @llvm.smax.i32(i32 %.0198, i32 1)
-  %wide.trip.count838 = zext nneg i32 %smax837 to i64
+  %wide.trip.count838 = zext nneg i32 %.0198 to i64
   br label %905
 
 905:                                              ; preds = %.lr.ph812, %926
@@ -26226,12 +26214,12 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit559: ; preds = %.lo
 
 918:                                              ; preds = %914, %911
   %919 = add nuw nsw i32 %.0162806.us, 1
-  %exitcond831.not = icmp eq i32 %919, %smax830
+  %exitcond831.not = icmp eq i32 %919, %112
   br i1 %exitcond831.not, label %._crit_edge808.us, label %907, !llvm.loop !188
 
 ._crit_edge808.us:                                ; preds = %918
   %920 = add nuw nsw i32 %.0163809.us, 1
-  %exitcond833.not = icmp eq i32 %920, %smax832
+  %exitcond833.not = icmp eq i32 %920, %120
   br i1 %exitcond833.not, label %._crit_edge810, label %.preheader783.us, !llvm.loop !189
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %914, %907
@@ -26264,8 +26252,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit559: ; preds = %.lo
   br i1 %128, label %.loopexit, label %935
 
 .lr.ph817.preheader:                              ; preds = %._crit_edge813
-  %smax849 = call i32 @llvm.smax.i32(i32 %.0198, i32 1)
-  %wide.trip.count850 = zext nneg i32 %smax849 to i64
+  %wide.trip.count850 = zext nneg i32 %.0198 to i64
   br label %.lr.ph817
 
 .lr.ph817:                                        ; preds = %.lr.ph817.preheader, %932
@@ -26301,8 +26288,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit559: ; preds = %.lo
   br i1 %.not818, label %.loopexit, label %.lr.ph815.preheader
 
 .lr.ph815.preheader:                              ; preds = %.preheader778
-  %smax843 = call i32 @llvm.smax.i32(i32 %.0198, i32 1)
-  %wide.trip.count844 = zext nneg i32 %smax843 to i64
+  %wide.trip.count844 = zext nneg i32 %.0198 to i64
   br label %.lr.ph815
 
 .lr.ph815:                                        ; preds = %.lr.ph815.preheader, %941

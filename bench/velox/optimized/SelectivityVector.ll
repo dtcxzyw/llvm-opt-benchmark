@@ -283,8 +283,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
   br i1 %cmp20.i, label %for.body.i.preheader, label %if.end29
 
 for.body.i.preheader:                             ; preds = %if.then.i
-  %smax58 = call i32 @llvm.smax.i32(i32 %maxSelectedRowsToPrint, i32 1)
-  %18 = add nsw i32 %smax58, -1
+  %18 = add nsw i32 %maxSelectedRowsToPrint, -1
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %call3.i.i.noexc
@@ -349,8 +348,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i6.i
   br i1 %tobool4.not.i.i.i.i.i, label %if.end29, label %while.body.i.i.i.i.i.preheader
 
 while.body.i.i.i.i.i.preheader:                   ; preds = %if.then3.i.i.i.i
-  %smax56 = call i32 @llvm.smax.i32(i32 %maxSelectedRowsToPrint, i32 1)
-  %26 = add nsw i32 %smax56, -1
+  %26 = add nsw i32 %maxSelectedRowsToPrint, -1
   br label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.i.preheader, %if.end7.i.i.i.i.i
@@ -403,8 +401,7 @@ if.then11.i.i.i.i:                                ; preds = %if.end9.i.i.i.i
 
 while.cond.preheader.i40.i.i.i.i:                 ; preds = %if.then11.i.i.i.i
   %mul.i41.i.i.i.i = shl nsw i32 %div12.i.i.i.i, 6
-  %smax = call i32 @llvm.smax.i32(i32 %maxSelectedRowsToPrint, i32 1)
-  %29 = add nsw i32 %smax, -1
+  %29 = add nsw i32 %maxSelectedRowsToPrint, -1
   br label %while.body.i44.i.i.i.i
 
 while.body.i44.i.i.i.i:                           ; preds = %if.end7.i55.i.i.i.i, %while.cond.preheader.i40.i.i.i.i
@@ -1736,9 +1733,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

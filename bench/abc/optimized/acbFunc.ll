@@ -10000,7 +10000,6 @@ Abc_Clock.exit:                                   ; preds = %72, %75
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %smax = call i32 @llvm.smax.i32(i32 %3, i32 1)
   br label %111
 
 111:                                              ; preds = %.lr.ph215, %Vec_IntPush.exit
@@ -10085,7 +10084,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %147 = getelementptr inbounds i32, ptr %.pre.i236, i64 %146
   store i32 %118, ptr %147, align 4, !tbaa !25
   %148 = add nuw nsw i32 %.2154214, 1
-  %exitcond.not = icmp eq i32 %148, %smax
+  %exitcond.not = icmp eq i32 %148, %3
   br i1 %exitcond.not, label %._crit_edge, label %111, !llvm.loop !233
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit

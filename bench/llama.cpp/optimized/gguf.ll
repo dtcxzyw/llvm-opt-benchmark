@@ -4774,7 +4774,7 @@ _ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11ch
 declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define range(i64 -1, 9223372036854775807) i64 @gguf_find_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @gguf_find_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !49
@@ -6449,7 +6449,7 @@ define range(i64 -26812128014112720, 26812128014112721) i64 @gguf_get_n_tensors(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define range(i64 -1, 9223372036854775807) i64 @gguf_find_tensor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @gguf_find_tensor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !75
@@ -6658,7 +6658,7 @@ _ZNSt6vectorI7gguf_kvSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EE.ex
   br label %gguf_find_key.exit.thread
 
 gguf_find_key.exit.thread:                        ; preds = %16, %2, %_ZNSt6vectorI7gguf_kvSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EE.exit
-  %.08.i9 = phi i64 [ -1, %2 ], [ %.09.i, %_ZNSt6vectorI7gguf_kvSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EE.exit ], [ -1, %16 ]
+  %.08.i9 = phi i64 [ %.09.i, %_ZNSt6vectorI7gguf_kvSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EE.exit ], [ -1, %2 ], [ -1, %16 ]
   ret i64 %.08.i9
 }
 
@@ -11297,27 +11297,19 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit.i69:      ; preds = %_ZNSt6vectorIaSaIaE
 
 _ZNK11gguf_writer5writeIlEEvRKT_.exit78.preheader: ; preds = %_ZNSt6vectorIaSaIaEE9push_backERKa.exit.i69
   %215 = icmp sgt i64 %13, 0
-  br i1 %215, label %_ZNK11gguf_writer5writeIlEEvRKT_.exit78.preheader85, label %.preheader
-
-_ZNK11gguf_writer5writeIlEEvRKT_.exit78.preheader85: ; preds = %_ZNK11gguf_writer5writeIlEEvRKT_.exit78.preheader
-  %smax = tail call i64 @llvm.smax.i64(i64 %14, i64 1)
-  br label %_ZNK11gguf_writer5writeIlEEvRKT_.exit78
+  br i1 %215, label %_ZNK11gguf_writer5writeIlEEvRKT_.exit78, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK11gguf_writer5writeIlEEvRKT_.exit78, %_ZNK11gguf_writer5writeIlEEvRKT_.exit78.preheader
   %216 = icmp sgt i64 %21, 0
-  br i1 %216, label %.lr.ph81.preheader, label %._crit_edge
+  br i1 %216, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81.preheader:                               ; preds = %.preheader
-  %smax86 = call i64 @llvm.smax.i64(i64 %22, i64 1)
-  br label %.lr.ph81
-
-_ZNK11gguf_writer5writeIlEEvRKT_.exit78:          ; preds = %_ZNK11gguf_writer5writeIlEEvRKT_.exit78.preheader85, %_ZNK11gguf_writer5writeIlEEvRKT_.exit78
-  %.01979 = phi i64 [ %219, %_ZNK11gguf_writer5writeIlEEvRKT_.exit78 ], [ 0, %_ZNK11gguf_writer5writeIlEEvRKT_.exit78.preheader85 ]
+_ZNK11gguf_writer5writeIlEEvRKT_.exit78:          ; preds = %_ZNK11gguf_writer5writeIlEEvRKT_.exit78.preheader, %_ZNK11gguf_writer5writeIlEEvRKT_.exit78
+  %.01979 = phi i64 [ %219, %_ZNK11gguf_writer5writeIlEEvRKT_.exit78 ], [ 0, %_ZNK11gguf_writer5writeIlEEvRKT_.exit78.preheader ]
   %217 = load ptr, ptr %7, align 8, !tbaa !48
   %218 = getelementptr inbounds nuw %struct.gguf_kv, ptr %217, i64 %.01979
   call void @_ZNK11gguf_writer5writeERK7gguf_kv(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(88) %218)
   %219 = add nuw nsw i64 %.01979, 1
-  %exitcond.not = icmp eq i64 %219, %smax
+  %exitcond.not = icmp eq i64 %219, %14
   br i1 %exitcond.not, label %.preheader, label %_ZNK11gguf_writer5writeIlEEvRKT_.exit78, !llvm.loop !197
 
 ._crit_edge:                                      ; preds = %.lr.ph81, %.preheader
@@ -11416,33 +11408,29 @@ _ZNK11gguf_writer3padEm.exit:                     ; preds = %_ZNK11gguf_writer5w
   %265 = phi ptr [ %224, %._crit_edge ], [ %258, %_ZNK11gguf_writer5writeIaEEvRKT_.exit.i ]
   br i1 %2, label %.loopexit, label %269
 
-.lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
-  %.02080 = phi i64 [ %268, %.lr.ph81 ], [ 0, %.lr.ph81.preheader ]
+.lr.ph81:                                         ; preds = %.preheader, %.lr.ph81
+  %.02080 = phi i64 [ %268, %.lr.ph81 ], [ 0, %.preheader ]
   %266 = load ptr, ptr %15, align 8, !tbaa !46
   %267 = getelementptr inbounds nuw %struct.gguf_tensor_info, ptr %266, i64 %.02080
   call void @_ZNK11gguf_writer17write_tensor_metaERK16gguf_tensor_info(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(344) %267)
   %268 = add nuw nsw i64 %.02080, 1
-  %exitcond87.not = icmp eq i64 %268, %smax86
+  %exitcond87.not = icmp eq i64 %268, %22
   br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph81, !llvm.loop !201
 
 269:                                              ; preds = %_ZNK11gguf_writer3padEm.exit
   %270 = ptrtoint ptr %265 to i64
   %271 = ptrtoint ptr %264 to i64
   %272 = sub i64 %270, %271
-  br i1 %216, label %.lr.ph84.preheader, label %.loopexit
+  br i1 %216, label %.lr.ph84, label %.loopexit
 
-.lr.ph84.preheader:                               ; preds = %269
-  %smax88 = call i64 @llvm.smax.i64(i64 %22, i64 1)
-  br label %.lr.ph84
-
-.lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
-  %.082 = phi i64 [ %276, %.lr.ph84 ], [ 0, %.lr.ph84.preheader ]
+.lr.ph84:                                         ; preds = %269, %.lr.ph84
+  %.082 = phi i64 [ %276, %.lr.ph84 ], [ 0, %269 ]
   %273 = load ptr, ptr %15, align 8, !tbaa !46
   %274 = getelementptr inbounds nuw %struct.gguf_tensor_info, ptr %273, i64 %.082
   %275 = load i64, ptr %220, align 8, !tbaa !40
   call void @_ZNK11gguf_writer17write_tensor_dataERK16gguf_tensor_infomm(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(344) %274, i64 noundef %272, i64 noundef %275)
   %276 = add nuw nsw i64 %.082, 1
-  %exitcond89.not = icmp eq i64 %276, %smax88
+  %exitcond89.not = icmp eq i64 %276, %22
   br i1 %exitcond89.not, label %.loopexit, label %.lr.ph84, !llvm.loop !202
 
 .loopexit:                                        ; preds = %.lr.ph84, %269, %_ZNK11gguf_writer3padEm.exit
@@ -28546,9 +28534,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #24
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

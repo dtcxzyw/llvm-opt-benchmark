@@ -791,16 +791,14 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %190 = zext nneg i32 %181 to i64
-  %smax297 = call i32 @llvm.smax.i32(i32 %183, i32 1)
-  %wide.trip.count298 = zext nneg i32 %smax297 to i64
+  %wide.trip.count298 = zext nneg i32 %183 to i64
   %191 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %173
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %192 = fmul reassoc nsz arcp contract afn float %158, 5.000000e-01
   %193 = zext nneg i32 %181 to i64
-  %smax303 = call i32 @llvm.smax.i32(i32 %183, i32 1)
-  %wide.trip.count304 = zext nneg i32 %smax303 to i64
+  %wide.trip.count304 = zext nneg i32 %183 to i64
   %194 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %173
   br label %195
 
@@ -1279,16 +1277,14 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %157 = zext nneg i32 %148 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %150, i32 1)
-  %wide.trip.count285 = zext nneg i32 %smax to i64
+  %wide.trip.count285 = zext nneg i32 %150 to i64
   %158 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %140
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %159 = fmul reassoc nsz arcp contract afn float %125, 5.000000e-01
   %160 = zext nneg i32 %148 to i64
-  %smax290 = tail call i32 @llvm.smax.i32(i32 %150, i32 1)
-  %wide.trip.count291 = zext nneg i32 %smax290 to i64
+  %wide.trip.count291 = zext nneg i32 %150 to i64
   %161 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %140
   br label %162
 

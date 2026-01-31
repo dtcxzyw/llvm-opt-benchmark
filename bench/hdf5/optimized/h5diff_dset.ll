@@ -1124,7 +1124,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   %458 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %459 = zext nneg i32 %54 to i64
   %460 = shl nuw nsw i64 %459, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %458, ptr noundef nonnull align 16 dereferenceable(1) %10, i64 %460, i1 false), !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %458, ptr nonnull align 16 %10, i64 %460, i1 false), !tbaa !18
   br label %._crit_edge1091
 
 ._crit_edge1091:                                  ; preds = %.lr.ph1090, %456
@@ -1154,7 +1154,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   %472 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %473 = zext nneg i32 %54 to i64
   %474 = shl nuw nsw i64 %473, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %472, ptr noundef nonnull align 16 dereferenceable(1) %10, i64 %474, i1 false), !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %472, ptr nonnull align 16 %10, i64 %474, i1 false), !tbaa !18
   br label %._crit_edge1095
 
 ._crit_edge1095:                                  ; preds = %.lr.ph1094, %471
@@ -1176,7 +1176,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   %481 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %482 = zext nneg i32 %92 to i64
   %483 = shl nuw nsw i64 %482, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %481, ptr noundef nonnull align 16 dereferenceable(1) %11, i64 %483, i1 false), !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %481, ptr nonnull align 16 %11, i64 %483, i1 false), !tbaa !18
   br label %._crit_edge1099
 
 ._crit_edge1099:                                  ; preds = %.lr.ph1098, %480
@@ -1691,8 +1691,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br i1 %.not1168, label %.loopexit989, label %.lr.ph1118
 
 .lr.ph1118:                                       ; preds = %.loopexit990
-  %smax1333 = call i32 @llvm.smax.i32(i32 %54, i32 1)
-  %wide.trip.count1334 = zext nneg i32 %smax1333 to i64
+  %wide.trip.count1334 = zext nneg i32 %54 to i64
   br label %694
 
 694:                                              ; preds = %.lr.ph1118, %694
@@ -1783,8 +1782,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br i1 %.not1169, label %.loopexit988, label %.lr.ph1121.preheader
 
 .lr.ph1121.preheader:                             ; preds = %730
-  %smax1339 = call i32 @llvm.smax.i32(i32 %92, i32 1)
-  %wide.trip.count1340 = zext nneg i32 %smax1339 to i64
+  %wide.trip.count1340 = zext nneg i32 %92 to i64
   br label %.lr.ph1121
 
 .lr.ph1121:                                       ; preds = %.lr.ph1121.preheader, %.lr.ph1121
@@ -1813,8 +1811,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br i1 %.not1169, label %.loopexit987.thread1549, label %.lr.ph1124.preheader
 
 .lr.ph1124.preheader:                             ; preds = %742
-  %smax1345 = call i32 @llvm.smax.i32(i32 %92, i32 1)
-  %wide.trip.count1346 = zext nneg i32 %smax1345 to i64
+  %wide.trip.count1346 = zext nneg i32 %92 to i64
   br label %.lr.ph1124
 
 .lr.ph1124:                                       ; preds = %.lr.ph1124.preheader, %.lr.ph1124
@@ -1870,8 +1867,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 .lr.ph1127.preheader:                             ; preds = %.thread1556, %759
   %763 = phi ptr [ %757, %.thread1556 ], [ %761, %759 ]
   %764 = phi ptr [ %744, %.thread1556 ], [ %741, %759 ]
-  %smax1351 = call i32 @llvm.smax.i32(i32 %92, i32 1)
-  %wide.trip.count1352 = zext nneg i32 %smax1351 to i64
+  %wide.trip.count1352 = zext nneg i32 %92 to i64
   br label %.lr.ph1127
 
 .lr.ph1127:                                       ; preds = %.lr.ph1127.preheader, %.lr.ph1127
@@ -1888,8 +1884,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 .lr.ph1130:                                       ; preds = %.lr.ph1127, %.loopexit987.thread, %.loopexit986
   %766 = phi ptr [ %744, %.loopexit987.thread ], [ %741, %.loopexit986 ], [ %764, %.lr.ph1127 ]
   %767 = phi ptr [ %755, %.loopexit987.thread ], [ %748, %.loopexit986 ], [ %763, %.lr.ph1127 ]
-  %smax1357 = call i32 @llvm.smax.i32(i32 %92, i32 1)
-  %wide.trip.count1358 = zext nneg i32 %smax1357 to i64
+  %wide.trip.count1358 = zext nneg i32 %92 to i64
   br label %768
 
 768:                                              ; preds = %.lr.ph1130, %796
@@ -1949,8 +1944,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br i1 %.not1169, label %.loopexit984, label %.lr.ph1133
 
 .lr.ph1133:                                       ; preds = %.loopexit985
-  %smax1363 = call i32 @llvm.smax.i32(i32 %92, i32 1)
-  %wide.trip.count1364 = zext nneg i32 %smax1363 to i64
+  %wide.trip.count1364 = zext nneg i32 %92 to i64
   br label %802
 
 802:                                              ; preds = %.lr.ph1133, %802

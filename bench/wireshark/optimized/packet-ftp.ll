@@ -903,8 +903,7 @@ isvalid_rfc2428_delimiter.exit.i:                 ; preds = %320
   br i1 %or.cond.i, label %.lr.ph.preheader.i, label %parse_eprt_request.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %isvalid_rfc2428_delimiter.exit.i
-  %smax.i = call i32 @llvm.smax.i32(i32 %spec.select.i, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i = zext nneg i32 %spec.select.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -925,17 +924,13 @@ isvalid_rfc2428_delimiter.exit.i:                 ; preds = %320
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %342 = icmp sgt i32 %spec.select.i, 1
-  br i1 %342, label %.lr.ph97.preheader.i, label %parse_eprt_request.exit.thread407
+  br i1 %342, label %.lr.ph97.i, label %parse_eprt_request.exit.thread407
 
-.lr.ph97.preheader.i:                             ; preds = %.preheader.i
-  %wide.trip.count110.i = zext nneg i32 %spec.select.i to i64
-  br label %.lr.ph97.i
-
-.lr.ph97.i:                                       ; preds = %374, %.lr.ph97.preheader.i
-  %indvars.iv108.i = phi i64 [ 1, %.lr.ph97.preheader.i ], [ %indvars.iv.next109.i, %374 ]
-  %.26596.i = phi i32 [ 1, %.lr.ph97.preheader.i ], [ %.366.i, %374 ]
-  %.07095.i = phi i1 [ true, %.lr.ph97.preheader.i ], [ %.171.i, %374 ]
-  %.07793.i = phi i32 [ 0, %.lr.ph97.preheader.i ], [ %.178.i, %374 ]
+.lr.ph97.i:                                       ; preds = %.preheader.i, %374
+  %indvars.iv108.i = phi i64 [ %indvars.iv.next109.i, %374 ], [ 1, %.preheader.i ]
+  %.26596.i = phi i32 [ %.366.i, %374 ], [ 1, %.preheader.i ]
+  %.07095.i = phi i1 [ %.171.i, %374 ], [ true, %.preheader.i ]
+  %.07793.i = phi i32 [ %.178.i, %374 ], [ 0, %.preheader.i ]
   %343 = getelementptr i8, ptr %324, i64 %indvars.iv108.i
   %344 = load i8, ptr %343, align 1
   %.not84.i = icmp eq i8 %344, %328
@@ -1002,7 +997,7 @@ isvalid_rfc2428_delimiter.exit.i:                 ; preds = %320
   %.171.i = phi i1 [ %.07095.i, %.lr.ph97.i ], [ %.07095.i, %350 ], [ %.07095.i, %355 ], [ %.171.ph.i, %.sink.split.i ]
   %.366.i = phi i32 [ %.26596.i, %.lr.ph97.i ], [ %351, %350 ], [ 2, %355 ], [ %351, %.sink.split.i ]
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
-  %exitcond111.not.i = icmp eq i64 %indvars.iv.next109.i, %wide.trip.count110.i
+  %exitcond111.not.i = icmp eq i64 %indvars.iv.next109.i, %wide.trip.count.i
   br i1 %exitcond111.not.i, label %parse_eprt_request.exit, label %.lr.ph97.i, !llvm.loop !10
 
 parse_eprt_request.exit:                          ; preds = %374
@@ -2916,9 +2911,6 @@ declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1683,8 +1683,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %41
   br i1 %.not291360.not, label %.critedge302, label %.lr.ph362.preheader
 
 .lr.ph362.preheader:                              ; preds = %134
-  %smax = call i32 @llvm.smax.i32(i32 %51, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %51 to i64
   br label %.lr.ph362
 
 135:                                              ; preds = %.lr.ph362
@@ -1810,7 +1809,6 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %41
   %.1232445476 = phi ptr [ %184, %.preheader337.thread469 ], [ null, %206 ]
   %.0230447475 = phi ptr [ %190, %.preheader337.thread469 ], [ null, %206 ]
   %194 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %smax394 = call i64 @llvm.smax.i64(i64 %168, i64 1)
   br label %207
 
 .lr.ph364.split:                                  ; preds = %.thread, %206
@@ -1916,7 +1914,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %41
 
 244:                                              ; preds = %.thread328, %207, %227
   %245 = add nuw nsw i64 %.0224365, 1
-  %exitcond395.not = icmp eq i64 %245, %smax394
+  %exitcond395.not = icmp eq i64 %245, %168
   br i1 %exitcond395.not, label %.loopexit.thread, label %207, !llvm.loop !38
 
 .loopexit.thread:                                 ; preds = %244, %.thread, %192
@@ -3738,8 +3736,7 @@ define i64 @H5DSget_label(i64 noundef %0, i32 noundef %1, ptr noundef writeonly 
   br label %84
 
 .lr.ph96.preheader:                               ; preds = %37, %._crit_edge, %56
-  %smax102 = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
-  %wide.trip.count103 = zext nneg i32 %smax102 to i64
+  %wide.trip.count103 = zext nneg i32 %13 to i64
   br label %.lr.ph96
 
 .lr.ph96:                                         ; preds = %.lr.ph96.preheader, %63
@@ -3975,12 +3972,6 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #9
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10

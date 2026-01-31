@@ -1033,12 +1033,11 @@ init_quant_matrix.exit.i:                         ; preds = %.preheader70.i.i, %
 
 .lr.ph139.i:                                      ; preds = %._crit_edge131.i
   %146 = icmp sgt i32 %34, 0
+  %wide.trip.count186.i = zext nneg i32 %144 to i64
   br i1 %146, label %.lr.ph135.us.preheader.i, label %.lr.ph161.i
 
 .lr.ph135.us.preheader.i:                         ; preds = %.lr.ph139.i
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i, i32 1)
-  %wide.trip.count186.i = zext nneg i32 %144 to i64
-  %wide.trip.count181.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count181.i = zext nneg i32 %spec.select.i to i64
   br label %.lr.ph135.us.i
 
 .lr.ph135.us.i:                                   ; preds = %..loopexit_crit_edge.us.i, %.lr.ph135.us.preheader.i
@@ -1085,8 +1084,7 @@ init_quant_matrix.exit.i:                         ; preds = %.preheader70.i.i, %
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 2940
   %163 = load i32, ptr %162, align 4, !tbaa !103
   %164 = sub nsw i32 %163, %.099.lcssa.i
-  %smax191.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i, i32 1)
-  %wide.trip.count192.i = zext nneg i32 %smax191.i to i64
+  %wide.trip.count192.i = zext nneg i32 %spec.select.i to i64
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %._crit_edge147.us.i, %.split.us.preheader.i
@@ -1157,13 +1155,16 @@ init_quant_matrix.exit.i:                         ; preds = %.preheader70.i.i, %
 .split157.us.i:                                   ; preds = %.split157.us.loopexit.i, %._crit_edge140.i
   %.pre-phi.i = phi i32 [ %.pre202.i, %.split157.us.loopexit.i ], [ %144, %._crit_edge140.i ]
   %190 = icmp sgt i32 %.pre-phi.i, 0
-  br i1 %190, label %.lr.ph161.i, label %calc_slice_sizes.exit
+  br i1 %190, label %.split157.us.i..lr.ph161.i_crit_edge, label %calc_slice_sizes.exit
 
-.lr.ph161.i:                                      ; preds = %.lr.ph139.i, %.split157.us.i
-  %.pre-phi216.i = phi i32 [ %.pre-phi.i, %.split157.us.i ], [ %144, %.lr.ph139.i ]
+.split157.us.i..lr.ph161.i_crit_edge:             ; preds = %.split157.us.i
+  %.pre = zext nneg i32 %.pre-phi.i to i64
+  br label %.lr.ph161.i
+
+.lr.ph161.i:                                      ; preds = %.lr.ph139.i, %.split157.us.i..lr.ph161.i_crit_edge
+  %wide.trip.count197.i.pre-phi = phi i64 [ %.pre, %.split157.us.i..lr.ph161.i_crit_edge ], [ %wide.trip.count186.i, %.lr.ph139.i ]
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 2956
   %.promoted.i = load i32, ptr %191, align 4, !tbaa !41
-  %wide.trip.count197.i = zext nneg i32 %.pre-phi216.i to i64
   br label %192
 
 192:                                              ; preds = %192, %.lr.ph161.i
@@ -1179,7 +1180,7 @@ init_quant_matrix.exit.i:                         ; preds = %.preheader70.i.i, %
   %200 = add nsw i32 %199, %193
   %201 = sdiv i32 %200, 2
   %indvars.iv.next195.i = add nuw nsw i64 %indvars.iv194.i, 1
-  %exitcond198.not.i = icmp eq i64 %indvars.iv.next195.i, %wide.trip.count197.i
+  %exitcond198.not.i = icmp eq i64 %indvars.iv.next195.i, %wide.trip.count197.i.pre-phi
   br i1 %exitcond198.not.i, label %._crit_edge162.i, label %192, !llvm.loop !152
 
 ._crit_edge162.i:                                 ; preds = %192

@@ -577,11 +577,11 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h53afa522e8796afaE(
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.outer
 
-.outer:                                           ; preds = %121, %27
-  %.ph = phi i64 [ %74, %121 ], [ %.pre125, %27 ]
-  %.ph167 = phi i64 [ %111, %121 ], [ %.pre, %27 ]
-  %.sroa.011.4.ph = phi i64 [ %110, %121 ], [ 0, %27 ]
-  %.sroa.05.4.ph = phi i64 [ %.sroa.047.0, %121 ], [ %.sroa.05.3, %27 ]
+.outer:                                           ; preds = %120, %27
+  %.ph = phi i64 [ %74, %120 ], [ %.pre125, %27 ]
+  %.ph167 = phi i64 [ %111, %120 ], [ %.pre, %27 ]
+  %.sroa.011.4.ph = phi i64 [ %110, %120 ], [ 0, %27 ]
+  %.sroa.05.4.ph = phi i64 [ %.sroa.047.0, %120 ], [ %.sroa.05.3, %27 ]
   br label %39
 
 31:                                               ; preds = %24
@@ -790,7 +790,7 @@ _ZN3std2io4Read8read_buf17he820a977ea480759E.exit.thread: ; preds = %._crit_edge
   %111 = add i64 %46, %83
   store i64 %111, ptr %8, align 8
   %112 = icmp eq ptr %.lcssa, null
-  br i1 %112, label %.loopexit, label %117
+  br i1 %112, label %.loopexit, label %116
 
 113:                                              ; preds = %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit, %90, %96, %92
   store i64 %46, ptr %8, align 8
@@ -798,40 +798,38 @@ _ZN3std2io4Read8read_buf17he820a977ea480759E.exit.thread: ; preds = %._crit_edge
 
 .loopexit:                                        ; preds = %_ZN3std2io4Read8read_buf17he820a977ea480759E.exit.thread, %_ZN3std2io4Read8read_buf17he820a977ea480759E.exit.thread.thread
   %114 = phi i64 [ %46, %_ZN3std2io4Read8read_buf17he820a977ea480759E.exit.thread.thread ], [ %111, %_ZN3std2io4Read8read_buf17he820a977ea480759E.exit.thread ]
-  %115 = icmp sgt i64 %114, -1
-  call void @llvm.assume(i1 %115)
-  %116 = sub nsw i64 %114, %9
+  %115 = sub nsw i64 %114, %9
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17h1cce591fefa6f2f8E.exit.thread"
 
-117:                                              ; preds = %_ZN3std2io4Read8read_buf17he820a977ea480759E.exit.thread
-  br i1 %.sroa.012.3, label %118, label %.backedge
+116:                                              ; preds = %_ZN3std2io4Read8read_buf17he820a977ea480759E.exit.thread
+  br i1 %.sroa.012.3, label %117, label %.backedge
 
-118:                                              ; preds = %117
-  %119 = icmp uge i64 %.pre-phi, %.sroa.05.4.ph
-  %120 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, %83
-  %or.cond2 = and i1 %119, %120
-  br i1 %or.cond2, label %121, label %.backedge
+117:                                              ; preds = %116
+  %118 = icmp uge i64 %.pre-phi, %.sroa.05.4.ph
+  %119 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, %83
+  %or.cond2 = and i1 %118, %119
+  br i1 %or.cond2, label %120, label %.backedge
 
-.backedge:                                        ; preds = %118, %117
+.backedge:                                        ; preds = %117, %116
   br label %39
 
-121:                                              ; preds = %118
-  %122 = shl i64 %.sroa.05.4.ph, 1
+120:                                              ; preds = %117
+  %121 = shl i64 %.sroa.05.4.ph, 1
   %.inv = icmp sgt i64 %.sroa.05.4.ph, -1
-  %.sroa.047.0 = select i1 %.inv, i64 %122, i64 -1, !prof !75
+  %.sroa.047.0 = select i1 %.inv, i64 %121, i64 -1, !prof !75
   br label %.outer
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17h1cce591fefa6f2f8E.exit.thread.loopexit.split.loop.exit": ; preds = %50
-  %123 = ptrtoint ptr %53 to i64
+  %122 = ptrtoint ptr %53 to i64
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17h1cce591fefa6f2f8E.exit.thread"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17h1cce591fefa6f2f8E.exit.thread": ; preds = %61, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17h1cce591fefa6f2f8E.exit.thread.loopexit.split.loop.exit", %70, %113, %.loopexit, %31, %57, %37
-  %.sroa.8.1 = phi i64 [ 0, %37 ], [ %35, %31 ], [ %60, %57 ], [ %88, %113 ], [ 163208757251, %70 ], [ %116, %.loopexit ], [ %123, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17h1cce591fefa6f2f8E.exit.thread.loopexit.split.loop.exit" ], [ 163208757251, %61 ]
+  %.sroa.8.1 = phi i64 [ 0, %37 ], [ %35, %31 ], [ %60, %57 ], [ %88, %113 ], [ 163208757251, %70 ], [ %115, %.loopexit ], [ %122, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17h1cce591fefa6f2f8E.exit.thread.loopexit.split.loop.exit" ], [ 163208757251, %61 ]
   %.sroa.0.1 = phi i64 [ 0, %37 ], [ %33, %31 ], [ 0, %57 ], [ 1, %113 ], [ 1, %70 ], [ 0, %.loopexit ], [ 1, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17h1cce591fefa6f2f8E.exit.thread.loopexit.split.loop.exit" ], [ 1, %61 ]
-  %124 = inttoptr i64 %.sroa.8.1 to ptr
-  %125 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %126 = insertvalue { i64, ptr } %125, ptr %124, 1
-  ret { i64, ptr } %126
+  %123 = inttoptr i64 %.sroa.8.1 to ptr
+  %124 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
+  %125 = insertvalue { i64, ptr } %124, ptr %123, 1
+  ret { i64, ptr } %125
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

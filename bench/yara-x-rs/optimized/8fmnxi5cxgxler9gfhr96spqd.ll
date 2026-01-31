@@ -123,8 +123,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !6, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6
   store ptr %24, ptr %10, align 8, !alias.scope !6
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !6
   ret void
 }

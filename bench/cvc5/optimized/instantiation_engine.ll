@@ -766,11 +766,11 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers19InstantiationEngine20
   call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %28)
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165
 
-_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165: ; preds = %42, %40, %34
+_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165: ; preds = %34, %40, %42
   %44 = load ptr, ptr %12, align 8, !tbaa !246
   %45 = load ptr, ptr %11, align 8, !tbaa !252
-  %.not408 = icmp eq ptr %44, %45
-  br i1 %.not408, label %._crit_edge, label %.critedge
+  %.not.not408.not = icmp eq ptr %44, %45
+  br i1 %.not.not408.not, label %._crit_edge, label %.critedge
 
 .critedge:                                        ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165, %93
   %46 = phi ptr [ %98, %93 ], [ %45, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ]
@@ -849,7 +849,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit265: ; preds = %69, %73, %79
           to label %88 unwind label %89
 
 88:                                               ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit265
-  br i1 %87, label %._crit_edge.loopexit, label %93
+  br i1 %87, label %._crit_edge, label %93
 
 89:                                               ; preds = %63, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit265
   %90 = landingpad { ptr, i32 }
@@ -874,16 +874,11 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit265: ; preds = %69, %73, %79
   %101 = sub i64 %99, %100
   %102 = ashr exact i64 %101, 3
   %.not.not = icmp ugt i64 %102, %96
-  br i1 %.not.not, label %.critedge, label %._crit_edge.loopexit, !llvm.loop !282
+  br i1 %.not.not, label %.critedge, label %._crit_edge, !llvm.loop !282
 
-._crit_edge.loopexit:                             ; preds = %88, %93
-  %.4.lcssa.ph = phi i1 [ %.4410, %88 ], [ %spec.select, %93 ]
-  %.not.lcssa.ph = xor i1 %87, true
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165
-  %.4.lcssa = phi i1 [ %.1418, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ], [ %.4.lcssa.ph, %._crit_edge.loopexit ]
-  %.not.lcssa = phi i1 [ true, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ], [ %.not.lcssa.ph, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %93, %88, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165
+  %.4.lcssa = phi i1 [ %.1418, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ], [ %.4410, %88 ], [ %spec.select, %93 ]
+  %.not.not.lcssa = phi i1 [ false, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ], [ %87, %88 ], [ %87, %93 ]
   %103 = load i64, ptr %28, align 8
   %104 = and i64 %103, 1152920405095219200
   %.not.i.i269 = icmp eq i64 %104, 1152920405095219200
@@ -910,7 +905,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit265: ; preds = %69, %73, %79
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit270: ; preds = %._crit_edge, %105, %111
-  br i1 %.not.lcssa, label %16, label %.loopexit
+  br i1 %.not.not.lcssa, label %.loopexit, label %16
 
 115:                                              ; preds = %89, %91
   %.pn83.pn.pn.pn = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]

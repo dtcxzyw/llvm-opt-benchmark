@@ -3240,8 +3240,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
   %109 = sext i32 %107 to i64
   %110 = zext nneg i32 %36 to i64
   %111 = sext i32 %105 to i64
-  %smax = call i32 @llvm.smax.i32(i32 %36, i32 1)
-  %112 = add nuw nsw i32 %smax, 1
+  %112 = or disjoint i32 %36, 1
   %wide.trip.count116 = zext nneg i32 %112 to i64
   %113 = zext nneg i32 %36 to i64
   %114 = zext nneg i32 %36 to i64
@@ -3423,8 +3422,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
 
 .lr.ph122:                                        ; preds = %83
   %89 = load ptr, ptr %6, align 8
-  %smax = call i32 @llvm.smax.i32(i32 %10, i32 1)
-  %wide.trip.count132 = zext nneg i32 %smax to i64
+  %wide.trip.count132 = zext nneg i32 %10 to i64
   br label %90
 
 90:                                               ; preds = %.lr.ph122, %90
@@ -3487,8 +3485,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
 
 .lr.ph126:                                        ; preds = %119
   %127 = load ptr, ptr %6, align 8
-  %smax137 = call i32 @llvm.smax.i32(i32 %10, i32 1)
-  %wide.trip.count138 = zext nneg i32 %smax137 to i64
+  %wide.trip.count138 = zext nneg i32 %10 to i64
   br label %128
 
 128:                                              ; preds = %.lr.ph126, %128
@@ -8927,8 +8924,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
   %101 = sext i32 %99 to i64
   %102 = zext nneg i32 %36 to i64
   %103 = sext i32 %97 to i64
-  %smax = call i32 @llvm.smax.i32(i32 %36, i32 1)
-  %104 = add nuw nsw i32 %smax, 1
+  %104 = or disjoint i32 %36, 1
   %wide.trip.count116 = zext nneg i32 %104 to i64
   %105 = zext nneg i32 %36 to i64
   %106 = zext nneg i32 %36 to i64
@@ -9095,8 +9091,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
 
 .lr.ph122:                                        ; preds = %77
   %83 = load ptr, ptr %6, align 8
-  %smax = call i32 @llvm.smax.i32(i32 %10, i32 1)
-  %wide.trip.count132 = zext nneg i32 %smax to i64
+  %wide.trip.count132 = zext nneg i32 %10 to i64
   br label %84
 
 84:                                               ; preds = %.lr.ph122, %84
@@ -9153,8 +9148,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
 
 .lr.ph126:                                        ; preds = %107
   %115 = load ptr, ptr %6, align 8
-  %smax137 = call i32 @llvm.smax.i32(i32 %10, i32 1)
-  %wide.trip.count138 = zext nneg i32 %smax137 to i64
+  %wide.trip.count138 = zext nneg i32 %10 to i64
   br label %116
 
 116:                                              ; preds = %.lr.ph126, %116

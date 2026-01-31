@@ -275,7 +275,7 @@ define dso_local void @_ZNK2EA4StdC8int128_tlsEi(ptr noalias writeonly sret(%"cl
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp sgt i32 %nShift, -1
-  br i1 %cmp.i, label %if.then.i, label %if.else22.i
+  br i1 %cmp.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %entry
   %cmp1.i = icmp samesign ult i32 %nShift, 64
@@ -318,14 +318,14 @@ if.else14.i:                                      ; preds = %if.then.i
   store i64 %shl19.i, ptr %mPart120.i, align 8
   br label %_ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit
 
-if.else22.i:                                      ; preds = %entry
+if.then.i.i:                                      ; preds = %entry
   %sub23.i = sub nsw i32 0, %nShift
   %cmp1.i.i = icmp samesign ult i32 %sub23.i, 64
   %mPart1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mPart1.i.i, align 8
   br i1 %cmp1.i.i, label %if.else.i.i, label %if.else15.i.i
 
-if.else.i.i:                                      ; preds = %if.else22.i
+if.else.i.i:                                      ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub23.i to i64
   %shr.i.i = lshr i64 %4, %sh_prom.i.i
   %mPart13.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -339,7 +339,7 @@ if.else.i.i:                                      ; preds = %if.else22.i
   store i64 %or.i.i, ptr %agg.result, align 8
   br label %_ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit
 
-if.else15.i.i:                                    ; preds = %if.else22.i
+if.else15.i.i:                                    ; preds = %if.then.i.i
   %sub18.i.i = sub nsw i32 -64, %nShift
   %sh_prom19.i.i = zext nneg i32 %sub18.i.i to i64
   %shr20.i.i = lshr i64 %4, %sh_prom19.i.i
@@ -354,7 +354,7 @@ _ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit: ; preds = %if.the
 define dso_local void @_ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, i32 noundef %nShift, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %result) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp sgt i32 %nShift, -1
-  br i1 %cmp, label %if.then, label %if.else23
+  br i1 %cmp, label %if.then, label %if.then.i
 
 if.then:                                          ; preds = %entry
   %cmp1 = icmp samesign ult i32 %nShift, 64
@@ -396,12 +396,12 @@ if.else15:                                        ; preds = %if.then
   store i64 %shr20, ptr %result, align 8
   br label %if.end25
 
-if.else23:                                        ; preds = %entry
+if.then.i:                                        ; preds = %entry
   %sub24 = sub nsw i32 0, %nShift
   %cmp1.i = icmp samesign ult i32 %sub24, 64
   br i1 %cmp1.i, label %if.then3.i, label %if.else14.i
 
-if.then3.i:                                       ; preds = %if.else23
+if.then3.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %value, align 8
   %sh_prom.i = zext nneg i32 %sub24 to i64
   %shl.i = shl i64 %4, %sh_prom.i
@@ -418,7 +418,7 @@ if.then3.i:                                       ; preds = %if.else23
   store i64 %or.i, ptr %mPart19.i, align 8
   br label %if.end25
 
-if.else14.i:                                      ; preds = %if.else23
+if.else14.i:                                      ; preds = %if.then.i
   store i64 0, ptr %result, align 8
   %7 = load i64, ptr %value, align 8
   %sub17.i = sub nsw i32 -64, %nShift
@@ -436,7 +436,7 @@ if.end25:                                         ; preds = %if.else14.i, %if.th
 define dso_local void @_ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, i32 noundef %nShift, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %result) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp sgt i32 %nShift, -1
-  br i1 %cmp, label %if.then, label %if.else22
+  br i1 %cmp, label %if.then, label %if.then.i
 
 if.then:                                          ; preds = %entry
   %cmp1 = icmp samesign ult i32 %nShift, 64
@@ -481,12 +481,12 @@ if.else14:                                        ; preds = %if.then
   store i64 %shl19, ptr %mPart120, align 8
   br label %if.end24
 
-if.else22:                                        ; preds = %entry
+if.then.i:                                        ; preds = %entry
   %sub23 = sub nsw i32 0, %nShift
   %cmp1.i = icmp samesign ult i32 %sub23, 64
   br i1 %cmp1.i, label %if.else.i, label %if.else15.i
 
-if.else.i:                                        ; preds = %if.else22
+if.else.i:                                        ; preds = %if.then.i
   %mPart1.i = getelementptr inbounds nuw i8, ptr %value, i64 8
   %5 = load i64, ptr %mPart1.i, align 8
   %sh_prom.i = zext nneg i32 %sub23 to i64
@@ -503,7 +503,7 @@ if.else.i:                                        ; preds = %if.else22
   store i64 %or.i, ptr %result, align 8
   br label %if.end24
 
-if.else15.i:                                      ; preds = %if.else22
+if.else15.i:                                      ; preds = %if.then.i
   %mPart116.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i64 0, ptr %mPart116.i, align 8
   %mPart117.i = getelementptr inbounds nuw i8, ptr %value, i64 8
@@ -2736,7 +2736,7 @@ define dso_local void @_ZNK2EA4StdC8int128_trsEi(ptr noalias writeonly sret(%"cl
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp sgt i32 %nShift, -1
-  br i1 %cmp.i, label %if.then.i, label %if.else23.i
+  br i1 %cmp.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %entry
   %cmp1.i = icmp samesign ult i32 %nShift, 64
@@ -2773,13 +2773,13 @@ if.else15.i:                                      ; preds = %if.then.i
   store i64 %shr20.i, ptr %agg.result, align 8
   br label %_ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit
 
-if.else23.i:                                      ; preds = %entry
+if.then.i.i:                                      ; preds = %entry
   %sub24.i = sub nsw i32 0, %nShift
   %cmp1.i.i = icmp samesign ult i32 %sub24.i, 64
   %2 = load i64, ptr %this, align 8
   br i1 %cmp1.i.i, label %if.then3.i.i, label %if.else14.i.i
 
-if.then3.i.i:                                     ; preds = %if.else23.i
+if.then3.i.i:                                     ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub24.i to i64
   %shl.i.i = shl i64 %2, %sh_prom.i.i
   store i64 %shl.i.i, ptr %agg.result, align 8
@@ -2794,7 +2794,7 @@ if.then3.i.i:                                     ; preds = %if.else23.i
   store i64 %or.i.i, ptr %mPart19.i.i, align 8
   br label %_ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit
 
-if.else14.i.i:                                    ; preds = %if.else23.i
+if.else14.i.i:                                    ; preds = %if.then.i.i
   %sub17.i.i = sub nsw i32 -64, %nShift
   %sh_prom18.i.i = zext nneg i32 %sub17.i.i to i64
   %shl19.i.i = shl i64 %2, %sh_prom18.i.i
@@ -2810,7 +2810,7 @@ _ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit: ; preds = %if.th
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN2EA4StdC8int128_trSEi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i32 noundef %nShift) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp sgt i32 %nShift, -1
-  br i1 %cmp.i, label %if.then.i, label %if.else23.i
+  br i1 %cmp.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %entry
   %cmp1.i = icmp samesign ult i32 %nShift, 64
@@ -2839,13 +2839,13 @@ if.else15.i:                                      ; preds = %if.then.i
   %shr20.i = lshr i64 %0, %sh_prom19.i
   br label %_ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit
 
-if.else23.i:                                      ; preds = %entry
+if.then.i.i:                                      ; preds = %entry
   %sub24.i = sub nsw i32 0, %nShift
   %cmp1.i.i = icmp samesign ult i32 %sub24.i, 64
   %2 = load i64, ptr %this, align 8
   br i1 %cmp1.i.i, label %if.then3.i.i, label %if.else14.i.i
 
-if.then3.i.i:                                     ; preds = %if.else23.i
+if.then3.i.i:                                     ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub24.i to i64
   %shl.i.i = shl i64 %2, %sh_prom.i.i
   %mPart1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2857,7 +2857,7 @@ if.then3.i.i:                                     ; preds = %if.else23.i
   %or.i.i = or i64 %shl6.i.i, %shr.i.i
   br label %_ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit
 
-if.else14.i.i:                                    ; preds = %if.else23.i
+if.else14.i.i:                                    ; preds = %if.then.i.i
   %sub17.i.i = sub nsw i32 -64, %nShift
   %sh_prom18.i.i = zext nneg i32 %sub17.i.i to i64
   %shl19.i.i = shl i64 %2, %sh_prom18.i.i
@@ -2876,7 +2876,7 @@ _ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit: ; preds = %if.th
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN2EA4StdC8int128_tlSEi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i32 noundef %nShift) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp sgt i32 %nShift, -1
-  br i1 %cmp.i, label %if.then.i, label %if.else22.i
+  br i1 %cmp.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %entry
   %cmp1.i = icmp samesign ult i32 %nShift, 64
@@ -2911,14 +2911,14 @@ if.else14.i:                                      ; preds = %if.then.i
   %shl19.i = shl i64 %3, %sh_prom18.i
   br label %_ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit
 
-if.else22.i:                                      ; preds = %entry
+if.then.i.i:                                      ; preds = %entry
   %sub23.i = sub nsw i32 0, %nShift
   %cmp1.i.i = icmp samesign ult i32 %sub23.i, 64
   %mPart1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mPart1.i.i, align 8
   br i1 %cmp1.i.i, label %if.else.i.i, label %if.else15.i.i
 
-if.else.i.i:                                      ; preds = %if.else22.i
+if.else.i.i:                                      ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub23.i to i64
   %shr.i.i = lshr i64 %4, %sh_prom.i.i
   %5 = load i64, ptr %this, align 8
@@ -2929,7 +2929,7 @@ if.else.i.i:                                      ; preds = %if.else22.i
   %or.i.i = or i64 %shr11.i.i, %shl.i.i
   br label %_ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit
 
-if.else15.i.i:                                    ; preds = %if.else22.i
+if.else15.i.i:                                    ; preds = %if.then.i.i
   %sub18.i.i = sub nsw i32 -64, %nShift
   %sh_prom19.i.i = zext nneg i32 %sub18.i.i to i64
   %shr20.i.i = lshr i64 %4, %sh_prom19.i.i
@@ -5569,7 +5569,7 @@ define dso_local void @_ZNK2EA4StdC9uint128_trsEi(ptr noalias writeonly sret(%"c
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp sgt i32 %nShift, -1
-  br i1 %cmp.i, label %if.then.i, label %if.else23.i
+  br i1 %cmp.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %entry
   %cmp1.i = icmp samesign ult i32 %nShift, 64
@@ -5606,13 +5606,13 @@ if.else15.i:                                      ; preds = %if.then.i
   store i64 %shr20.i, ptr %agg.result, align 8
   br label %_ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit
 
-if.else23.i:                                      ; preds = %entry
+if.then.i.i:                                      ; preds = %entry
   %sub24.i = sub nsw i32 0, %nShift
   %cmp1.i.i = icmp samesign ult i32 %sub24.i, 64
   %2 = load i64, ptr %this, align 8
   br i1 %cmp1.i.i, label %if.then3.i.i, label %if.else14.i.i
 
-if.then3.i.i:                                     ; preds = %if.else23.i
+if.then3.i.i:                                     ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub24.i to i64
   %shl.i.i = shl i64 %2, %sh_prom.i.i
   store i64 %shl.i.i, ptr %agg.result, align 8
@@ -5627,7 +5627,7 @@ if.then3.i.i:                                     ; preds = %if.else23.i
   store i64 %or.i.i, ptr %mPart19.i.i, align 8
   br label %_ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit
 
-if.else14.i.i:                                    ; preds = %if.else23.i
+if.else14.i.i:                                    ; preds = %if.then.i.i
   %sub17.i.i = sub nsw i32 -64, %nShift
   %sh_prom18.i.i = zext nneg i32 %sub17.i.i to i64
   %shl19.i.i = shl i64 %2, %sh_prom18.i.i
@@ -5644,7 +5644,7 @@ define dso_local void @_ZNK2EA4StdC9uint128_tlsEi(ptr noalias writeonly sret(%"c
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp sgt i32 %nShift, -1
-  br i1 %cmp.i, label %if.then.i, label %if.else22.i
+  br i1 %cmp.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %entry
   %cmp1.i = icmp samesign ult i32 %nShift, 64
@@ -5687,14 +5687,14 @@ if.else14.i:                                      ; preds = %if.then.i
   store i64 %shl19.i, ptr %mPart120.i, align 8
   br label %_ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit
 
-if.else22.i:                                      ; preds = %entry
+if.then.i.i:                                      ; preds = %entry
   %sub23.i = sub nsw i32 0, %nShift
   %cmp1.i.i = icmp samesign ult i32 %sub23.i, 64
   %mPart1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mPart1.i.i, align 8
   br i1 %cmp1.i.i, label %if.else.i.i, label %if.else15.i.i
 
-if.else.i.i:                                      ; preds = %if.else22.i
+if.else.i.i:                                      ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub23.i to i64
   %shr.i.i = lshr i64 %4, %sh_prom.i.i
   %mPart13.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -5708,7 +5708,7 @@ if.else.i.i:                                      ; preds = %if.else22.i
   store i64 %or.i.i, ptr %agg.result, align 8
   br label %_ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit
 
-if.else15.i.i:                                    ; preds = %if.else22.i
+if.else15.i.i:                                    ; preds = %if.then.i.i
   %sub18.i.i = sub nsw i32 -64, %nShift
   %sh_prom19.i.i = zext nneg i32 %sub18.i.i to i64
   %shr20.i.i = lshr i64 %4, %sh_prom19.i.i
@@ -5723,7 +5723,7 @@ _ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit: ; preds = %if.the
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN2EA4StdC9uint128_trSEi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i32 noundef %nShift) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp sgt i32 %nShift, -1
-  br i1 %cmp.i, label %if.then.i, label %if.else23.i
+  br i1 %cmp.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %entry
   %cmp1.i = icmp samesign ult i32 %nShift, 64
@@ -5752,13 +5752,13 @@ if.else15.i:                                      ; preds = %if.then.i
   %shr20.i = lshr i64 %0, %sh_prom19.i
   br label %_ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit
 
-if.else23.i:                                      ; preds = %entry
+if.then.i.i:                                      ; preds = %entry
   %sub24.i = sub nsw i32 0, %nShift
   %cmp1.i.i = icmp samesign ult i32 %sub24.i, 64
   %2 = load i64, ptr %this, align 8
   br i1 %cmp1.i.i, label %if.then3.i.i, label %if.else14.i.i
 
-if.then3.i.i:                                     ; preds = %if.else23.i
+if.then3.i.i:                                     ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub24.i to i64
   %shl.i.i = shl i64 %2, %sh_prom.i.i
   %mPart1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5770,7 +5770,7 @@ if.then3.i.i:                                     ; preds = %if.else23.i
   %or.i.i = or i64 %shl6.i.i, %shr.i.i
   br label %_ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit
 
-if.else14.i.i:                                    ; preds = %if.else23.i
+if.else14.i.i:                                    ; preds = %if.then.i.i
   %sub17.i.i = sub nsw i32 -64, %nShift
   %sh_prom18.i.i = zext nneg i32 %sub17.i.i to i64
   %shl19.i.i = shl i64 %2, %sh_prom18.i.i
@@ -5789,7 +5789,7 @@ _ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit: ; preds = %if.th
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN2EA4StdC9uint128_tlSEi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i32 noundef %nShift) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp sgt i32 %nShift, -1
-  br i1 %cmp.i, label %if.then.i, label %if.else22.i
+  br i1 %cmp.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %entry
   %cmp1.i = icmp samesign ult i32 %nShift, 64
@@ -5824,14 +5824,14 @@ if.else14.i:                                      ; preds = %if.then.i
   %shl19.i = shl i64 %3, %sh_prom18.i
   br label %_ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit
 
-if.else22.i:                                      ; preds = %entry
+if.then.i.i:                                      ; preds = %entry
   %sub23.i = sub nsw i32 0, %nShift
   %cmp1.i.i = icmp samesign ult i32 %sub23.i, 64
   %mPart1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mPart1.i.i, align 8
   br i1 %cmp1.i.i, label %if.else.i.i, label %if.else15.i.i
 
-if.else.i.i:                                      ; preds = %if.else22.i
+if.else.i.i:                                      ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub23.i to i64
   %shr.i.i = lshr i64 %4, %sh_prom.i.i
   %5 = load i64, ptr %this, align 8
@@ -5842,7 +5842,7 @@ if.else.i.i:                                      ; preds = %if.else22.i
   %or.i.i = or i64 %shr11.i.i, %shl.i.i
   br label %_ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit
 
-if.else15.i.i:                                    ; preds = %if.else22.i
+if.else15.i.i:                                    ; preds = %if.then.i.i
   %sub18.i.i = sub nsw i32 -64, %nShift
   %sh_prom19.i.i = zext nneg i32 %sub18.i.i to i64
   %shr20.i.i = lshr i64 %4, %sh_prom19.i.i

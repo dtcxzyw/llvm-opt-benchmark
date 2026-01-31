@@ -45408,67 +45408,66 @@ define void @nk_layout_row_template_end(ptr noundef readonly captures(address_is
   %37 = load float, ptr %36, align 8, !tbaa !912
   %38 = getelementptr i8, ptr %0, i64 9612
   %.val = load float, ptr %38, align 4, !tbaa !3
-  %39 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
-  %40 = add nsw i32 %39, -1
-  %41 = uitofp nneg i32 %40 to float
-  %42 = fmul float %.val, %41
-  %43 = fsub float %37, %42
-  %44 = fsub float %43, %.167
-  %45 = fcmp olt float %44, 0.000000e+00
-  %46 = select i1 %45, float 0.000000e+00, float %44
-  %47 = sitofp i32 %.158 to float
-  %48 = fdiv float %46, %47
-  %49 = fcmp ult float %48, %.163
-  br i1 %49, label %.thread, label %.lr.ph94.split.us.preheader
+  %39 = add nsw i32 %12, -1
+  %40 = uitofp nneg i32 %39 to float
+  %41 = fmul float %.val, %40
+  %42 = fsub float %37, %41
+  %43 = fsub float %42, %.167
+  %44 = fcmp olt float %43, 0.000000e+00
+  %45 = select i1 %44, float 0.000000e+00, float %43
+  %46 = sitofp i32 %.158 to float
+  %47 = fdiv float %45, %46
+  %48 = fcmp ult float %47, %.163
+  br i1 %48, label %.thread, label %.lr.ph94.split.us.preheader
 
 .thread:                                          ; preds = %35
-  %50 = fsub float %43, %.165
-  %51 = fcmp olt float %50, 0.000000e+00
-  %52 = select i1 %51, float 0.000000e+00, float %50
-  %53 = fdiv float %52, %34
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 180
+  %49 = fsub float %42, %.165
+  %50 = fcmp olt float %49, 0.000000e+00
+  %51 = select i1 %50, float 0.000000e+00, float %49
+  %52 = fdiv float %51, %34
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 180
   %wide.trip.count100 = zext nneg i32 %12 to i64
   br label %.lr.ph94.split
 
 .lr.ph94.split.us.preheader:                      ; preds = %35
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 180
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 180
   %wide.trip.count105 = zext nneg i32 %12 to i64
   br label %.lr.ph94.split.us
 
 .lr.ph94.split.us:                                ; preds = %.lr.ph94.split.us.preheader, %.lr.ph94.split.us
   %indvars.iv102 = phi i64 [ 0, %.lr.ph94.split.us.preheader ], [ %indvars.iv.next103, %.lr.ph94.split.us ]
-  %56 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv102
-  %57 = load float, ptr %56, align 4, !tbaa !3
-  %58 = fcmp ult float %57, 0.000000e+00
-  %59 = select i1 %58, float %48, float %57
-  store float %59, ptr %56, align 4, !tbaa !3
+  %55 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv102
+  %56 = load float, ptr %55, align 4, !tbaa !3
+  %57 = fcmp ult float %56, 0.000000e+00
+  %58 = select i1 %57, float %47, float %56
+  store float %58, ptr %55, align 4, !tbaa !3
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
   br i1 %exitcond106.not, label %.loopexit, label %.lr.ph94.split.us, !llvm.loop !1005
 
-.lr.ph94.split:                                   ; preds = %.thread, %67
-  %indvars.iv97 = phi i64 [ 0, %.thread ], [ %indvars.iv.next98, %67 ]
-  %60 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv97
-  %61 = load float, ptr %60, align 4, !tbaa !3
-  %62 = fcmp ult float %61, 0.000000e+00
-  br i1 %62, label %63, label %67
+.lr.ph94.split:                                   ; preds = %.thread, %66
+  %indvars.iv97 = phi i64 [ 0, %.thread ], [ %indvars.iv.next98, %66 ]
+  %59 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv97
+  %60 = load float, ptr %59, align 4, !tbaa !3
+  %61 = fcmp ult float %60, 0.000000e+00
+  br i1 %61, label %62, label %66
 
-63:                                               ; preds = %.lr.ph94.split
-  %64 = fcmp uge float %61, -1.000000e+00
-  br i1 %64, label %67, label %65
+62:                                               ; preds = %.lr.ph94.split
+  %63 = fcmp uge float %60, -1.000000e+00
+  br i1 %63, label %66, label %64
 
-65:                                               ; preds = %63
-  %66 = fneg float %61
-  br label %67
+64:                                               ; preds = %62
+  %65 = fneg float %60
+  br label %66
 
-67:                                               ; preds = %63, %.lr.ph94.split, %65
-  %68 = phi float [ %61, %.lr.ph94.split ], [ %66, %65 ], [ %53, %63 ]
-  store float %68, ptr %60, align 4, !tbaa !3
+66:                                               ; preds = %62, %.lr.ph94.split, %64
+  %67 = phi float [ %60, %.lr.ph94.split ], [ %65, %64 ], [ %52, %62 ]
+  store float %67, ptr %59, align 4, !tbaa !3
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %.loopexit, label %.lr.ph94.split, !llvm.loop !1005
 
-.loopexit:                                        ; preds = %.lr.ph94.split.us, %67, %.preheader, %._crit_edge, %8, %1, %2, %5
+.loopexit:                                        ; preds = %.lr.ph94.split.us, %66, %.preheader, %._crit_edge, %8, %1, %2, %5
   ret void
 }
 

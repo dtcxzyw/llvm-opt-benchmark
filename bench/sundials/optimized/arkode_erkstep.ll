@@ -55,7 +55,7 @@ define ptr @ERKStepCreate(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 43, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 43, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #11
   br label %76
 
 8:                                                ; preds = %4
@@ -63,7 +63,7 @@ define ptr @ERKStepCreate(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 51, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 51, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #11
   br label %76
 
 11:                                               ; preds = %8
@@ -71,7 +71,7 @@ define ptr @ERKStepCreate(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
   br i1 %.not, label %12, label %13
 
 12:                                               ; preds = %11
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 58, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 58, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #11
   br label %76
 
 13:                                               ; preds = %11
@@ -113,17 +113,17 @@ erkStep_CheckNVector.exit:                        ; preds = %31
   br i1 %.not34, label %erkStep_CheckNVector.exit.thread, label %37
 
 erkStep_CheckNVector.exit.thread:                 ; preds = %19, %23, %27, %31, %13, %erkStep_CheckNVector.exit
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 67, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 67, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #11
   br label %76
 
 37:                                               ; preds = %erkStep_CheckNVector.exit
-  %38 = tail call ptr @arkCreate(ptr noundef nonnull %3) #12
+  %38 = tail call ptr @arkCreate(ptr noundef nonnull %3) #11
   store ptr %38, ptr %5, align 8, !tbaa !17
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %37
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 76, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 76, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %76
 
 41:                                               ; preds = %37
@@ -132,8 +132,8 @@ erkStep_CheckNVector.exit.thread:                 ; preds = %19, %23, %27, %31, 
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %41
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %38, i32 noundef -20, i32 noundef 86, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #12
-  call void @ARKodeFree(ptr noundef nonnull %5) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %38, i32 noundef -20, i32 noundef 86, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #11
+  call void @ARKodeFree(ptr noundef nonnull %5) #11
   br label %76
 
 44:                                               ; preds = %41
@@ -171,13 +171,13 @@ erkStep_CheckNVector.exit.thread:                 ; preds = %19, %23, %27, %31, 
   store i32 1, ptr %60, align 8, !tbaa !43
   %61 = getelementptr inbounds nuw i8, ptr %38, i64 136
   store ptr %calloc, ptr %61, align 8, !tbaa !44
-  %62 = tail call i32 @erkStep_SetDefaults(ptr noundef nonnull %38) #12
+  %62 = tail call i32 @erkStep_SetDefaults(ptr noundef nonnull %38) #11
   %.not30 = icmp eq i32 %62, 0
   br i1 %.not30, label %64, label %63
 
 63:                                               ; preds = %44
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %38, i32 noundef %62, i32 noundef 116, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #12
-  call void @ARKodeFree(ptr noundef nonnull %5) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %38, i32 noundef %62, i32 noundef 116, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #11
+  call void @ARKodeFree(ptr noundef nonnull %5) #11
   br label %76
 
 64:                                               ; preds = %44
@@ -196,13 +196,13 @@ erkStep_CheckNVector.exit.thread:                 ; preds = %19, %23, %27, %31, 
   %73 = getelementptr inbounds nuw i8, ptr %calloc, i64 96
   store i32 0, ptr %73, align 8, !tbaa !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %71, i8 0, i64 28, i1 false)
-  %74 = tail call i32 @arkInit(ptr noundef nonnull %38, double noundef %1, ptr noundef nonnull %2, i32 noundef 0) #12
+  %74 = tail call i32 @arkInit(ptr noundef nonnull %38, double noundef %1, ptr noundef nonnull %2, i32 noundef 0) #11
   %.not31 = icmp eq i32 %74, 0
   br i1 %.not31, label %76, label %75
 
 75:                                               ; preds = %64
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %38, i32 noundef %74, i32 noundef 149, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #12
-  call void @ARKodeFree(ptr noundef nonnull %5) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %38, i32 noundef %74, i32 noundef 149, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #11
+  call void @ARKodeFree(ptr noundef nonnull %5) #11
   br label %76
 
 76:                                               ; preds = %64, %75, %63, %43, %40, %erkStep_CheckNVector.exit.thread, %12, %10, %7
@@ -273,7 +273,7 @@ define range(i32 -22, 1) i32 @erkStep_Init(ptr noundef %0, double %1, i32 nounde
   br i1 %6, label %erkStep_AccessStepMem.exit, label %7
 
 erkStep_AccessStepMem.exit:                       ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %.loopexit
 
 7:                                                ; preds = %3
@@ -309,7 +309,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
   br i1 %.not51, label %23, label %22
 
 22:                                               ; preds = %20
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 432, ptr noundef nonnull @__func__.erkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 432, ptr noundef nonnull @__func__.erkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #11
   br label %.loopexit
 
 23:                                               ; preds = %20
@@ -318,7 +318,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
   br i1 %.not52, label %26, label %25
 
 25:                                               ; preds = %23
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 441, ptr noundef nonnull @__func__.erkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 441, ptr noundef nonnull @__func__.erkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #11
   br label %.loopexit
 
 26:                                               ; preds = %23
@@ -353,7 +353,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
   br i1 %.old, label %43, label %44
 
 43:                                               ; preds = %39, %42
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 455, ptr noundef nonnull @__func__.erkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 455, ptr noundef nonnull @__func__.erkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #11
   br label %.loopexit
 
 44:                                               ; preds = %42, %39
@@ -366,7 +366,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
 
 50:                                               ; preds = %44
   %51 = sext i32 %49 to i64
-  %52 = tail call noalias ptr @calloc(i64 noundef %51, i64 noundef 8) #13
+  %52 = tail call noalias ptr @calloc(i64 noundef %51, i64 noundef 8) #12
   store ptr %52, ptr %45, align 8, !tbaa !71
   br label %._crit_edge84
 
@@ -395,7 +395,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
   %61 = load ptr, ptr %55, align 8, !tbaa !73
   %62 = load ptr, ptr %45, align 8, !tbaa !71
   %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
-  %64 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %63) #12
+  %64 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %63) #11
   %.not58 = icmp eq i32 %64, 0
   br i1 %.not58, label %.loopexit, label %56
 
@@ -420,7 +420,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
 
 77:                                               ; preds = %._crit_edge
   %78 = sext i32 %72 to i64
-  %79 = tail call noalias ptr @calloc(i64 noundef %78, i64 noundef 8) #13
+  %79 = tail call noalias ptr @calloc(i64 noundef %78, i64 noundef 8) #12
   store ptr %79, ptr %74, align 8, !tbaa !75
   %80 = icmp eq ptr %79, null
   br i1 %80, label %.loopexit, label %81
@@ -440,7 +440,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
 
 89:                                               ; preds = %85
   %90 = sext i32 %72 to i64
-  %91 = tail call noalias ptr @calloc(i64 noundef %90, i64 noundef 8) #13
+  %91 = tail call noalias ptr @calloc(i64 noundef %90, i64 noundef 8) #12
   store ptr %91, ptr %86, align 8, !tbaa !76
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.loopexit, label %93
@@ -461,7 +461,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
   br i1 %.not55, label %100, label %105
 
 100:                                              ; preds = %97
-  %101 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 8) #13
+  %101 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 8) #12
   store ptr %101, ptr %98, align 8, !tbaa !77
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %103 = load i64, ptr %102, align 8, !tbaa !51
@@ -476,7 +476,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
   br i1 %.not56, label %108, label %113
 
 108:                                              ; preds = %105
-  %109 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 8) #13
+  %109 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 8) #12
   store ptr %109, ptr %106, align 8, !tbaa !78
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %111 = load i64, ptr %110, align 8, !tbaa !51
@@ -539,7 +539,7 @@ define range(i32 -21, 1) i32 @erkStep_FullRHS(ptr noundef %0, double noundef %1,
   br i1 %11, label %erkStep_AccessStepMem.exit, label %12
 
 erkStep_AccessStepMem.exit:                       ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_FullRHS, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_FullRHS, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %136
 
 12:                                               ; preds = %5
@@ -566,7 +566,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   %24 = load ptr, ptr %23, align 8, !tbaa !83
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !84
-  %27 = tail call i32 %21(double noundef %1, ptr noundef %2, ptr noundef %24, ptr noundef %26) #12
+  %27 = tail call i32 %21(double noundef %1, ptr noundef %2, ptr noundef %24, ptr noundef %26) #11
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %29 = load i64, ptr %28, align 8, !tbaa !85
   %30 = add nsw i64 %29, 1
@@ -575,14 +575,14 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br i1 %.not49, label %32, label %31
 
 31:                                               ; preds = %20
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 613, ptr noundef nonnull @__func__.erkStep_FullRHS, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, double noundef %1) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 613, ptr noundef nonnull @__func__.erkStep_FullRHS, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, double noundef %1) #11
   br label %136
 
 32:                                               ; preds = %20, %17
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !71
   %35 = load ptr, ptr %34, align 8, !tbaa !83
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %35, ptr noundef %3) #12
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %35, ptr noundef %3) #11
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %37 = load i32, ptr %36, align 8, !tbaa !53
   %38 = icmp sgt i32 %37, 0
@@ -622,7 +622,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
 
 ._crit_edge.us.i:                                 ; preds = %49
   %53 = add nuw nsw i32 %37, 1
-  %54 = tail call i32 @N_VLinearCombination(i32 noundef %53, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %3) #12
+  %54 = tail call i32 @N_VLinearCombination(i32 noundef %53, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %3) #11
   br label %136
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -646,7 +646,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !59
-  %66 = tail call i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef %65) #12
+  %66 = tail call i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef %65) #11
   %.not45 = icmp eq i32 %66, 0
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %68 = load i32, ptr %67, align 8, !tbaa !88
@@ -661,7 +661,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   %73 = load ptr, ptr %72, align 8, !tbaa !83
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !84
-  %76 = tail call i32 %70(double noundef %1, ptr noundef %2, ptr noundef %73, ptr noundef %75) #12
+  %76 = tail call i32 %70(double noundef %1, ptr noundef %2, ptr noundef %73, ptr noundef %75) #11
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %78 = load i64, ptr %77, align 8, !tbaa !85
   %79 = add nsw i64 %78, 1
@@ -670,7 +670,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br i1 %.not47, label %91, label %80
 
 80:                                               ; preds = %69
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 652, ptr noundef nonnull @__func__.erkStep_FullRHS, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, double noundef %1) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 652, ptr noundef nonnull @__func__.erkStep_FullRHS, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, double noundef %1) #11
   br label %136
 
 81:                                               ; preds = %63
@@ -683,14 +683,14 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   %88 = getelementptr i8, ptr %87, i64 -8
   %89 = load ptr, ptr %88, align 8, !tbaa !83
   %90 = load ptr, ptr %83, align 8, !tbaa !83
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %89, ptr noundef %90) #12
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %89, ptr noundef %90) #11
   br label %91
 
 91:                                               ; preds = %69, %81
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !71
   %94 = load ptr, ptr %93, align 8, !tbaa !83
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %94, ptr noundef %3) #12
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %94, ptr noundef %3) #11
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %96 = load i32, ptr %95, align 8, !tbaa !53
   %97 = icmp sgt i32 %96, 0
@@ -702,14 +702,14 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   store i32 1, ptr %7, align 4, !tbaa !89
   call void @erkStep_ApplyForcing(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %7)
   %99 = load i32, ptr %7, align 4, !tbaa !89
-  %100 = tail call i32 @N_VLinearCombination(i32 noundef %99, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %3) #12
+  %100 = tail call i32 @N_VLinearCombination(i32 noundef %99, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %3) #11
   br label %136
 
 101:                                              ; preds = %12
   %102 = load ptr, ptr %10, align 8, !tbaa !45
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %104 = load ptr, ptr %103, align 8, !tbaa !84
-  %105 = tail call i32 %102(double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %104) #12
+  %105 = tail call i32 %102(double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %104) #11
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %107 = load i64, ptr %106, align 8, !tbaa !85
   %108 = add nsw i64 %107, 1
@@ -718,7 +718,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br i1 %.not43, label %110, label %109
 
 109:                                              ; preds = %101
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 682, ptr noundef nonnull @__func__.erkStep_FullRHS, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, double noundef %1) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 682, ptr noundef nonnull @__func__.erkStep_FullRHS, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, double noundef %1) #11
   br label %136
 
 110:                                              ; preds = %101
@@ -761,7 +761,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
 
 ._crit_edge.us.i66:                               ; preds = %124
   %128 = add nuw nsw i32 %112, 1
-  %129 = tail call i32 @N_VLinearCombination(i32 noundef %128, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %3) #12
+  %129 = tail call i32 @N_VLinearCombination(i32 noundef %128, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %3) #11
   br label %136
 
 .lr.ph.i52:                                       ; preds = %.lr.ph.i52, %.lr.ph.preheader.i50
@@ -777,7 +777,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br i1 %exitcond.not.i55, label %.preheader.i56, label %.lr.ph.i52
 
 135:                                              ; preds = %12
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 700, ptr noundef nonnull @__func__.erkStep_FullRHS, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 700, ptr noundef nonnull @__func__.erkStep_FullRHS, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20) #11
   br label %136
 
 136:                                              ; preds = %erkStep_AccessStepMem.exit, %._crit_edge.us.i, %32, %91, %98, %60, %._crit_edge.us.i66, %110, %135, %109, %80, %31
@@ -796,7 +796,7 @@ define range(i32 -38, 1) i32 @erkStep_TakeStep(ptr noundef %0, ptr noundef write
   br i1 %6, label %erkStep_AccessStepMem.exit, label %7
 
 erkStep_AccessStepMem.exit:                       ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_TakeStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_TakeStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %.loopexit
 
 7:                                                ; preds = %3
@@ -822,7 +822,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
   %23 = load ptr, ptr %22, align 8, !tbaa !92
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %25 = load ptr, ptr %24, align 8, !tbaa !93
-  %26 = tail call i32 %19(ptr noundef nonnull %0, double noundef %21, ptr noundef %23, ptr noundef %25, i32 noundef %17) #12
+  %26 = tail call i32 %19(ptr noundef nonnull %0, double noundef %21, ptr noundef %23, ptr noundef %25, i32 noundef %17) #11
   %.not72 = icmp eq i32 %26, 0
   br i1 %.not72, label %27, label %.loopexit
 
@@ -994,7 +994,7 @@ erkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i
 120:                                              ; preds = %erkStep_ApplyForcing.exit, %75
   %.193 = phi i32 [ %119, %erkStep_ApplyForcing.exit ], [ %81, %75 ]
   %121 = load ptr, ptr %44, align 8, !tbaa !99
-  %122 = tail call i32 @N_VLinearCombination(i32 noundef %.193, ptr noundef %9, ptr noundef %11, ptr noundef %121) #12
+  %122 = tail call i32 @N_VLinearCombination(i32 noundef %.193, ptr noundef %9, ptr noundef %11, ptr noundef %121) #11
   %.not73 = icmp eq i32 %122, 0
   br i1 %.not73, label %123, label %.loopexit
 
@@ -1007,7 +1007,7 @@ erkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i
   %126 = load double, ptr %35, align 8, !tbaa !96
   %127 = load ptr, ptr %44, align 8, !tbaa !99
   %128 = load ptr, ptr %46, align 8, !tbaa !84
-  %129 = tail call i32 %124(double noundef %126, ptr noundef %127, ptr noundef %128) #12
+  %129 = tail call i32 %124(double noundef %126, ptr noundef %127, ptr noundef %128) #11
   %.not75 = icmp eq i32 %129, 0
   br i1 %.not75, label %130, label %.loopexit
 
@@ -1019,7 +1019,7 @@ erkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i
   %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv108
   %136 = load ptr, ptr %135, align 8, !tbaa !83
   %137 = load ptr, ptr %46, align 8, !tbaa !84
-  %138 = tail call i32 %131(double noundef %132, ptr noundef %133, ptr noundef %136, ptr noundef %137) #12
+  %138 = tail call i32 %131(double noundef %132, ptr noundef %133, ptr noundef %136, ptr noundef %137) #11
   %139 = load i64, ptr %47, align 8, !tbaa !85
   %140 = add nsw i64 %139, 1
   store i64 %140, ptr %47, align 8, !tbaa !85
@@ -1055,7 +1055,7 @@ define range(i32 -21, 1) i32 @erkStep_Resize(ptr noundef %0, ptr noundef %1, dou
   br i1 %11, label %erkStep_AccessStepMem.exit, label %12
 
 erkStep_AccessStepMem.exit:                       ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_Resize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_Resize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %.loopexit
 
 12:                                               ; preds = %6
@@ -1069,7 +1069,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %6
   br i1 %.not21, label %18, label %17
 
 17:                                               ; preds = %12
-  call void @N_VSpace(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
+  call void @N_VSpace(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %.pre = load i64, ptr %7, align 8, !tbaa !101
   %.pre28 = load i64, ptr %8, align 8, !tbaa !101
   br label %18
@@ -1105,12 +1105,12 @@ erkStep_AccessStepMem.exit:                       ; preds = %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %36 = load ptr, ptr %30, align 8, !tbaa !71
   %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
-  %38 = call i32 @arkResizeVec(ptr noundef %0, ptr noundef %4, ptr noundef %5, i64 noundef %23, i64 noundef %26, ptr noundef %1, ptr noundef %37) #12
+  %38 = call i32 @arkResizeVec(ptr noundef %0, ptr noundef %4, ptr noundef %5, i64 noundef %23, i64 noundef %26, ptr noundef %1, ptr noundef %37) #11
   %.not22 = icmp eq i32 %38, 0
   br i1 %.not22, label %39, label %31
 
 39:                                               ; preds = %35
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -20, i32 noundef 257, ptr noundef nonnull @__func__.erkStep_Resize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #12
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -20, i32 noundef 257, ptr noundef nonnull @__func__.erkStep_Resize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %18, %erkStep_AccessStepMem.exit, %39
@@ -1142,9 +1142,9 @@ define void @erkStep_Free(ptr noundef %0) #0 {
   br i1 %.not49, label %21, label %11
 
 11:                                               ; preds = %8
-  call void @ARKodeButcherTable_Space(ptr noundef nonnull %10, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
+  call void @ARKodeButcherTable_Space(ptr noundef nonnull %10, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %12 = load ptr, ptr %9, align 8, !tbaa !59
-  call void @ARKodeButcherTable_Free(ptr noundef %12) #12
+  call void @ARKodeButcherTable_Free(ptr noundef %12) #11
   store ptr null, ptr %9, align 8, !tbaa !59
   %13 = load i64, ptr %2, align 8, !tbaa !101
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -1174,7 +1174,7 @@ define void @erkStep_Free(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %27 = load ptr, ptr %22, align 8, !tbaa !71
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
-  call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef %28) #12
+  call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef %28) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %24, align 8, !tbaa !72
   %30 = sext i32 %29 to i64
@@ -1187,7 +1187,7 @@ define void @erkStep_Free(ptr noundef %0) #0 {
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %32 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %23, %.preheader ]
-  call void @free(ptr noundef %32) #12
+  call void @free(ptr noundef %32) #11
   store ptr null, ptr %22, align 8, !tbaa !71
   %33 = load i32, ptr %24, align 8, !tbaa !72
   %34 = sext i32 %33 to i64
@@ -1204,7 +1204,7 @@ define void @erkStep_Free(ptr noundef %0) #0 {
   br i1 %.not51, label %48, label %41
 
 41:                                               ; preds = %38
-  call void @free(ptr noundef nonnull %40) #12
+  call void @free(ptr noundef nonnull %40) #11
   store ptr null, ptr %39, align 8, !tbaa !75
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %43 = load i32, ptr %42, align 8, !tbaa !74
@@ -1222,7 +1222,7 @@ define void @erkStep_Free(ptr noundef %0) #0 {
   br i1 %.not52, label %58, label %51
 
 51:                                               ; preds = %48
-  call void @free(ptr noundef nonnull %50) #12
+  call void @free(ptr noundef nonnull %50) #11
   store ptr null, ptr %49, align 8, !tbaa !76
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %53 = load i32, ptr %52, align 8, !tbaa !74
@@ -1242,7 +1242,7 @@ define void @erkStep_Free(ptr noundef %0) #0 {
   br i1 %.not53, label %69, label %62
 
 62:                                               ; preds = %58
-  call void @free(ptr noundef nonnull %61) #12
+  call void @free(ptr noundef nonnull %61) #11
   store ptr null, ptr %60, align 8, !tbaa !77
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %64 = load i32, ptr %63, align 8, !tbaa !72
@@ -1260,7 +1260,7 @@ define void @erkStep_Free(ptr noundef %0) #0 {
   br i1 %.not54, label %79, label %72
 
 72:                                               ; preds = %69
-  call void @free(ptr noundef nonnull %71) #12
+  call void @free(ptr noundef nonnull %71) #11
   store ptr null, ptr %70, align 8, !tbaa !78
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %74 = load i32, ptr %73, align 8, !tbaa !72
@@ -1273,7 +1273,7 @@ define void @erkStep_Free(ptr noundef %0) #0 {
 
 79:                                               ; preds = %72, %69
   %80 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @free(ptr noundef %80) #12
+  call void @free(ptr noundef %80) #11
   store ptr null, ptr %6, align 8, !tbaa !44
   br label %81
 
@@ -1291,26 +1291,26 @@ define void @erkStep_PrintMem(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %5, label %erkStep_AccessStepMem.exit, label %6
 
 erkStep_AccessStepMem.exit:                       ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_PrintMem, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_PrintMem, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %22
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !67
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %8) #12
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %8) #11
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %11 = load i32, ptr %10, align 4, !tbaa !70
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %11) #12
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %11) #11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !72
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %14) #12
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %14) #11
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %17 = load i64, ptr %16, align 8, !tbaa !85
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, i64 noundef %17) #12
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, i64 noundef %17) #11
   %19 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 24, i64 1, ptr %1)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !59
-  tail call void @ARKodeButcherTable_Write(ptr noundef %21, ptr noundef %1) #12
+  tail call void @ARKodeButcherTable_Write(ptr noundef %21, ptr noundef %1) #11
   br label %22
 
 22:                                               ; preds = %erkStep_AccessStepMem.exit, %6
@@ -1335,7 +1335,7 @@ define range(i32 -21, 1) i32 @erkStep_SetInnerForcing(ptr noundef %0, double nou
   br i1 %8, label %erkStep_AccessStepMem.exit, label %9
 
 erkStep_AccessStepMem.exit:                       ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_SetInnerForcing, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef nonnull @__func__.erkStep_SetInnerForcing, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %57
 
 9:                                                ; preds = %5
@@ -1372,7 +1372,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br i1 %.not20, label %57, label %27
 
 27:                                               ; preds = %21
-  tail call void @free(ptr noundef nonnull %17) #12
+  tail call void @free(ptr noundef nonnull %17) #11
   %28 = load i32, ptr %22, align 8, !tbaa !74
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -1384,7 +1384,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br i1 %.not21, label %40, label %34
 
 34:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %33) #12
+  tail call void @free(ptr noundef nonnull %33) #11
   %35 = load i32, ptr %22, align 8, !tbaa !74
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -1399,7 +1399,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   %43 = add i32 %42, %41
   store i32 %43, ptr %22, align 8, !tbaa !74
   %44 = sext i32 %43 to i64
-  %45 = tail call noalias ptr @calloc(i64 noundef %44, i64 noundef 8) #13
+  %45 = tail call noalias ptr @calloc(i64 noundef %44, i64 noundef 8) #12
   store ptr %45, ptr %16, align 8, !tbaa !75
   %46 = icmp eq ptr %45, null
   br i1 %46, label %57, label %47
@@ -1408,7 +1408,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   %48 = load i64, ptr %30, align 8, !tbaa !51
   %49 = add nsw i64 %48, %44
   store i64 %49, ptr %30, align 8, !tbaa !51
-  %50 = tail call noalias ptr @calloc(i64 noundef %44, i64 noundef 8) #13
+  %50 = tail call noalias ptr @calloc(i64 noundef %44, i64 noundef 8) #12
   store ptr %50, ptr %19, align 8, !tbaa !76
   %51 = icmp eq ptr %50, null
   br i1 %51, label %57, label %52
@@ -1440,7 +1440,7 @@ define i32 @ERKStepReInit(ptr noundef %0, ptr noundef %1, double noundef %2, ptr
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 879, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 879, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %erkStep_AccessARKODEStepMem.exit.thread
 
 7:                                                ; preds = %4
@@ -1450,7 +1450,7 @@ define i32 @ERKStepReInit(ptr noundef %0, ptr noundef %1, double noundef %2, ptr
   br i1 %10, label %11, label %erkStep_AccessARKODEStepMem.exit
 
 11:                                               ; preds = %7
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 888, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 888, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %erkStep_AccessARKODEStepMem.exit.thread
 
 erkStep_AccessARKODEStepMem.exit:                 ; preds = %7
@@ -1460,7 +1460,7 @@ erkStep_AccessARKODEStepMem.exit:                 ; preds = %7
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %erkStep_AccessARKODEStepMem.exit
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -23, i32 noundef 182, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -23, i32 noundef 182, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #11
   br label %erkStep_AccessARKODEStepMem.exit.thread
 
 16:                                               ; preds = %erkStep_AccessARKODEStepMem.exit
@@ -1468,7 +1468,7 @@ erkStep_AccessARKODEStepMem.exit:                 ; preds = %7
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 190, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 190, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #11
   br label %erkStep_AccessARKODEStepMem.exit.thread
 
 19:                                               ; preds = %16
@@ -1476,17 +1476,17 @@ erkStep_AccessARKODEStepMem.exit:                 ; preds = %7
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %19
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 198, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 198, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #11
   br label %erkStep_AccessARKODEStepMem.exit.thread
 
 22:                                               ; preds = %19
   store ptr %1, ptr %9, align 8, !tbaa !45
-  %23 = tail call i32 @arkInit(ptr noundef nonnull %0, double noundef %2, ptr noundef nonnull %3, i32 noundef 0) #12
+  %23 = tail call i32 @arkInit(ptr noundef nonnull %0, double noundef %2, ptr noundef nonnull %3, i32 noundef 0) #11
   %.not16 = icmp eq i32 %23, 0
   br i1 %.not16, label %25, label %24
 
 24:                                               ; preds = %22
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef %23, i32 noundef 210, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef %23, i32 noundef 210, ptr noundef nonnull @__func__.ERKStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #11
   br label %erkStep_AccessARKODEStepMem.exit.thread
 
 25:                                               ; preds = %22
@@ -1505,7 +1505,7 @@ define range(i32 -21, 1) i32 @erkStep_AccessARKODEStepMem(ptr noundef %0, ptr no
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 879, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 879, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %13
 
 7:                                                ; preds = %4
@@ -1516,7 +1516,7 @@ define range(i32 -21, 1) i32 @erkStep_AccessARKODEStepMem(ptr noundef %0, ptr no
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 888, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 888, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %13
 
 12:                                               ; preds = %7
@@ -1536,7 +1536,7 @@ define range(i32 -21, 1) i32 @erkStep_AccessStepMem(ptr noundef %0, ptr noundef 
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 908, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %9
 
 8:                                                ; preds = %3
@@ -1580,7 +1580,7 @@ define range(i32 -21, 1) i32 @erkStep_SetButcherTable(ptr noundef %0) local_unna
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 948, ptr noundef nonnull @__func__.erkStep_SetButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 948, ptr noundef nonnull @__func__.erkStep_SetButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %36
 
 8:                                                ; preds = %1
@@ -1597,7 +1597,7 @@ define range(i32 -21, 1) i32 @erkStep_SetButcherTable(ptr noundef %0) local_unna
   br i1 %14, label %switch.lookup, label %15
 
 15:                                               ; preds = %11
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 99, i32 noundef 973, ptr noundef nonnull @__func__.erkStep_SetButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 99, i32 noundef 973, ptr noundef nonnull @__func__.erkStep_SetButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #11
   br label %17
 
 switch.lookup:                                    ; preds = %11
@@ -1608,9 +1608,9 @@ switch.lookup:                                    ; preds = %11
 
 17:                                               ; preds = %switch.lookup, %15
   %.019 = phi i32 [ 21, %15 ], [ %switch.load, %switch.lookup ]
-  %18 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.019) #12
+  %18 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.019) #11
   store ptr %18, ptr %9, align 8, !tbaa !59
-  call void @ARKodeButcherTable_Space(ptr noundef %18, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
+  call void @ARKodeButcherTable_Space(ptr noundef %18, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %19 = load i64, ptr %2, align 8, !tbaa !101
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %21 = load i64, ptr %20, align 8, !tbaa !50
@@ -1653,7 +1653,7 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 1019, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 1019, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %.loopexit
 
 6:                                                ; preds = %1
@@ -1663,7 +1663,7 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 1028, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.23) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 1028, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.23) #11
   br label %.loopexit
 
 11:                                               ; preds = %6
@@ -1673,7 +1673,7 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 1036, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 1036, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24) #11
   br label %.loopexit
 
 16:                                               ; preds = %11
@@ -1689,7 +1689,7 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
   br i1 %.not, label %23, label %.preheader44.lr.ph
 
 23:                                               ; preds = %22
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 1044, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.25) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 1044, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.25) #11
   br label %.loopexit
 
 24:                                               ; preds = %16
@@ -1704,7 +1704,7 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
   br i1 %30, label %31, label %.preheader44.lr.ph
 
 31:                                               ; preds = %25
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 1054, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 1054, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #11
   br label %.loopexit
 
 .preheader44.lr.ph:                               ; preds = %24, %25, %22
@@ -1745,7 +1745,7 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
   br i1 %.not42, label %46, label %47
 
 46:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -41, i32 noundef 1071, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.27) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -41, i32 noundef 1071, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.27) #11
   br label %.loopexit
 
 47:                                               ; preds = %._crit_edge
@@ -1763,12 +1763,11 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
   %53 = load ptr, ptr %52, align 8, !tbaa !59
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !110
-  %smax57 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
-  %wide.trip.count58 = zext nneg i32 %smax57 to i64
+  %wide.trip.count58 = zext nneg i32 %8 to i64
   br label %58
 
 56:                                               ; preds = %50
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 1081, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 1081, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28) #11
   br label %.loopexit
 
 57:                                               ; preds = %58
@@ -1784,7 +1783,7 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
   br i1 %61, label %62, label %57
 
 62:                                               ; preds = %58
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -41, i32 noundef 1090, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.29) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -41, i32 noundef 1090, ptr noundef nonnull @__func__.erkStep_CheckButcherTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.29) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %47, %62, %56, %46, %31, %23, %15, %10, %5
@@ -1894,7 +1893,7 @@ define range(i32 -28, 1) i32 @erkStep_ComputeSolutions(ptr noundef %0, ptr nound
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 1126, ptr noundef nonnull @__func__.erkStep_ComputeSolutions, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 1126, ptr noundef nonnull @__func__.erkStep_ComputeSolutions, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %203
 
 7:                                                ; preds = %2
@@ -2077,7 +2076,7 @@ erkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
 102:                                              ; preds = %._crit_edge.thread, %erkStep_ApplyForcing.exit, %._crit_edge
   %103 = phi ptr [ %74, %erkStep_ApplyForcing.exit ], [ %41, %._crit_edge ], [ %46, %._crit_edge.thread ]
   %.1125 = phi i32 [ %101, %erkStep_ApplyForcing.exit ], [ %40, %._crit_edge ], [ 1, %._crit_edge.thread ]
-  %104 = tail call i32 @N_VLinearCombination(i32 noundef %.1125, ptr noundef nonnull %13, ptr noundef %15, ptr noundef %9) #12
+  %104 = tail call i32 @N_VLinearCombination(i32 noundef %.1125, ptr noundef nonnull %13, ptr noundef %15, ptr noundef %9) #11
   %.not = icmp eq i32 %104, 0
   br i1 %.not, label %105, label %203
 
@@ -2259,14 +2258,14 @@ erkStep_ApplyForcing.exit114:                     ; preds = %._crit_edge.us.i111
 
 197:                                              ; preds = %._crit_edge140.thread, %erkStep_ApplyForcing.exit114, %._crit_edge140
   %.3127 = phi i32 [ %196, %erkStep_ApplyForcing.exit114 ], [ %112, %._crit_edge140 ], [ 0, %._crit_edge140.thread ]
-  %198 = tail call i32 @N_VLinearCombination(i32 noundef %.3127, ptr noundef nonnull %13, ptr noundef %15, ptr noundef %11) #12
+  %198 = tail call i32 @N_VLinearCombination(i32 noundef %.3127, ptr noundef nonnull %13, ptr noundef %15, ptr noundef %11) #11
   %.not92 = icmp eq i32 %198, 0
   br i1 %.not92, label %199, label %203
 
 199:                                              ; preds = %197
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %201 = load ptr, ptr %200, align 8, !tbaa !73
-  %202 = tail call double @N_VWrmsNorm(ptr noundef %11, ptr noundef %201) #12
+  %202 = tail call double @N_VWrmsNorm(ptr noundef %11, ptr noundef %201) #11
   store double %202, ptr %1, align 8, !tbaa !81
   br label %203
 
@@ -2294,7 +2293,7 @@ define range(i32 -46, 3) i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr noundef re
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %4
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 1231, ptr noundef nonnull @__func__.erkStep_RelaxDeltaE, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 1231, ptr noundef nonnull @__func__.erkStep_RelaxDeltaE, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %.loopexit
 
 12:                                               ; preds = %4
@@ -2358,13 +2357,13 @@ define range(i32 -46, 3) i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr noundef re
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26
   %.066.lcssa = phi i32 [ 1, %26 ], [ %43, %._crit_edge.loopexit ]
-  %44 = tail call i32 @N_VLinearCombination(i32 noundef %.066.lcssa, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %6) #12
+  %44 = tail call i32 @N_VLinearCombination(i32 noundef %.066.lcssa, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %6) #11
   %.not72 = icmp eq i32 %44, 0
   br i1 %.not72, label %45, label %.loopexit
 
 45:                                               ; preds = %._crit_edge
   %46 = load ptr, ptr %24, align 8, !tbaa !84
-  %47 = tail call i32 %1(ptr noundef %6, ptr noundef %8, ptr noundef %46) #12
+  %47 = tail call i32 %1(ptr noundef %6, ptr noundef %8, ptr noundef %46) #11
   %48 = load i64, ptr %2, align 8, !tbaa !101
   %49 = add nsw i64 %48, 1
   store i64 %49, ptr %2, align 8, !tbaa !101
@@ -2397,7 +2396,7 @@ define range(i32 -46, 3) i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr noundef re
   %65 = load ptr, ptr %23, align 8, !tbaa !71
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv88
   %67 = load ptr, ptr %66, align 8, !tbaa !83
-  %68 = tail call double @N_VDotProdLocal(ptr noundef nonnull %8, ptr noundef %67) #12
+  %68 = tail call double @N_VDotProdLocal(ptr noundef nonnull %8, ptr noundef %67) #11
   %69 = load double, ptr %3, align 8, !tbaa !81
   %70 = tail call double @llvm.fmuladd.f64(double %64, double %68, double %69)
   br label %83
@@ -2411,7 +2410,7 @@ define range(i32 -46, 3) i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr noundef re
   %77 = load ptr, ptr %23, align 8, !tbaa !71
   %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv88
   %79 = load ptr, ptr %78, align 8, !tbaa !83
-  %80 = tail call double @N_VDotProd(ptr noundef nonnull %8, ptr noundef %79) #12
+  %80 = tail call double @N_VDotProd(ptr noundef nonnull %8, ptr noundef %79) #11
   %81 = load double, ptr %3, align 8, !tbaa !81
   %82 = tail call double @llvm.fmuladd.f64(double %76, double %80, double %81)
   br label %83
@@ -2441,7 +2440,7 @@ define range(i32 -46, 3) i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr noundef re
   br i1 %.not70, label %97, label %95
 
 95:                                               ; preds = %92
-  %96 = tail call i32 @N_VDotProdMultiAllReduce(i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %3) #12
+  %96 = tail call i32 @N_VDotProdMultiAllReduce(i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %3) #11
   %.not71 = icmp eq i32 %96, 0
   br i1 %.not71, label %._crit_edge91, label %.loopexit
 
@@ -2486,9 +2485,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2500,9 +2496,8 @@ attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nofree nounwind }
-attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0,1) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

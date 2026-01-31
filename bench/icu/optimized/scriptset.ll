@@ -477,7 +477,7 @@ _ZNK6icu_779ScriptSet10nextSetBitEi.exit17:       ; preds = %_ZNK6icu_779ScriptS
 _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %17
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %or.cond.i = icmp samesign ugt i32 %.01018, 222
+  %or.cond.i = icmp ugt i32 %.01018, 222
   br i1 %or.cond.i, label %._crit_edge, label %_ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i11.preheader
 
 _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i11.preheader: ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit
@@ -494,7 +494,7 @@ _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i11: ; preds = %_ZNK6
   %32 = shl nuw i32 1, %28
   %33 = and i32 %32, %31
   %.not.i13 = icmp eq i32 %33, 0
-  br i1 %.not.i13, label %_ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.thread.i15, label %_ZNK6icu_779ScriptSet10nextSetBitEi.exit17, !llvm.loop !22
+  br i1 %.not.i13, label %_ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.thread.i15, label %_ZNK6icu_779ScriptSet10nextSetBitEi.exit17
 
 _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.thread.i15: ; preds = %_ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i11
   %34 = add nuw nsw i32 %.0816.i12, 1
@@ -527,7 +527,7 @@ define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_779ScriptSet12pa
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %4, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %4, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i16 2, ptr %9, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -575,7 +575,7 @@ define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_779ScriptSet12pa
   %34 = load i32, ptr %11, align 4
   %35 = select i1 %31, i32 %34, i32 %33
   %36 = icmp slt i32 %23, %35
-  br i1 %36, label %72, label %39, !llvm.loop !25
+  br i1 %36, label %72, label %39, !llvm.loop !24
 
 37:                                               ; preds = %27, %24, %22, %20
   %38 = landingpad { ptr, i32 }
@@ -704,11 +704,11 @@ define void @_ZN6icu_779ScriptSet19setScriptExtensionsEiR10UErrorCode(ptr nounde
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %9, ptr %4, align 8, !tbaa !26
+  store ptr %9, ptr %4, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 20, ptr %10, align 8, !tbaa !29
+  store i32 20, ptr %10, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i8 0, ptr %11, align 4, !tbaa !30
+  store i8 0, ptr %11, align 4, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %12
 
@@ -739,20 +739,20 @@ define void @_ZN6icu_779ScriptSet19setScriptExtensionsEiR10UErrorCode(ptr nounde
   br i1 %.not.i, label %.loopexit.sink.split, label %25
 
 25:                                               ; preds = %.noexc
-  %26 = load i8, ptr %11, align 4, !tbaa !30
+  %26 = load i8, ptr %11, align 4, !tbaa !29
   %.not.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i, label %_ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EE6resizeEii.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = load ptr, ptr %4, align 8, !tbaa !26
+  %28 = load ptr, ptr %4, align 8, !tbaa !25
   invoke void @uprv_free_77(ptr noundef %28)
           to label %_ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EE6resizeEii.exit unwind label %29
 
 _ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EE6resizeEii.exit: ; preds = %25, %27
-  store ptr %24, ptr %4, align 8, !tbaa !26
-  store i32 %15, ptr %10, align 8, !tbaa !29
-  store i8 1, ptr %11, align 4, !tbaa !30
-  br label %12, !llvm.loop !31
+  store ptr %24, ptr %4, align 8, !tbaa !25
+  store i32 %15, ptr %10, align 8, !tbaa !28
+  store i8 1, ptr %11, align 4, !tbaa !29
+  br label %12, !llvm.loop !30
 
 29:                                               ; preds = %27, %21, %12
   %30 = landingpad { ptr, i32 }
@@ -772,7 +772,7 @@ _ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EE6resizeEii.exit: ; preds = %25, %
 
 .lr.ph:                                           ; preds = %.preheader
   %.promoted = load i32, ptr %2, align 4
-  %34 = load ptr, ptr %4, align 8, !tbaa !26
+  %34 = load ptr, ptr %4, align 8, !tbaa !25
   %wide.trip.count = zext nneg i32 %15 to i64
   %35 = icmp slt i32 %.promoted, 1
   br label %44
@@ -788,12 +788,12 @@ _ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EE6resizeEii.exit: ; preds = %25, %
   store i32 %43, ptr %41, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !31
 
 44:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %45 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
-  %46 = load i32, ptr %45, align 4, !tbaa !33
+  %46 = load i32, ptr %45, align 4, !tbaa !32
   br i1 %35, label %47, label %.loopexit
 
 47:                                               ; preds = %44
@@ -807,12 +807,12 @@ _ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EE6resizeEii.exit: ; preds = %25, %
 
 .loopexit:                                        ; preds = %44, %36, %.loopexit.sink.split, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %48 = load i8, ptr %11, align 4, !tbaa !30
+  %48 = load i8, ptr %11, align 4, !tbaa !29
   %.not.i.i22 = icmp eq i8 %48, 0
   br i1 %.not.i.i22, label %_ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EED2Ev.exit, label %49
 
 49:                                               ; preds = %.loopexit
-  %50 = load ptr, ptr %4, align 8, !tbaa !26
+  %50 = load ptr, ptr %4, align 8, !tbaa !25
   invoke void @uprv_free_77(ptr noundef %50)
           to label %_ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EED2Ev.exit unwind label %51
 
@@ -836,12 +836,12 @@ declare i32 @uscript_getScriptExtensions_77(i32 noundef, ptr noundef, i32 nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i8, ptr %2, align 4, !tbaa !30
+  %3 = load i8, ptr %2, align 4, !tbaa !29
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %_ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EE12releaseArrayEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !26
+  %5 = load ptr, ptr %0, align 8, !tbaa !25
   invoke void @uprv_free_77(ptr noundef %5)
           to label %_ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EE12releaseArrayEv.exit unwind label %6
 
@@ -1034,7 +1034,7 @@ _ZNK6icu_779ScriptSet10nextSetBitEi.exit52:       ; preds = %_ZNK6icu_779ScriptS
   %54 = icmp eq i32 %53, 0
   %55 = icmp sgt i32 %.09.i41, 0
   %56 = and i1 %55, %54
-  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %_ZNK6icu_779ScriptSet10nextSetBitEi.exit52, %_ZNK6icu_779ScriptSet10nextSetBitEi.exit37, %_ZNK6icu_779ScriptSet12countMembersEv.exit29
   %.016 = phi i32 [ %14, %_ZNK6icu_779ScriptSet12countMembersEv.exit29 ], [ %31, %_ZNK6icu_779ScriptSet10nextSetBitEi.exit37 ], [ %53, %_ZNK6icu_779ScriptSet10nextSetBitEi.exit52 ]
@@ -1146,17 +1146,16 @@ attributes #17 = { noreturn nounwind }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"char16_t", !5, i64 0}
 !21 = !{!5, !5, i64 0}
-!22 = distinct !{!22, !8}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"vtable pointer", !6, i64 0}
-!25 = distinct !{!25, !8}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"_ZTSN6icu_7715MaybeStackArrayI11UScriptCodeLi20EEE", !28, i64 0, !4, i64 8, !5, i64 12, !5, i64 16}
-!28 = !{!"any pointer", !5, i64 0}
-!29 = !{!27, !4, i64 8}
-!30 = !{!27, !5, i64 12}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"vtable pointer", !6, i64 0}
+!24 = distinct !{!24, !8}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"_ZTSN6icu_7715MaybeStackArrayI11UScriptCodeLi20EEE", !27, i64 0, !4, i64 8, !5, i64 12, !5, i64 16}
+!27 = !{!"any pointer", !5, i64 0}
+!28 = !{!26, !4, i64 8}
+!29 = !{!26, !5, i64 12}
+!30 = distinct !{!30, !8}
 !31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"_ZTS11UScriptCode", !5, i64 0}
-!35 = distinct !{!35, !8}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"_ZTS11UScriptCode", !5, i64 0}
+!34 = distinct !{!34, !8}

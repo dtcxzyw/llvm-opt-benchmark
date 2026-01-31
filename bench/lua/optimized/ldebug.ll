@@ -1137,7 +1137,7 @@ nextline.exit.i:                                  ; preds = %.lr.ph.i.i.i43, %ge
 
 245:                                              ; preds = %nextline.exit53.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %244, %.lr.ph.i ], [ %indvars.iv.next.i, %nextline.exit53.i ]
-  %.12662.i = phi i32 [ %.025.i, %.lr.ph.i ], [ %.0.i31.i, %nextline.exit53.i ]
+  %.12667.i = phi i32 [ %.025.i, %.lr.ph.i ], [ %.0.i31.i, %nextline.exit53.i ]
   %246 = load ptr, ptr %203, align 8, !tbaa !4
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 %indvars.iv.i
   %248 = load i8, ptr %247, align 1, !tbaa !24
@@ -1146,20 +1146,20 @@ nextline.exit.i:                                  ; preds = %.lr.ph.i.i.i43, %ge
 
 249:                                              ; preds = %245
   %250 = sext i8 %248 to i32
-  %251 = add nsw i32 %.12662.i, %250
+  %251 = add nsw i32 %.12667.i, %250
   br label %nextline.exit53.i
 
 252:                                              ; preds = %245
   %253 = load i32, ptr %242, align 8, !tbaa !19
   %254 = icmp eq i32 %253, 0
-  br i1 %254, label %getbaseline.exit.i.i43.i, label %255
+  br i1 %254, label %getbaseline.exit.i.i43.thread.i, label %255
 
 255:                                              ; preds = %252
   %256 = load ptr, ptr %243, align 8, !tbaa !20
   %257 = load i32, ptr %256, align 4, !tbaa !21
   %258 = sext i32 %257 to i64
   %259 = icmp slt i64 %indvars.iv.i, %258
-  br i1 %259, label %getbaseline.exit.i.i43.i, label %260
+  br i1 %259, label %getbaseline.exit.i.i43.thread.i, label %260
 
 260:                                              ; preds = %255
   %261 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1174,7 +1174,7 @@ nextline.exit.i:                                  ; preds = %.lr.ph.i.i.i43, %ge
 265:                                              ; preds = %266, %260
   %indvars.iv.i.i.i34.i = phi i64 [ %indvars.iv.next.i.i.i36.i, %266 ], [ %263, %260 ]
   %exitcond.not.i.i.i35.i = icmp eq i64 %indvars.iv.i.i.i34.i, %wide.trip.count.i.i.i33.i
-  br i1 %exitcond.not.i.i.i35.i, label %.critedge.i.i.i41.i, label %266
+  br i1 %exitcond.not.i.i.i35.i, label %getbaseline.exit.i.i43.i, label %266
 
 266:                                              ; preds = %265
   %indvars.iv.next.i.i.i36.i = add nsw i64 %indvars.iv.i.i.i34.i, 1
@@ -1187,43 +1187,48 @@ nextline.exit.i:                                  ; preds = %.lr.ph.i.i.i43, %ge
 ..critedge_crit_edge.i.i.i38.i:                   ; preds = %266
   %sext.i.i.i39.i = shl i64 %indvars.iv.i.i.i34.i, 32
   %.pre.i.i.i40.i = ashr exact i64 %sext.i.i.i39.i, 32
-  br label %.critedge.i.i.i41.i
+  br label %getbaseline.exit.i.i43.i
 
-.critedge.i.i.i41.i:                              ; preds = %265, %..critedge_crit_edge.i.i.i38.i
+getbaseline.exit.i.i43.thread.i:                  ; preds = %255, %252
+  %.017.i.i.i4661.i = load i32, ptr %195, align 4, !tbaa !23
+  br label %.lr.ph.preheader.i.i47.i
+
+getbaseline.exit.i.i43.i:                         ; preds = %265, %..critedge_crit_edge.i.i.i38.i
   %.pre-phi.i.i.i42.i = phi i64 [ %.pre.i.i.i40.i, %..critedge_crit_edge.i.i.i38.i ], [ %wide.trip.count.i.i.i33.i, %265 ]
   %270 = getelementptr inbounds %struct.AbsLineInfo, ptr %256, i64 %.pre-phi.i.i.i42.i
   %271 = load i32, ptr %270, align 4, !tbaa !21
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 4
+  %.017.i.i.i46.i = load i32, ptr %272, align 4, !tbaa !23
   %273 = sext i32 %271 to i64
-  br label %getbaseline.exit.i.i43.i
+  %274 = icmp sgt i64 %indvars.iv.i, %273
+  br i1 %274, label %.lr.ph.preheader.i.i47.i, label %nextline.exit53.i
 
-getbaseline.exit.i.i43.i:                         ; preds = %.critedge.i.i.i41.i, %255, %252
-  %.1.i.i44.i = phi i64 [ %273, %.critedge.i.i.i41.i ], [ -1, %255 ], [ -1, %252 ]
-  %.017.in.i.i.i45.i = phi ptr [ %272, %.critedge.i.i.i41.i ], [ %195, %255 ], [ %195, %252 ]
-  %.017.i.i.i46.i = load i32, ptr %.017.in.i.i.i45.i, align 4, !tbaa !23
-  %274 = icmp slt i64 %.1.i.i44.i, %indvars.iv.i
-  br i1 %274, label %.lr.ph.i.i48.i, label %nextline.exit53.i
+.lr.ph.preheader.i.i47.i:                         ; preds = %getbaseline.exit.i.i43.i, %getbaseline.exit.i.i43.thread.i
+  %.017.i.i.i4663.i = phi i32 [ %.017.i.i.i4661.i, %getbaseline.exit.i.i43.thread.i ], [ %.017.i.i.i46.i, %getbaseline.exit.i.i43.i ]
+  %.1.i.i4462.i = phi i32 [ -1, %getbaseline.exit.i.i43.thread.i ], [ %271, %getbaseline.exit.i.i43.i ]
+  %275 = sext i32 %.1.i.i4462.i to i64
+  br label %.lr.ph.i.i48.i
 
-.lr.ph.i.i48.i:                                   ; preds = %getbaseline.exit.i.i43.i, %.lr.ph.i.i48.i
-  %indvars.iv.i.i49.i = phi i64 [ %indvars.iv.next.i.i51.i, %.lr.ph.i.i48.i ], [ %.1.i.i44.i, %getbaseline.exit.i.i43.i ]
-  %.011.i.i50.i = phi i32 [ %278, %.lr.ph.i.i48.i ], [ %.017.i.i.i46.i, %getbaseline.exit.i.i43.i ]
+.lr.ph.i.i48.i:                                   ; preds = %.lr.ph.i.i48.i, %.lr.ph.preheader.i.i47.i
+  %indvars.iv.i.i49.i = phi i64 [ %275, %.lr.ph.preheader.i.i47.i ], [ %indvars.iv.next.i.i51.i, %.lr.ph.i.i48.i ]
+  %.011.i.i50.i = phi i32 [ %.017.i.i.i4663.i, %.lr.ph.preheader.i.i47.i ], [ %279, %.lr.ph.i.i48.i ]
   %indvars.iv.next.i.i51.i = add nsw i64 %indvars.iv.i.i49.i, 1
-  %275 = getelementptr inbounds i8, ptr %246, i64 %indvars.iv.next.i.i51.i
-  %276 = load i8, ptr %275, align 1, !tbaa !24
-  %277 = sext i8 %276 to i32
-  %278 = add nsw i32 %.011.i.i50.i, %277
+  %276 = getelementptr inbounds i8, ptr %246, i64 %indvars.iv.next.i.i51.i
+  %277 = load i8, ptr %276, align 1, !tbaa !24
+  %278 = sext i8 %277 to i32
+  %279 = add nsw i32 %.011.i.i50.i, %278
   %exitcond.not.i.i52.i = icmp eq i64 %indvars.iv.next.i.i51.i, %indvars.iv.i
   br i1 %exitcond.not.i.i52.i, label %nextline.exit53.i, label %.lr.ph.i.i48.i
 
 nextline.exit53.i:                                ; preds = %.lr.ph.i.i48.i, %getbaseline.exit.i.i43.i, %249
-  %.0.i31.i = phi i32 [ %251, %249 ], [ %.017.i.i.i46.i, %getbaseline.exit.i.i43.i ], [ %278, %.lr.ph.i.i48.i ]
-  %279 = sext i32 %.0.i31.i to i64
-  call void @luaH_setint(ptr noundef %0, ptr noundef %197, i64 noundef %279, ptr noundef nonnull %4) #13
+  %.0.i31.i = phi i32 [ %251, %249 ], [ %.017.i.i.i46.i, %getbaseline.exit.i.i43.i ], [ %279, %.lr.ph.i.i48.i ]
+  %280 = sext i32 %.0.i31.i to i64
+  call void @luaH_setint(ptr noundef %0, ptr noundef %197, i64 noundef %280, ptr noundef nonnull %4) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %280 = load i32, ptr %239, align 4, !tbaa !79
-  %281 = trunc nuw i64 %indvars.iv.next.i to i32
-  %282 = icmp sgt i32 %280, %281
-  br i1 %282, label %245, label %._crit_edge.i
+  %281 = load i32, ptr %239, align 4, !tbaa !79
+  %282 = trunc nuw i64 %indvars.iv.next.i to i32
+  %283 = icmp sgt i32 %281, %282
+  br i1 %283, label %245, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %nextline.exit53.i, %nextline.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

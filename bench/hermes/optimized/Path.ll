@@ -235,8 +235,8 @@ return.sink.split.i:                              ; preds = %land.lhs.true17.i, 
   br label %_ZN12_GLOBAL__N_120find_first_componentEN4llvh9StringRefENS0_3sys4path5StyleE.exit
 
 _ZN12_GLOBAL__N_120find_first_componentEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; preds = %entry, %land.lhs.true7.i, %if.end33.i, %return.sink.split.i
-  %retval.sroa.0.0.i = phi ptr [ %path.coerce0, %if.end33.i ], [ %path.coerce0, %entry ], [ %path.coerce0, %land.lhs.true7.i ], [ %5, %return.sink.split.i ]
-  %retval.sroa.6.0.i = phi i64 [ 1, %if.end33.i ], [ 0, %entry ], [ 2, %land.lhs.true7.i ], [ %.sroa.speculated.i, %return.sink.split.i ]
+  %retval.sroa.0.0.i = phi ptr [ %5, %return.sink.split.i ], [ %path.coerce0, %if.end33.i ], [ %path.coerce0, %entry ], [ %path.coerce0, %land.lhs.true7.i ]
+  %retval.sroa.6.0.i = phi i64 [ %.sroa.speculated.i, %return.sink.split.i ], [ 1, %if.end33.i ], [ 0, %entry ], [ 2, %land.lhs.true7.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %path.i)
   %Component = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %retval.sroa.0.0.i, ptr %Component, align 8
@@ -925,8 +925,8 @@ _ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit: ; preds = %entry
   br label %if.end42
 
 if.then:                                          ; preds = %land.lhs.true7.i.i, %if.end33.i.i, %return.sink.split.i.i
-  %retval.sroa.0.0.i.i.ph = phi ptr [ %5, %return.sink.split.i.i ], [ %path.coerce0, %land.lhs.true7.i.i ], [ %path.coerce0, %if.end33.i.i ]
-  %retval.sroa.6.0.i.i.ph = phi i64 [ %.sroa.speculated.i.i, %return.sink.split.i.i ], [ 2, %land.lhs.true7.i.i ], [ 1, %if.end33.i.i ]
+  %retval.sroa.0.0.i.i.ph = phi ptr [ %path.coerce0, %land.lhs.true7.i.i ], [ %path.coerce0, %if.end33.i.i ], [ %5, %return.sink.split.i.i ]
+  %retval.sroa.6.0.i.i.ph = phi i64 [ 2, %land.lhs.true7.i.i ], [ 1, %if.end33.i.i ], [ %.sroa.speculated.i.i, %return.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %path.i.i), !noalias !8
   store ptr %path.coerce0, ptr %pos, align 8
   %b.sroa.3.0.pos.sroa_idx86 = getelementptr inbounds nuw i8, ptr %pos, i64 8
@@ -1239,8 +1239,8 @@ _ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit: ; preds = %entry
   br label %if.end39
 
 if.then:                                          ; preds = %land.lhs.true7.i.i, %if.end33.i.i, %return.sink.split.i.i
-  %retval.sroa.0.0.i.i.ph = phi ptr [ %5, %return.sink.split.i.i ], [ %path.coerce0, %land.lhs.true7.i.i ], [ %path.coerce0, %if.end33.i.i ]
-  %retval.sroa.6.0.i.i.ph = phi i64 [ %.sroa.speculated.i.i, %return.sink.split.i.i ], [ 2, %land.lhs.true7.i.i ], [ 1, %if.end33.i.i ]
+  %retval.sroa.0.0.i.i.ph = phi ptr [ %path.coerce0, %land.lhs.true7.i.i ], [ %path.coerce0, %if.end33.i.i ], [ %5, %return.sink.split.i.i ]
+  %retval.sroa.6.0.i.i.ph = phi i64 [ 2, %land.lhs.true7.i.i ], [ 1, %if.end33.i.i ], [ %.sroa.speculated.i.i, %return.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %path.i.i), !noalias !14
   store ptr %path.coerce0, ptr %pos, align 8
   %b.sroa.3.0.pos.sroa_idx64 = getelementptr inbounds nuw i8, ptr %pos, i64 8
@@ -3827,8 +3827,8 @@ _ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit.i: ; preds = %entry
   br label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %return.sink.split.i.i.i, %if.end33.i.i.i, %land.lhs.true7.i.i.i
-  %retval.sroa.0.0.i.i.ph.i = phi ptr [ %9, %return.sink.split.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true7.i.i.i ], [ %add.ptr.i.i.i, %if.end33.i.i.i ]
-  %retval.sroa.6.0.i.i.ph.i = phi i64 [ %.sroa.speculated.i.i.i, %return.sink.split.i.i.i ], [ 2, %land.lhs.true7.i.i.i ], [ 1, %if.end33.i.i.i ]
+  %retval.sroa.0.0.i.i.ph.i = phi ptr [ %add.ptr.i.i.i, %land.lhs.true7.i.i.i ], [ %add.ptr.i.i.i, %if.end33.i.i.i ], [ %9, %return.sink.split.i.i.i ]
+  %retval.sroa.6.0.i.i.ph.i = phi i64 [ 2, %land.lhs.true7.i.i.i ], [ 1, %if.end33.i.i.i ], [ %.sroa.speculated.i.i.i, %return.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %path.i.i.i), !noalias !55
   store ptr %add.ptr.i.i.i, ptr %__begin2.i, align 8, !noalias !52
   %ref.tmp.sroa.0.sroa.2.0.__begin2.sroa_idx66.i = getelementptr inbounds nuw i8, ptr %__begin2.i, i64 8

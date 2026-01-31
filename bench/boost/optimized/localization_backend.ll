@@ -1522,9 +1522,9 @@ define void @_ZN5boost6locale28localization_backend_manager6selectERKNSt7__cxx11
 .lr.ph.i.i:                                       ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !16
-  %.fr19.i = freeze i64 %9
+  %.fr20.i = freeze i64 %9
   %10 = load ptr, ptr %1, align 8
-  %11 = icmp eq i64 %.fr19.i, 0
+  %11 = icmp eq i64 %.fr20.i, 0
   br i1 %11, label %.lr.ph.i.split.us.i, label %.lr.ph.i.split.i
 
 .lr.ph.i.split.us.i:                              ; preds = %.lr.ph.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.us.i
@@ -1533,7 +1533,7 @@ define void @_ZN5boost6locale28localization_backend_manager6selectERKNSt7__cxx11
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.014.021.i.us.i, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !16
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %_ZNK5boost6locale28localization_backend_manager4impl12find_backendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.us.i
+  br i1 %14, label %.split.us.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.us.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.us.i: ; preds = %.lr.ph.i.split.us.i
   %15 = add nuw nsw i32 %.01222.i.us.i, 1
@@ -1546,14 +1546,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.sroa.014.021.i.i = phi ptr [ %23, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.i ], [ %5, %.lr.ph.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.014.021.i.i, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !16
-  %19 = icmp eq i64 %18, %.fr19.i
+  %19 = icmp eq i64 %18, %.fr20.i
   br i1 %19, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i: ; preds = %.lr.ph.i.split.i
   %20 = load ptr, ptr %.sroa.014.021.i.i, align 8, !tbaa !13
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %20, ptr %10, i64 %.fr19.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %20, ptr %10, i64 %.fr20.i)
   %21 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %21, label %_ZNK5boost6locale28localization_backend_manager4impl12find_backendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.i
+  br i1 %21, label %.split.us.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i, %.lr.ph.i.split.i
   %22 = add nuw nsw i32 %.01222.i.i, 1
@@ -1561,33 +1561,33 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.not.i.i = icmp eq ptr %23, %7
   br i1 %.not.i.i, label %_ZN5boost6locale28localization_backend_manager4impl6selectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10category_tE.exit, label %.lr.ph.i.split.i
 
-_ZNK5boost6locale28localization_backend_manager4impl12find_backendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i, %.lr.ph.i.split.us.i
+.split.us.i:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i, %.lr.ph.i.split.us.i
   %.us-phi.i = phi i32 [ %.01222.i.us.i, %.lr.ph.i.split.us.i ], [ %.01222.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !28
-  %.not16.i = icmp eq ptr %25, %27
-  br i1 %.not16.i, label %_ZN5boost6locale28localization_backend_manager4impl6selectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10category_tE.exit, label %.lr.ph.i
+  %.not17.i = icmp eq ptr %25, %27
+  br i1 %.not17.i, label %_ZN5boost6locale28localization_backend_manager4impl6selectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10category_tE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNK5boost6locale28localization_backend_manager4impl12find_backendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %30
-  %.018.i = phi i32 [ %31, %30 ], [ 1, %_ZNK5boost6locale28localization_backend_manager4impl12find_backendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
-  %.sroa.07.017.i = phi ptr [ %32, %30 ], [ %25, %_ZNK5boost6locale28localization_backend_manager4impl12find_backendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
-  %28 = and i32 %.018.i, %2
-  %.not12.i = icmp eq i32 %28, 0
-  br i1 %.not12.i, label %30, label %29
+.lr.ph.i:                                         ; preds = %.split.us.i, %30
+  %.019.i = phi i32 [ %31, %30 ], [ 1, %.split.us.i ]
+  %.sroa.07.018.i = phi ptr [ %32, %30 ], [ %25, %.split.us.i ]
+  %28 = and i32 %.019.i, %2
+  %.not13.i = icmp eq i32 %28, 0
+  br i1 %.not13.i, label %30, label %29
 
 29:                                               ; preds = %.lr.ph.i
-  store i32 %.us-phi.i, ptr %.sroa.07.017.i, align 4, !tbaa !20
+  store i32 %.us-phi.i, ptr %.sroa.07.018.i, align 4, !tbaa !20
   br label %30
 
 30:                                               ; preds = %29, %.lr.ph.i
-  %31 = shl i32 %.018.i, 1
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.07.017.i, i64 4
+  %31 = shl i32 %.019.i, 1
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.i, i64 4
   %.not.i = icmp eq ptr %32, %27
   br i1 %.not.i, label %_ZN5boost6locale28localization_backend_manager4impl6selectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10category_tE.exit, label %.lr.ph.i
 
-_ZN5boost6locale28localization_backend_manager4impl6selectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10category_tE.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.us.i, %30, %3, %_ZNK5boost6locale28localization_backend_manager4impl12find_backendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
+_ZN5boost6locale28localization_backend_manager4impl6selectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10category_tE.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.us.i, %30, %3, %.split.us.i
   ret void
 }
 

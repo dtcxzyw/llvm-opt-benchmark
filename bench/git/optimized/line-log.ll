@@ -1566,12 +1566,7 @@ st_mult.exit.i:                                   ; preds = %62, %.thread.i
 79:                                               ; preds = %.lr.ph88.i
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next102.i, %wide.trip.count.i
-  br i1 %exitcond105.not.i, label %.preheader.i31, label %.lr.ph88.i, !llvm.loop !161
-
-.preheader.i31:                                   ; preds = %79
-  %smax109.i = call i32 @llvm.smax.i32(i32 %.067122.i, i32 1)
-  %wide.trip.count110.i = zext nneg i32 %smax109.i to i64
-  br label %.lr.ph90.i
+  br i1 %exitcond105.not.i, label %.lr.ph90.i, label %.lr.ph88.i, !llvm.loop !161
 
 .lr.ph88.i:                                       ; preds = %73, %79
   %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %79 ], [ 0, %73 ]
@@ -1592,15 +1587,15 @@ st_mult.exit.i:                                   ; preds = %62, %.thread.i
   %89 = call ptr @commit_list_append(ptr noundef %88, ptr noundef nonnull %9) #16
   br label %.loopexit.i
 
-.lr.ph90.i:                                       ; preds = %.lr.ph90.i, %.preheader.i31
-  %indvars.iv106.i = phi i64 [ 0, %.preheader.i31 ], [ %indvars.iv.next107.i, %.lr.ph90.i ]
+.lr.ph90.i:                                       ; preds = %79, %.lr.ph90.i
+  %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %.lr.ph90.i ], [ 0, %79 ]
   %90 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv106.i
   %91 = load ptr, ptr %90, align 8, !tbaa !159
   %92 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv106.i
   %93 = load ptr, ptr %92, align 8, !tbaa !122
   call fastcc void @add_line_range(ptr noundef %0, ptr noundef %91, ptr noundef %93)
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
-  %exitcond111.not.i = icmp eq i64 %indvars.iv.next107.i, %wide.trip.count110.i
+  %exitcond111.not.i = icmp eq i64 %indvars.iv.next107.i, %wide.trip.count.i
   br i1 %exitcond111.not.i, label %.loopexit.i, label %.lr.ph90.i, !llvm.loop !162
 
 .loopexit.i:                                      ; preds = %.lr.ph90.i, %83, %st_mult.exit.i
@@ -1614,8 +1609,7 @@ st_mult.exit.i:                                   ; preds = %62, %.thread.i
   br label %process_ranges_merge_commit.exit
 
 .lr.ph92.preheader.i:                             ; preds = %.loopexit.i
-  %smax115.i = call i32 @llvm.smax.i32(i32 %.067122.i, i32 1)
-  %wide.trip.count116.i = zext nneg i32 %smax115.i to i64
+  %wide.trip.count116.i = zext nneg i32 %.067122.i to i64
   br label %.lr.ph92.i
 
 .lr.ph92.i:                                       ; preds = %112, %.lr.ph92.preheader.i
@@ -1665,7 +1659,6 @@ line_log_data_clear.exit.i:                       ; preds = %104, %96
 
 ._crit_edge.i:                                    ; preds = %112
   call void @free(ptr noundef nonnull %68) #16
-  %wide.trip.count.i.i = zext nneg i32 %.067122.i to i64
   br label %.lr.ph.i.i33
 
 .lr.ph.i.i33:                                     ; preds = %.lr.ph.i.i33, %._crit_edge.i
@@ -1673,7 +1666,7 @@ line_log_data_clear.exit.i:                       ; preds = %104, %96
   %113 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %67, i64 %indvars.iv.i.i
   call void @diff_queue_clear(ptr noundef %113) #16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count116.i
   br i1 %exitcond.not.i.i, label %process_ranges_merge_commit.exit, label %.lr.ph.i.i33, !llvm.loop !164
 
 process_ranges_merge_commit.exit:                 ; preds = %.lr.ph.i.i33, %._crit_edge.thread.i
@@ -3492,9 +3485,6 @@ declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

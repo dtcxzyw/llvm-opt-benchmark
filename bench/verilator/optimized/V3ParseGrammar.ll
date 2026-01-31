@@ -88378,16 +88378,16 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
   %38 = sext i32 %37 to i64
   %reass.sub = sub i64 %36, %38
   %39 = add i64 %reass.sub, 1
-  %.not5516 = icmp sgt i32 %.1.i5, 0
-  br i1 %.not5516, label %.lr.ph.preheader, label %.thread
+  %.not5520 = icmp sgt i32 %.1.i5, 0
+  br i1 %.not5520, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6
   %wide.trip.count = zext nneg i32 %.1.i5 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %55
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
-  %.04917 = phi i64 [ %39, %.lr.ph.preheader ], [ %56, %55 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL9yytnamerrPcPKc.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL9yytnamerrPcPKc.exit.thread ]
+  %.04921 = phi i64 [ %39, %.lr.ph.preheader ], [ %.15013, %_ZL9yytnamerrPcPKc.exit.thread ]
   %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !672
   %42 = sext i32 %41 to i64
@@ -88395,7 +88395,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
   %44 = load ptr, ptr %43, align 8, !tbaa !85
   %45 = load i8, ptr %44, align 1, !tbaa !77
   %46 = icmp eq i8 %45, 34
-  br i1 %46, label %.preheader.split.us.i, label %.thread.i
+  br i1 %46, label %.preheader.split.us.i, label %_ZL9yytnamerrPcPKc.exit
 
 .preheader.split.us.i:                            ; preds = %.lr.ph, %52
   %.020.us.i = phi i64 [ %53, %52 ], [ 0, %.lr.ph ]
@@ -88403,129 +88403,126 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
   %47 = getelementptr inbounds nuw i8, ptr %.019.us.i, i64 1
   %48 = load i8, ptr %47, align 1, !tbaa !77
   switch i8 %48, label %52 [
-    i8 39, label %.thread.i
-    i8 44, label %.thread.i
+    i8 39, label %_ZL9yytnamerrPcPKc.exit
+    i8 44, label %_ZL9yytnamerrPcPKc.exit
     i8 92, label %49
-    i8 34, label %_ZL9yytnamerrPcPKc.exit
+    i8 34, label %_ZL9yytnamerrPcPKc.exit.thread
   ]
 
 49:                                               ; preds = %.preheader.split.us.i
   %50 = getelementptr inbounds nuw i8, ptr %.019.us.i, i64 2
   %51 = load i8, ptr %50, align 1, !tbaa !77
   %.not25.us.i = icmp eq i8 %51, 92
-  br i1 %.not25.us.i, label %52, label %.thread.i
+  br i1 %.not25.us.i, label %52, label %_ZL9yytnamerrPcPKc.exit
 
 52:                                               ; preds = %49, %.preheader.split.us.i
   %.1.us.i = phi ptr [ %47, %.preheader.split.us.i ], [ %50, %49 ]
   %53 = add nuw nsw i64 %.020.us.i, 1
   br label %.preheader.split.us.i, !llvm.loop !675
 
-.thread.i:                                        ; preds = %49, %.preheader.split.us.i, %.preheader.split.us.i, %.lr.ph
+_ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us.i, %.preheader.split.us.i, %49, %.lr.ph
   %54 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %44) #38
-  br label %_ZL9yytnamerrPcPKc.exit
+  %.not = icmp sgt i64 %54, -1
+  br i1 %.not, label %_ZL9yytnamerrPcPKc.exit.thread, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8
 
-_ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us.i, %.thread.i
-  %.122.i = phi i64 [ %54, %.thread.i ], [ %.020.us.i, %.preheader.split.us.i ]
-  %.not = icmp sgt i64 %.122.i, -1
-  br i1 %.not, label %55, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8
-
-55:                                               ; preds = %_ZL9yytnamerrPcPKc.exit
-  %56 = add nsw i64 %.122.i, %.04917
+_ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us.i, %_ZL9yytnamerrPcPKc.exit
+  %.020.us.i.pn = phi i64 [ %54, %_ZL9yytnamerrPcPKc.exit ], [ %.020.us.i, %.preheader.split.us.i ]
+  %.15013 = add nsw i64 %.020.us.i.pn, %.04921
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !676
 
-.thread:                                          ; preds = %55, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6
-  %.049.lcssa = phi i64 [ %39, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6 ], [ %56, %55 ]
-  %57 = load i64, ptr %0, align 8, !tbaa !79
-  %58 = icmp slt i64 %57, %.049.lcssa
-  br i1 %58, label %59, label %.preheader
+.thread:                                          ; preds = %_ZL9yytnamerrPcPKc.exit.thread, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6
+  %.049.lcssa = phi i64 [ %39, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6 ], [ %.15013, %_ZL9yytnamerrPcPKc.exit.thread ]
+  %55 = load i64, ptr %0, align 8, !tbaa !79
+  %56 = icmp slt i64 %55, %.049.lcssa
+  br i1 %56, label %57, label %.preheader
 
-59:                                               ; preds = %.thread
-  %60 = shl nsw i64 %.049.lcssa, 1
-  %.not57 = icmp sgt i64 %.049.lcssa, %60
-  %spec.store.select = select i1 %.not57, i64 9223372036854775807, i64 %60
+57:                                               ; preds = %.thread
+  %58 = shl nsw i64 %.049.lcssa, 1
+  %.not57 = icmp sgt i64 %.049.lcssa, %58
+  %spec.store.select = select i1 %.not57, i64 9223372036854775807, i64 %58
   store i64 %spec.store.select, ptr %0, align 8
   br label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8
 
 .preheader:                                       ; preds = %.thread, %_ZL9yytnamerrPcPKc.exit68
-  %.147 = phi ptr [ %91, %_ZL9yytnamerrPcPKc.exit68 ], [ %.046, %.thread ]
-  %.039 = phi ptr [ %90, %_ZL9yytnamerrPcPKc.exit68 ], [ %.0.val, %.thread ]
+  %.147 = phi ptr [ %89, %_ZL9yytnamerrPcPKc.exit68 ], [ %.046, %.thread ]
+  %.039 = phi ptr [ %88, %_ZL9yytnamerrPcPKc.exit68 ], [ %.0.val, %.thread ]
   %.0 = phi i32 [ %.1, %_ZL9yytnamerrPcPKc.exit68 ], [ 0, %.thread ]
-  %61 = load i8, ptr %.147, align 1, !tbaa !77
-  store i8 %61, ptr %.039, align 1, !tbaa !77
-  switch i8 %61, label %_ZL9yytnamerrPcPKc.exit68 [
+  %59 = load i8, ptr %.147, align 1, !tbaa !77
+  store i8 %59, ptr %.039, align 1, !tbaa !77
+  switch i8 %59, label %_ZL9yytnamerrPcPKc.exit68 [
     i8 0, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8
-    i8 37, label %62
+    i8 37, label %60
   ]
 
-62:                                               ; preds = %.preheader
-  %63 = getelementptr inbounds nuw i8, ptr %.147, i64 1
-  %64 = load i8, ptr %63, align 1, !tbaa !77
-  %65 = icmp eq i8 %64, 115
-  %66 = icmp slt i32 %.0, %.1.i5
-  %or.cond = select i1 %65, i1 %66, i1 false
-  br i1 %or.cond, label %67, label %_ZL9yytnamerrPcPKc.exit68
+60:                                               ; preds = %.preheader
+  %61 = getelementptr inbounds nuw i8, ptr %.147, i64 1
+  %62 = load i8, ptr %61, align 1, !tbaa !77
+  %63 = icmp eq i8 %62, 115
+  %64 = icmp slt i32 %.0, %.1.i5
+  %or.cond = select i1 %63, i1 %64, i1 false
+  br i1 %or.cond, label %65, label %_ZL9yytnamerrPcPKc.exit68
 
-67:                                               ; preds = %62
-  %68 = add nsw i32 %.0, 1
-  %69 = sext i32 %.0 to i64
-  %70 = getelementptr inbounds i32, ptr %2, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !672
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %72
-  %74 = load ptr, ptr %73, align 8, !tbaa !85
-  %75 = load i8, ptr %74, align 1, !tbaa !77
-  %76 = icmp eq i8 %75, 34
-  br i1 %76, label %.preheader.split.i, label %.thread.thread.i
+65:                                               ; preds = %60
+  %66 = add nsw i32 %.0, 1
+  %67 = sext i32 %.0 to i64
+  %68 = getelementptr inbounds i32, ptr %2, i64 %67
+  %69 = load i32, ptr %68, align 4, !tbaa !672
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %70
+  %72 = load ptr, ptr %71, align 8, !tbaa !85
+  %73 = load i8, ptr %72, align 1, !tbaa !77
+  %74 = icmp eq i8 %73, 34
+  br i1 %74, label %.preheader.split.i, label %.thread.thread.i
 
-.preheader.split.i:                               ; preds = %67, %82
-  %.020.i = phi i64 [ %84, %82 ], [ 0, %67 ]
-  %.019.i = phi ptr [ %.1.i61, %82 ], [ %74, %67 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.019.i, i64 1
-  %78 = load i8, ptr %77, align 1, !tbaa !77
-  switch i8 %78, label %82 [
+.preheader.split.i:                               ; preds = %65, %80
+  %.020.i = phi i64 [ %82, %80 ], [ 0, %65 ]
+  %.019.i = phi ptr [ %.1.i61, %80 ], [ %72, %65 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.019.i, i64 1
+  %76 = load i8, ptr %75, align 1, !tbaa !77
+  switch i8 %76, label %80 [
     i8 39, label %.thread.thread.i
     i8 44, label %.thread.thread.i
-    i8 92, label %79
+    i8 92, label %77
     i8 34, label %.split.us.thread.i
   ]
 
-79:                                               ; preds = %.preheader.split.i
-  %80 = getelementptr inbounds nuw i8, ptr %.019.i, i64 2
-  %81 = load i8, ptr %80, align 1, !tbaa !77
-  %.not25.i = icmp eq i8 %81, 92
-  br i1 %.not25.i, label %82, label %.thread.thread.i
+77:                                               ; preds = %.preheader.split.i
+  %78 = getelementptr inbounds nuw i8, ptr %.019.i, i64 2
+  %79 = load i8, ptr %78, align 1, !tbaa !77
+  %.not25.i = icmp eq i8 %79, 92
+  br i1 %.not25.i, label %80, label %.thread.thread.i
 
-82:                                               ; preds = %79, %.preheader.split.i
-  %.1.i61 = phi ptr [ %77, %.preheader.split.i ], [ %80, %79 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.039, i64 %.020.i
-  store i8 %78, ptr %83, align 1, !tbaa !77
-  %84 = add nuw nsw i64 %.020.i, 1
+80:                                               ; preds = %77, %.preheader.split.i
+  %.1.i61 = phi ptr [ %75, %.preheader.split.i ], [ %78, %77 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.039, i64 %.020.i
+  store i8 %76, ptr %81, align 1, !tbaa !77
+  %82 = add nuw nsw i64 %.020.i, 1
   br label %.preheader.split.i, !llvm.loop !675
 
 .split.us.thread.i:                               ; preds = %.preheader.split.i
-  %85 = getelementptr inbounds nuw i8, ptr %.039, i64 %.020.i
-  store i8 0, ptr %85, align 1, !tbaa !77
+  %83 = getelementptr inbounds nuw i8, ptr %.039, i64 %.020.i
+  store i8 0, ptr %83, align 1, !tbaa !77
   br label %_ZL9yytnamerrPcPKc.exit68
 
-.thread.thread.i:                                 ; preds = %79, %.preheader.split.i, %.preheader.split.i, %67
-  %86 = tail call ptr @stpcpy(ptr noundef nonnull %.039, ptr noundef nonnull readonly %74) #32
-  %87 = ptrtoint ptr %86 to i64
-  %88 = ptrtoint ptr %.039 to i64
-  %89 = sub i64 %87, %88
+.thread.thread.i:                                 ; preds = %77, %.preheader.split.i, %.preheader.split.i, %65
+  %84 = tail call ptr @stpcpy(ptr noundef nonnull %.039, ptr noundef nonnull readonly %72) #32
+  %85 = ptrtoint ptr %84 to i64
+  %86 = ptrtoint ptr %.039 to i64
+  %87 = sub i64 %85, %86
   br label %_ZL9yytnamerrPcPKc.exit68
 
-_ZL9yytnamerrPcPKc.exit68:                        ; preds = %62, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink30 = phi i64 [ %.020.i, %.split.us.thread.i ], [ %89, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.sink = phi i64 [ 2, %.split.us.thread.i ], [ 2, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.1 = phi i32 [ %68, %.split.us.thread.i ], [ %68, %.thread.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
-  %90 = getelementptr inbounds i8, ptr %.039, i64 %.sink30
-  %91 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
+_ZL9yytnamerrPcPKc.exit68:                        ; preds = %60, %.preheader, %.thread.thread.i, %.split.us.thread.i
+  %.sink35 = phi i64 [ %.020.i, %.split.us.thread.i ], [ %87, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %60 ]
+  %.sink = phi i64 [ 2, %.split.us.thread.i ], [ 2, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %60 ]
+  %.1 = phi i32 [ %66, %.split.us.thread.i ], [ %66, %.thread.thread.i ], [ %.0, %.preheader ], [ %.0, %60 ]
+  %88 = getelementptr inbounds i8, ptr %.039, i64 %.sink35
+  %89 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader, !llvm.loop !677
 
-_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %.critedge.i.i, %59, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
-  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ %30, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %.preheader ], [ -1, %59 ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
+_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %.critedge.i.i, %57, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
+  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ %30, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %.preheader ], [ -1, %57 ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }
