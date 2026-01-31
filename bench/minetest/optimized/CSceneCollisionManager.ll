@@ -390,7 +390,7 @@ if.then.i:                                        ; preds = %if.end8
 
 if.end.i12.i:                                     ; preds = %if.then.i
   %div.i.i = fdiv double 1.000000e+00, %conv.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %call11, i64 15
+  %45 = getelementptr inbounds nuw i8, ptr %call11, i64 24
   %46 = load <1 x float>, ptr %45, align 4
   %47 = shufflevector <1 x float> %46, <1 x float> poison, <2 x i32> <i32 0, i32 poison>
   %D8.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 104
@@ -452,7 +452,7 @@ if.then.i8:                                       ; preds = %if.then.i, %if.end.
 
 if.end.i12.i14:                                   ; preds = %if.then.i8
   %div.i.i15 = fdiv double 1.000000e+00, %conv.i.i
-  %83 = getelementptr inbounds nuw i8, ptr %call11, i64 15
+  %83 = getelementptr inbounds nuw i8, ptr %call11, i64 24
   %84 = load <1 x float>, ptr %83, align 4
   %85 = shufflevector <1 x float> %84, <1 x float> poison, <2 x i32> <i32 0, i32 poison>
   %D8.i.i16 = getelementptr inbounds nuw i8, ptr %call11, i64 104
@@ -559,7 +559,7 @@ if.then.i35:                                      ; preds = %_ZNK3irr4core7plane
 
 if.end.i12.i41:                                   ; preds = %if.then.i35
   %div.i.i42 = fdiv double 1.000000e+00, %conv.i.i32
-  %155 = getelementptr inbounds nuw i8, ptr %call11, i64 15
+  %155 = getelementptr inbounds nuw i8, ptr %call11, i64 24
   %156 = load <1 x float>, ptr %155, align 4
   %157 = shufflevector <1 x float> %156, <1 x float> poison, <2 x i32> <i32 0, i32 poison>
   %D8.i.i43 = getelementptr inbounds nuw i8, ptr %call11, i64 88

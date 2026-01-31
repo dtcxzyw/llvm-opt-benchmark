@@ -3996,7 +3996,7 @@ define hidden void @_ZN14proc_macro_api3msg4flat11SubtreeRepr20read_with_close_s
 switch.lookup:                                    ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 4, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.03.0.vec.insert = load <2 x i32>, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load i32, ptr %18, align 4, !noundef !4

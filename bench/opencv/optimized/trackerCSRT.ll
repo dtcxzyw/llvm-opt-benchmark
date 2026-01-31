@@ -5243,7 +5243,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %73, %76
   %113 = fptosi double %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 1540
   store i32 %113, ptr %114, align 4, !tbaa !101
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 346
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %116 = load <2 x float>, ptr %115, align 8
   %117 = shufflevector <2 x float> %116, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
   %118 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %117)

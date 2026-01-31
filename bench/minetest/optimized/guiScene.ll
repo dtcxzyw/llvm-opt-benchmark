@@ -1970,7 +1970,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i12.i:                                     ; preds = %if.then.i
   %div.i.i = fdiv nsz double 1.000000e+00, %conv.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %call13, i64 15
+  %48 = getelementptr inbounds nuw i8, ptr %call13, i64 24
   %49 = load <1 x float>, ptr %48, align 4
   %50 = shufflevector <1 x float> %49, <1 x float> poison, <2 x i32> <i32 0, i32 poison>
   %D8.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 104
@@ -2032,7 +2032,7 @@ if.then.i8:                                       ; preds = %if.then.i, %if.end.
 
 if.end.i12.i14:                                   ; preds = %if.then.i8
   %div.i.i15 = fdiv nsz double 1.000000e+00, %conv.i.i
-  %86 = getelementptr inbounds nuw i8, ptr %call13, i64 15
+  %86 = getelementptr inbounds nuw i8, ptr %call13, i64 24
   %87 = load <1 x float>, ptr %86, align 4
   %88 = shufflevector <1 x float> %87, <1 x float> poison, <2 x i32> <i32 0, i32 poison>
   %D8.i.i16 = getelementptr inbounds nuw i8, ptr %call13, i64 104
@@ -2084,7 +2084,7 @@ if.then.i35:                                      ; preds = %if.then.i8, %if.end
 
 if.end.i12.i41:                                   ; preds = %if.then.i35
   %div.i.i42 = fdiv nsz double 1.000000e+00, %conv.i.i
-  %119 = getelementptr inbounds nuw i8, ptr %call13, i64 15
+  %119 = getelementptr inbounds nuw i8, ptr %call13, i64 24
   %120 = load <1 x float>, ptr %119, align 4
   %121 = shufflevector <1 x float> %120, <1 x float> poison, <2 x i32> <i32 0, i32 poison>
   %D8.i.i43 = getelementptr inbounds nuw i8, ptr %call13, i64 104
@@ -2192,7 +2192,7 @@ if.then.i62:                                      ; preds = %_ZNK3irr4core7plane
 
 if.end.i12.i68:                                   ; preds = %if.then.i62
   %div.i.i69 = fdiv nsz double 1.000000e+00, %conv.i.i59
-  %190 = getelementptr inbounds nuw i8, ptr %call13, i64 15
+  %190 = getelementptr inbounds nuw i8, ptr %call13, i64 24
   %191 = load <1 x float>, ptr %190, align 4
   %192 = shufflevector <1 x float> %191, <1 x float> poison, <2 x i32> <i32 0, i32 poison>
   %D8.i.i70 = getelementptr inbounds nuw i8, ptr %call13, i64 88

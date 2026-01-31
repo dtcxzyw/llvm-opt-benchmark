@@ -379,7 +379,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %41
   br i1 %151, label %.preheader106.preheader, label %.preheader
 
 .preheader106.preheader:                          ; preds = %.preheader106.lr.ph
-  %152 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br label %.preheader106
 
 .preheader106:                                    ; preds = %.preheader106.preheader, %._crit_edge

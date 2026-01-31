@@ -9606,7 +9606,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3531 = load ptr, ptr %3530, align 8
   %3532 = getelementptr inbounds i8, ptr %3531, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !752)
-  %3533 = getelementptr inbounds i8, ptr %3531, i64 -12
+  %3533 = getelementptr inbounds i8, ptr %3531, i64 -8
   %3534 = load <4 x i16>, ptr %3533, align 16, !noalias !752
   %3535 = sext <4 x i16> %3534 to <4 x i32>
   store <4 x i32> %3535, ptr %3532, align 16, !noalias !752
@@ -9630,7 +9630,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3545 = load ptr, ptr %3544, align 8
   %3546 = getelementptr inbounds i8, ptr %3545, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !758)
-  %3547 = getelementptr inbounds i8, ptr %3545, i64 -12
+  %3547 = getelementptr inbounds i8, ptr %3545, i64 -8
   %3548 = load <4 x i16>, ptr %3547, align 16, !noalias !758
   %3549 = zext <4 x i16> %3548 to <4 x i32>
   store <4 x i32> %3549, ptr %3546, align 16, !noalias !758
@@ -9887,7 +9887,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3685 = load ptr, ptr %3684, align 8
   %3686 = getelementptr inbounds i8, ptr %3685, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !794)
-  %3687 = getelementptr inbounds i8, ptr %3685, i64 -12
+  %3687 = getelementptr inbounds i8, ptr %3685, i64 -8
   %3688 = load <4 x i16>, ptr %3687, align 16, !noalias !794
   %3689 = sext <4 x i16> %3688 to <4 x i32>
   %3690 = bitcast <2 x i64> %.sroa.02042.8.vec.insert to <8 x i16>
@@ -9931,7 +9931,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3713 = load ptr, ptr %3712, align 8
   %3714 = getelementptr inbounds i8, ptr %3713, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !800)
-  %3715 = getelementptr inbounds i8, ptr %3713, i64 -12
+  %3715 = getelementptr inbounds i8, ptr %3713, i64 -8
   %3716 = load <4 x i16>, ptr %3715, align 16, !noalias !800
   %3717 = zext <4 x i16> %3716 to <4 x i32>
   %3718 = bitcast <2 x i64> %.sroa.02038.8.vec.insert to <8 x i16>
@@ -10042,7 +10042,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3781 = load ptr, ptr %3780, align 8
   %3782 = getelementptr inbounds i8, ptr %3781, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !824)
-  %3783 = getelementptr inbounds i8, ptr %3781, i64 -14
+  %3783 = getelementptr inbounds i8, ptr %3781, i64 -8
   %3784 = load <2 x i32>, ptr %3783, align 16, !noalias !824
   %3785 = sext <2 x i32> %3784 to <2 x i64>
   store <2 x i64> %3785, ptr %3782, align 16, !noalias !824
@@ -10066,7 +10066,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3795 = load ptr, ptr %3794, align 8
   %3796 = getelementptr inbounds i8, ptr %3795, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !830)
-  %3797 = getelementptr inbounds i8, ptr %3795, i64 -14
+  %3797 = getelementptr inbounds i8, ptr %3795, i64 -8
   %3798 = load <2 x i32>, ptr %3797, align 16, !noalias !830
   %3799 = zext <2 x i32> %3798 to <2 x i64>
   store <2 x i64> %3799, ptr %3796, align 16, !noalias !830
@@ -10235,7 +10235,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3891 = load ptr, ptr %3890, align 8
   %3892 = getelementptr inbounds i8, ptr %3891, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !854)
-  %3893 = getelementptr inbounds i8, ptr %3891, i64 -14
+  %3893 = getelementptr inbounds i8, ptr %3891, i64 -8
   %3894 = load <2 x i32>, ptr %3893, align 16, !noalias !854
   %3895 = sext <2 x i32> %3894 to <2 x i64>
   %3896 = bitcast <2 x i64> %.sroa.02017.8.vec.insert to <4 x i32>
@@ -10279,7 +10279,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3919 = load ptr, ptr %3918, align 8
   %3920 = getelementptr inbounds i8, ptr %3919, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !860)
-  %3921 = getelementptr inbounds i8, ptr %3919, i64 -14
+  %3921 = getelementptr inbounds i8, ptr %3919, i64 -8
   %3922 = load <2 x i32>, ptr %3921, align 16, !noalias !860
   %3923 = zext <2 x i32> %3922 to <2 x i64>
   %3924 = bitcast <2 x i64> %.sroa.02013.8.vec.insert to <4 x i32>

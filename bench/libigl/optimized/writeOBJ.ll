@@ -2613,7 +2613,7 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIiiEEKNS_12Ar
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %68 = load ptr, ptr %14, align 16, !tbaa !104, !noalias !101
-  %69 = getelementptr inbounds nuw i8, ptr %14, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %70 = load <1 x i32>, ptr %69, align 16, !noalias !101
   %71 = load <4 x i32>, ptr %68, align 16, !tbaa !15, !noalias !101
   %72 = shufflevector <1 x i32> %70, <1 x i32> poison, <4 x i32> zeroinitializer
