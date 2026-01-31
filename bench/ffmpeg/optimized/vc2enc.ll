@@ -1162,7 +1162,7 @@ init_quant_matrix.exit.i:                         ; preds = %.preheader70.i.i, %
   br label %.lr.ph161.i
 
 .lr.ph161.i:                                      ; preds = %.lr.ph139.i, %.split157.us.i..lr.ph161.i_crit_edge
-  %wide.trip.count197.i.pre-phi = phi i64 [ %.pre, %.split157.us.i..lr.ph161.i_crit_edge ], [ %wide.trip.count186.i, %.lr.ph139.i ]
+  %.pre-phi216.i = phi i64 [ %.pre, %.split157.us.i..lr.ph161.i_crit_edge ], [ %wide.trip.count186.i, %.lr.ph139.i ]
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 2956
   %.promoted.i = load i32, ptr %191, align 4, !tbaa !41
   br label %192

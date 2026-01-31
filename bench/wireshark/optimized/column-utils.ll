@@ -1374,13 +1374,13 @@ define void @col_append_str_uint(ptr noundef readonly captures(address_is_null) 
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 76
   %37 = load i8, ptr %36, align 4, !range !11, !noundef !13
   %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %.thread, label %col_get_writable.exit.thread
+  br i1 %38, label %43, label %col_get_writable.exit.thread
 
 col_get_writable.exit:                            ; preds = %8
   %39 = trunc nuw i8 %.pre.i to i1
-  br i1 %39, label %40, label %col_get_writable.exit.thread
+  br i1 %39, label %col_get_writable.exit._crit_edge, label %col_get_writable.exit.thread
 
-40:                                               ; preds = %col_get_writable.exit
+col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert13 = getelementptr i8, ptr %.pre, i64 -4
@@ -1388,14 +1388,14 @@ col_get_writable.exit:                            ; preds = %8
   %41 = icmp sgt i32 %.pre14, -1
   br i1 %41, label %.thread, label %col_get_writable.exit.thread
 
-.thread:                                          ; preds = %35, %40
+43:                                               ; preds = %35, %40
   call void @uint32_to_str_buf(i32 noundef %3, ptr noundef nonnull %6, i64 noundef 16)
   %.not = icmp eq ptr %4, null
-  %42 = select i1 %.not, ptr @.str.1, ptr %4
-  call void (ptr, i32, ptr, ...) @col_append_lstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %42, ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %6, ptr noundef nonnull inttoptr (i64 -1 to ptr))
+  %44 = select i1 %.not, ptr @.str.1, ptr %4
+  call void (ptr, i32, ptr, ...) @col_append_lstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %44, ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %6, ptr noundef nonnull inttoptr (i64 -1 to ptr))
   br label %col_get_writable.exit.thread
 
-col_get_writable.exit.thread:                     ; preds = %25, %.preheader.i, %12, %10, %5, %35, %col_get_writable.exit, %40, %.thread
+col_get_writable.exit.thread:                     ; preds = %25, %.preheader.i, %12, %10, %5, %35, %col_get_writable.exit, %40, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -1464,13 +1464,13 @@ define void @col_append_ports(ptr noundef readonly captures(address_is_null) %0,
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 76
   %38 = load i8, ptr %37, align 4, !range !11, !noundef !13
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %.thread, label %col_get_writable.exit.thread
+  br i1 %39, label %43, label %col_get_writable.exit.thread
 
 col_get_writable.exit:                            ; preds = %9
   %40 = trunc nuw i8 %.pre.i to i1
-  br i1 %40, label %41, label %col_get_writable.exit.thread
+  br i1 %col_get_writable.exit._crit_edge, label %41, label %col_get_writable.exit.thread
 
-41:                                               ; preds = %col_get_writable.exit
+col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert18 = getelementptr i8, ptr %.pre, i64 -4
@@ -1478,45 +1478,45 @@ col_get_writable.exit:                            ; preds = %9
   %42 = icmp sgt i32 %.pre19, -1
   br i1 %42, label %.thread, label %col_get_writable.exit.thread
 
-.thread:                                          ; preds = %36, %41
+43: ; preds = %36, %col_get_writable.exit._crit_edge
   %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !11, !noundef !13
   %44 = trunc nuw i8 %43 to i1
   %45 = zext i16 %3 to i32
   br i1 %44, label %46, label %._crit_edge.i9
 
-46:                                               ; preds = %.thread
+46:; preds = %43
   %47 = tail call ptr @try_serv_name_lookup(i32 noundef %2, i32 noundef %45)
   %.not.i10 = icmp eq ptr %47, null
   br i1 %.not.i10, label %._crit_edge.i9, label %48
 
-48:                                               ; preds = %46
+48:; preds = %46
   %49 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %6, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.18, ptr noundef nonnull %47, i32 noundef %45)
   br label %col_snprint_port.exit
 
-._crit_edge.i9:                                   ; preds = %46, %.thread
-  %50 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %6, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.19, i32 noundef %45)
+._crit_edge.i9:                                   ; preds = %46, %43
+  %52 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %6, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.19, i32 noundef %45)
   br label %col_snprint_port.exit
 
 col_snprint_port.exit:                            ; preds = %48, %._crit_edge.i9
-  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !11, !noundef !13
-  %52 = trunc nuw i8 %51 to i1
-  %53 = zext i16 %4 to i32
-  br i1 %52, label %54, label %._crit_edge.i11
+  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !11, !noundef !13
+  %54 = trunc nuw i8 %53 to i1
+  %55 = zext i16 %4 to i32
+  br i1 %54, label %56, label %._crit_edge.i11
 
-54:                                               ; preds = %col_snprint_port.exit
-  %55 = call ptr @try_serv_name_lookup(i32 noundef %2, i32 noundef %53)
-  %.not.i12 = icmp eq ptr %55, null
-  br i1 %.not.i12, label %._crit_edge.i11, label %56
+56:                                               ; preds = %col_snprint_port.exit
+  %57 = call ptr @try_serv_name_lookup(i32 noundef %2, i32 noundef %55)
+  %.not.i12 = icmp eq ptr %57, null
+  br i1 %.not.i12, label %._crit_edge.i11, label %58
 
-56:                                               ; preds = %54
-  %57 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.18, ptr noundef nonnull %55, i32 noundef %53)
+58:                                               ; preds = %56
+  %59 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.18, ptr noundef nonnull %57, i32 noundef %55)
   br label %col_snprint_port.exit13
 
-._crit_edge.i11:                                  ; preds = %54, %col_snprint_port.exit
-  %58 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.19, i32 noundef %53)
+._crit_edge.i11:                                  ; preds = %56, %col_snprint_port.exit
+  %60 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.19, i32 noundef %55)
   br label %col_snprint_port.exit13
 
-col_snprint_port.exit13:                          ; preds = %56, %._crit_edge.i11
+col_snprint_port.exit13:                          ; preds = %58, %._crit_edge.i11
   call void (ptr, i32, ptr, ...) @col_append_lstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef nonnull %7, ptr noundef nonnull inttoptr (i64 -1 to ptr))
   br label %col_get_writable.exit.thread
 
@@ -1606,13 +1606,13 @@ define void @col_append_fstr(ptr noundef readonly captures(address_is_null) %0, 
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 76
   %35 = load i8, ptr %34, align 4, !range !11, !noundef !13
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread, label %col_get_writable.exit.thread
+  br i1 %36, label %38, label %col_get_writable.exit.thread
 
 col_get_writable.exit:                            ; preds = %6
   %37 = trunc nuw i8 %.pre.i to i1
-  br i1 %37, label %38, label %col_get_writable.exit.thread
+  br i1 %37, label %col_get_writable.exit._crit_edge, label %col_get_writable.exit.thread
 
-38:                                               ; preds = %col_get_writable.exit
+col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert10 = getelementptr i8, ptr %.pre, i64 -4
@@ -1620,13 +1620,13 @@ col_get_writable.exit:                            ; preds = %6
   %39 = icmp sgt i32 %.pre11, -1
   br i1 %39, label %.thread, label %col_get_writable.exit.thread
 
-.thread:                                          ; preds = %33, %38
+38:                                               ; preds = %33, %col_get_writable.exit._crit_edge
   call void @llvm.va_start.p0(ptr nonnull %4)
   call fastcc void @col_do_append_fstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   br label %col_get_writable.exit.thread
 
-col_get_writable.exit.thread:                     ; preds = %23, %.preheader.i, %10, %8, %3, %33, %col_get_writable.exit, %38, %.thread
+col_get_writable.exit.thread:                     ; preds = %23, %.preheader.i, %10, %8, %3, %33, %col_get_writable.exit, %38, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1799,13 +1799,13 @@ define void @col_append_sep_fstr(ptr noundef readonly captures(address_is_null) 
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 76
   %36 = load i8, ptr %35, align 4, !range !11, !noundef !13
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %.thread, label %col_get_writable.exit.thread
+  br i1 %37, label %39, label %col_get_writable.exit.thread
 
 col_get_writable.exit:                            ; preds = %7
   %38 = trunc nuw i8 %.pre.i to i1
-  br i1 %38, label %39, label %col_get_writable.exit.thread
+  br i1 %col_get_writable.exit._crit_edge, label %39, label %col_get_writable.exit.thread
 
-39:                                               ; preds = %col_get_writable.exit
+col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert12 = getelementptr i8, ptr %.pre, i64 -4
@@ -1813,7 +1813,7 @@ col_get_writable.exit:                            ; preds = %7
   %40 = icmp sgt i32 %.pre13, -1
   br i1 %40, label %.thread, label %col_get_writable.exit.thread
 
-.thread:                                          ; preds = %34, %39
+39:                                               ; preds = %34, %col_get_writable.exit._crit_edge
   %41 = icmp eq ptr %2, null
   %spec.store.select = select i1 %41, ptr @.str.5, ptr %2
   call void @llvm.va_start.p0(ptr nonnull %5)
@@ -1821,7 +1821,7 @@ col_get_writable.exit:                            ; preds = %7
   call void @llvm.va_end.p0(ptr nonnull %5)
   br label %col_get_writable.exit.thread
 
-col_get_writable.exit.thread:                     ; preds = %24, %.preheader.i, %11, %9, %4, %34, %col_get_writable.exit, %39, %.thread
+col_get_writable.exit.thread:                     ; preds = %24, %.preheader.i, %11, %9, %4, %34, %col_get_writable.exit, %39, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

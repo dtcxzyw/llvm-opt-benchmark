@@ -1039,7 +1039,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h35de6a067718c87aE(
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.outer
 
-.outer:                                           ; preds = %113, %25
+.outer:                                           ; preds = %114, %25
   %.ph = phi i64 [ %105, %113 ], [ %.pre, %25 ]
   %.sroa.011.4.ph = phi i64 [ %102, %113 ], [ 0, %25 ]
   %.sroa.05.4.ph = phi i64 [ %.sroa.047.0, %113 ], [ %.sroa.05.3, %25 ]
@@ -1214,42 +1214,42 @@ _ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread: ; preds = %._crit_edge
   %105 = add i64 %103, %73
   store i64 %105, ptr %6, align 8
   %106 = icmp eq ptr %.lcssa, null
-  br i1 %106, label %.loopexit125, label %109
+  br i1 %106, label %.loopexit125, label %110
 
 .loopexit125:                                     ; preds = %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread, %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread.thread
   %107 = phi i64 [ %77, %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread.thread ], [ %105, %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread ]
   %108 = sub nsw i64 %107, %7
   br label %.loopexit
 
-109:                                              ; preds = %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread
-  br i1 %.sroa.012.3, label %110, label %.backedge
+110:                                              ; preds = %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread
+  br i1 %.sroa.012.3, label %111, label %.backedge
 
-110:                                              ; preds = %109
-  %111 = icmp uge i64 %66, %.sroa.05.4.ph
-  %112 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, %73
-  %or.cond2 = and i1 %111, %112
-  br i1 %or.cond2, label %113, label %.backedge
+111:                                              ; preds = %110
+  %112 = icmp uge i64 %66, %.sroa.05.4.ph
+  %113 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, %73
+  %or.cond2 = and i1 %112, %113
+  br i1 %or.cond2, label %114, label %.backedge
 
-.backedge:                                        ; preds = %110, %109
+.backedge:                                        ; preds = %111, %110
   br label %36
 
-113:                                              ; preds = %110
-  %114 = shl i64 %.sroa.05.4.ph, 1
+114:                                              ; preds = %111
+  %115 = shl i64 %.sroa.05.4.ph, 1
   %.inv = icmp sgt i64 %.sroa.05.4.ph, -1
-  %.sroa.047.0 = select i1 %.inv, i64 %114, i64 -1, !prof !162
+  %.sroa.047.0 = select i1 %.inv, i64 %115, i64 -1, !prof !162
   br label %.outer
 
 .loopexit.split.loop.exit100:                     ; preds = %47
-  %115 = ptrtoint ptr %50 to i64
+  %116 = ptrtoint ptr %50 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %84, %88, %82, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.6599896593330520474.exit, %.loopexit.split.loop.exit100, %.loopexit125, %28, %54, %34
-  %.sroa.8.1 = phi i64 [ 0, %34 ], [ %32, %28 ], [ %56, %54 ], [ %108, %.loopexit125 ], [ %80, %84 ], [ %115, %.loopexit.split.loop.exit100 ], [ %80, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.6599896593330520474.exit ], [ %80, %82 ], [ %80, %88 ], [ 163208757251, %57 ]
+  %.sroa.8.1 = phi i64 [ 0, %34 ], [ %32, %28 ], [ %56, %54 ], [ %108, %.loopexit125 ], [ %80, %84 ], [ %116, %.loopexit.split.loop.exit100 ], [ %80, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.6599896593330520474.exit ], [ %80, %82 ], [ %80, %88 ], [ 163208757251, %57 ]
   %.sroa.0.1 = phi i64 [ 0, %34 ], [ %30, %28 ], [ 0, %54 ], [ 0, %.loopexit125 ], [ 1, %84 ], [ 1, %.loopexit.split.loop.exit100 ], [ 1, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.6599896593330520474.exit ], [ 1, %82 ], [ 1, %88 ], [ 1, %57 ]
-  %116 = inttoptr i64 %.sroa.8.1 to ptr
-  %117 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %118 = insertvalue { i64, ptr } %117, ptr %116, 1
-  ret { i64, ptr } %118
+  %117 = inttoptr i64 %.sroa.8.1 to ptr
+  %118 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
+  %119 = insertvalue { i64, ptr } %118, ptr %117, 1
+  ret { i64, ptr } %119
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -8712,45 +8712,45 @@ _ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread: ; preds = %13, %_ZN2os5Linu
   %.not.i6.i = icmp eq ptr %31, null
   br i1 %.not.i6.i, label %.loopexit, label %_ZN2os5Linux13numa_max_nodeEv.exit.i
 
-32:                                               ; preds = %38
+32:; preds = %38
   %33 = add nuw nsw i32 %.07.i, 1
   %34 = load ptr, ptr @_ZN2os5Linux14_numa_max_nodeE, align 8
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %.loopexit, label %_ZN2os5Linux13numa_max_nodeEv.exit.i, !llvm.loop !47
 
-_ZN2os5Linux13numa_max_nodeEv.exit.i:             ; preds = %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread, %32
+_ZN2os5Linux13numa_max_nodeEv.exit.i:; preds = %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread, %32
   %35 = phi ptr [ %34, %32 ], [ %31, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread ]
   %.07.i = phi i32 [ %33, %32 ], [ 0, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread ]
   %36 = call noundef i32 %35() #27
-  %37 = icmp sgt i32 %.07.i, %36
-  br i1 %37, label %.loopexit, label %38
+  %.not.i18.not = icmp sgt i32 %.07.i, %36
+  br i1 %.not.i18.not, label %.loopexit, label %36
 
-38:                                               ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit.i
-  %39 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
-  %40 = load ptr, ptr @_ZN2os5Linux24_numa_interleave_bitmaskE, align 8
-  %41 = call noundef i32 %39(ptr noundef %40, i32 noundef %.07.i) #27
-  %.not5.i = icmp eq i32 %41, 0
+36:                                               ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit.i
+  %37 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
+  %38 = load ptr, ptr @_ZN2os5Linux24_numa_interleave_bitmaskE, align 8
+  %39 = call noundef i32 %39(ptr noundef %38, i32 noundef %.07.i) #27
+  %.not5.i = icmp eq i32 %39, 0
   br i1 %.not5.i, label %32, label %.loopexit
 
 .loopexit:                                        ; preds = %38, %32, %_ZN2os5Linux13numa_max_nodeEv.exit.i, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread
   %.sink = phi i32 [ 1, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread ], [ 1, %_ZN2os5Linux13numa_max_nodeEv.exit.i ], [ 1, %32 ], [ 2, %38 ]
-  %_ZN2os5Linux21_numa_membind_bitmaskE.sink = phi ptr [ @_ZN2os5Linux21_numa_membind_bitmaskE, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread ], [ @_ZN2os5Linux21_numa_membind_bitmaskE, %_ZN2os5Linux13numa_max_nodeEv.exit.i ], [ @_ZN2os5Linux21_numa_membind_bitmaskE, %32 ], [ @_ZN2os5Linux24_numa_interleave_bitmaskE, %38 ]
-  %42 = phi ptr [ @.str.229, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread ], [ @.str.229, %_ZN2os5Linux13numa_max_nodeEv.exit.i ], [ @.str.229, %32 ], [ @.str.230, %38 ]
+  %spec.select16 = phi ptr [ @_ZN2os5Linux21_numa_membind_bitmaskE, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread ], [ @_ZN2os5Linux21_numa_membind_bitmaskE, %_ZN2os5Linux13numa_max_nodeEv.exit.i ], [ @_ZN2os5Linux21_numa_membind_bitmaskE, %32 ], [ @_ZN2os5Linux24_numa_interleave_bitmaskE, %38 ]
+  %.04.i = phi ptr [ @.str.229, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread ], [ @.str.229, %_ZN2os5Linux13numa_max_nodeEv.exit.i ], [ @.str.229, %32 ], [ @.str.230, %38 ]
   store i32 %.sink, ptr @_ZN2os5Linux20_current_numa_policyE, align 4
-  %43 = load ptr, ptr %_ZN2os5Linux21_numa_membind_bitmaskE.sink, align 8
+  %41 = load ptr, ptr %_ZN2os5Linux21_numa_membind_bitmaskE.sink, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.231, ptr noundef nonnull %42) #27
   %44 = load ptr, ptr @_ZN2os5Linux14_numa_max_nodeE, align 8
-  %.not.i1823 = icmp eq ptr %44, null
-  br i1 %.not.i1823, label %.critedge, label %_ZN2os5Linux13numa_max_nodeEv.exit19
+  %.not.i19 = icmp eq ptr %44, null
+  br i1 %.not.i19, label %54, label %_ZN2os5Linux13numa_max_nodeEv.exit20
 
-_ZN2os5Linux13numa_max_nodeEv.exit19:             ; preds = %.loopexit, %52
-  %45 = phi ptr [ %54, %52 ], [ %44, %.loopexit ]
+_ZN2os5Linux13numa_max_nodeEv.exit20:             ; preds = %.loopexit, %52
+  %47 = phi ptr [ %54, %52 ], [ %44, %.loopexit ]
   %.024 = phi i32 [ %53, %52 ], [ 0, %.loopexit ]
   %46 = call noundef i32 %45() #27
   %47 = icmp sgt i32 %.024, %46
   br i1 %47, label %.critedge, label %48
 
-48:                                               ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit19
+48:                                               ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit20
   %49 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
   %50 = call noundef i32 %49(ptr noundef %43, i32 noundef %.024) #27
   %.not15 = icmp eq i32 %50, 0
@@ -8766,11 +8766,11 @@ _ZN2os5Linux13numa_max_nodeEv.exit19:             ; preds = %.loopexit, %52
   %.not.i18 = icmp eq ptr %54, null
   br i1 %.not.i18, label %.critedge, label %_ZN2os5Linux13numa_max_nodeEv.exit19, !llvm.loop !48
 
-.critedge:                                        ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit19, %52, %.loopexit
+54:                                               ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit20, %52, %.loopexit
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #27
   br label %55
 
-55:                                               ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit.thread, %.critedge, %6
+55:                                               ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit.thread, %54, %6
   %56 = load i8, ptr @UseNUMA, align 1
   %57 = trunc i8 %56 to i1
   %.not = xor i1 %57, true
@@ -8802,8 +8802,8 @@ _ZN2os5Linux13numa_max_nodeEv.exit19:             ; preds = %.loopexit, %52
   %or.cond5.not = xor i1 %or.cond5, true
   %71 = load i8, ptr @UseTransparentHugePages, align 1
   %72 = trunc i8 %71 to i1
-  %or.cond22 = select i1 %or.cond5.not, i1 true, i1 %72
-  br i1 %or.cond22, label %79, label %73
+  %or.cond23 = select i1 %or.cond5.not, i1 true, i1 %72
+  br i1 %or.cond23, label %79, label %73
 
 73:                                               ; preds = %64
   %74 = load i8, ptr @UseAdaptiveSizePolicy, align 1

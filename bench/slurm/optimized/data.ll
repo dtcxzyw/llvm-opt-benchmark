@@ -4905,7 +4905,7 @@ tailrecurse.i.i:                                  ; preds = %.preheader.i.i, %59
   %.tr.i.i.in = phi ptr [ %60, %59 ], [ %63, %.preheader.i.i ]
   %.tr.i.i = load i32, ptr %.tr.i.i.in, align 4
   %61 = icmp ult i32 %.tr.i.i, 9
-  br i1 %61, label %switch.lookup106, label %.preheader.i.i
+  br i1 %61, label %switch.lookup120, label %.preheader.i.i
 
 62:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i16, 1
@@ -4920,14 +4920,14 @@ tailrecurse.i.i:                                  ; preds = %.preheader.i.i, %59
   %66 = icmp eq i32 %65, %.tr.i.i
   br i1 %66, label %tailrecurse.i.i, label %62
 
-switch.lookup106:                                 ; preds = %tailrecurse.i.i
+switch.lookup120:                                 ; preds = %tailrecurse.i.i
   %67 = zext nneg i32 %.tr.i.i to i64
-  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %67
-  %switch.load108 = load ptr, ptr %switch.gep107, align 8
+  %switch.gep121 = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %67
+  %switch.load122 = load ptr, ptr %switch.gep121, align 8
   br label %_type_to_string.exit
 
-_type_to_string.exit:                             ; preds = %62, %switch.lookup106, %_type_to_string.exit32
-  %68 = phi ptr [ %switch.load108, %switch.lookup106 ], [ @.str.70, %_type_to_string.exit32 ], [ @.str.70, %62 ]
+_type_to_string.exit:                             ; preds = %62, %switch.lookup120, %_type_to_string.exit32
+  %68 = phi ptr [ %switch.load122, %switch.lookup106 ], [ @.str.70, %_type_to_string.exit32 ], [ @.str.70, %62 ]
   %69 = ptrtoint ptr %.015.i to i64
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.101, ptr noundef %23, i64 noundef %20, ptr noundef nonnull %.08.i.i21, i64 noundef %57, ptr noundef nonnull %58, ptr noundef %23, i64 noundef %21, ptr noundef nonnull %68, i64 noundef %69) #15
   br label %_find_dict_match.exit
@@ -4942,7 +4942,7 @@ _find_dict_match.exit:                            ; preds = %data_key_get_const.
   br i1 %.not24.i, label %data_dict_for_each_const.exit, label %.lr.ph.i, !llvm.loop !26
 
 data_dict_for_each_const.exit:                    ; preds = %.thread.i, %_find_dict_match.exit, %.preheader.preheader, %9, %6, %3
-  %.0 = phi i1 [ false, %9 ], [ false, %3 ], [ false, %6 ], [ true, %.preheader.preheader ], [ %42, %_find_dict_match.exit ], [ %42, %.thread.i ]
+  %.0.i = phi i1 [ false, %9 ], [ false, %3 ], [ false, %6 ], [ true, %.preheader.preheader ], [ %42, %_find_dict_match.exit ], [ %42, %.thread.i ]
   ret i1 %.0
 }
 

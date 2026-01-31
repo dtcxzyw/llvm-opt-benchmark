@@ -1413,9 +1413,9 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
 .lr.ph140.i:                                      ; preds = %.preheader.i
   %125 = sext i32 %12 to i64
   %126 = icmp sgt i32 %12, 0
-  br i1 %126, label %.lr.ph137.us.i, label %._crit_edge141.i
+  br i1 %126, label %.lr.ph137.us.preheader.i, label %._crit_edge141.i
 
-.lr.ph137.us.i:                                   ; preds = %.lr.ph140.i, %._crit_edge138.us.i
+.lr.ph137.us.preheader.i:                         ; preds = %.lr.ph140.i, %._crit_edge138.us.i
   %.057139.us.i = phi i64 [ %170, %._crit_edge138.us.i ], [ 0, %.lr.ph140.i ]
   %127 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::StorageMinMaxFP16", ptr %.sroa.095.0106.i, i64 %.057139.us.i
   %.val.us.i = load i16, ptr %127, align 2, !tbaa !37

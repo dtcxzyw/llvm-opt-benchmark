@@ -751,7 +751,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   tail call void @llvm.assume(i1 %125)
   br i1 %121, label %126, label %133
 
-126:                                              ; preds = %.loopexit
+126:; preds = %.loopexit
   %127 = icmp samesign ugt i32 %.sroa.13.1, 15
   tail call void @llvm.assume(i1 %127)
   %128 = lshr i64 %.sroa.052.1, 48
@@ -762,7 +762,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %132 = trunc nuw i64 %128 to i16
   br label %150
 
-133:                                              ; preds = %.loopexit
+133:; preds = %.loopexit
   %134 = icmp ne i32 %120, 0
   tail call void @llvm.assume(i1 %134)
   %135 = icmp samesign ult i32 %120, 33
@@ -779,22 +779,22 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %.neg = shl nsw i32 -1, %143
   %144 = getelementptr inbounds nuw i32, ptr %3, i64 %118
   %145 = load i32, ptr %144, align 4, !tbaa !109
-  %146 = add nsw i32 %.neg, 1
-  %147 = add i32 %146, %140
+  %147 = add nsw i32 %.neg, 1
+  %147 = add i32 %147, %140
   %148 = add nsw i32 %147, %145
   store i32 %148, ptr %144, align 4, !tbaa !109
   %149 = trunc i32 %148 to i16
   br label %150
 
-150:                                              ; preds = %133, %126
-  %.sink = phi i16 [ %149, %133 ], [ %132, %126 ]
+150: ; preds = %133, %126
+  %.sroa.13.6 = phi i16 [ %149, %133 ], [ %132, %126 ]
   %.pn = phi i64 [ %142, %133 ], [ 16, %126 ]
   %.sroa.13.6 = phi i32 [ %141, %133 ], [ %130, %126 ]
   %.sroa.052.6 = shl i64 %.sroa.052.1, %.pn
   tail call void @llvm.assume(i1 %48)
   tail call void @llvm.assume(i1 %49)
-  %151 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv
-  store i16 %.sink, ptr %151, align 2, !tbaa !123
+  %150 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv
+  store i16 %.sink, ptr %150, align 2, !tbaa !123
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond197.not, label %54, label %55, !llvm.loop !125

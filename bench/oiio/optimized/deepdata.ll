@@ -2688,11 +2688,11 @@ _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i: ; preds = %37, %_ZNK11O
   %41 = load i64, ptr %40, align 4
   %42 = trunc i64 %39 to i24
   %43 = trunc i64 %41 to i24
-  %or.cond20.i = icmp eq i24 %42, %43
+  %or.cond35.not38.i = icmp eq i24 %42, %43
   %.unshifted.i = xor i64 %41, %39
   %44 = icmp ult i64 %.unshifted.i, 4294967296
-  %or.cond21.not.i = and i1 %or.cond20.i, %44
-  br i1 %or.cond21.not.i, label %37, label %_ZNK11OpenImageIO6v3_1_08DeepData17same_channeltypesERKS1_.exit
+  %or.cond36.not.i = and i1 %or.cond35.not38.i, %44
+  br i1 %or.cond36.not.i, label %37, label %_ZNK11OpenImageIO6v3_1_08DeepData17same_channeltypesERKS1_.exit
 
 _ZNK11OpenImageIO6v3_1_08DeepData17same_channeltypesERKS1_.exit: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i, %24, %27
   %45 = icmp sgt i32 %15, 0
@@ -5429,17 +5429,17 @@ _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit: ; preds = %_ZNK11OpenImag
   %20 = load i64, ptr %19, align 4
   %21 = trunc i64 %18 to i24
   %22 = trunc i64 %20 to i24
-  %or.cond20 = icmp eq i24 %21, %22
+  %or.cond35.not38 = icmp eq i24 %21, %22
   %.unshifted = xor i64 %20, %18
   %23 = icmp ult i64 %.unshifted, 4294967296
-  %or.cond21.not = and i1 %or.cond20, %23
+  %or.cond36.not = and i1 %or.cond35.not38, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %or.cond21.not, i1 %exitcond.not, i1 false
+  %or.cond.not = select i1 %or.cond36.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit, label %_ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread, !llvm.loop !125
 
 _ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit, %.preheader, %7, %2
-  %.010 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %.preheader ], [ %or.cond21.not, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit ]
+  %.010 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %.preheader ], [ %or.cond36.not, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit ]
   ret i1 %.010
 }
 

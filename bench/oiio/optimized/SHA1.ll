@@ -319,15 +319,15 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull al
 _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit:   ; preds = %.loopexit.i, %.loopexit.i.thread
   %31 = phi i32 [ %.pre, %.loopexit.i ], [ %19, %.loopexit.i.thread ]
   %32 = and i32 %31, 504
-  %.not36 = icmp eq i32 %32, 448
-  br i1 %.not36, label %.loopexit.i15, label %.lr.ph
+  %.not40 = icmp eq i32 %32, 448
+  br i1 %.not40, label %.loopexit.i17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 95
   br label %35
 
-35:                                               ; preds = %.lr.ph, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit14
+35:                                               ; preds = %.lr.ph, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16
   %36 = phi i32 [ %31, %.lr.ph ], [ %47, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit14 ]
   %37 = lshr i32 %36, 3
   %38 = and i32 %37, 63
@@ -345,21 +345,21 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit:   ; preds = %.loopexit.i, %.loop
   %45 = zext nneg i32 %38 to i64
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 %45
   store i8 0, ptr %46, align 1
-  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit14
+  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16
 
 .loopexit.i10:                                    ; preds = %35
   store i8 0, ptr %34, align 1
   tail call void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %33)
-  %.pre44 = load i32, ptr %3, align 4, !tbaa !8
-  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit14
+  %.pre48 = load i32, ptr %3, align 4, !tbaa !8
+  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16
 
-_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit14: ; preds = %.loopexit.i10, %.loopexit.i10.thread
-  %47 = phi i32 [ %.pre44, %.loopexit.i10 ], [ %39, %.loopexit.i10.thread ]
+_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.loopexit.i10.thread
+  %47 = phi i32 [ %.pre48, %.loopexit.i10 ], [ %39, %.loopexit.i10.thread ]
   %48 = and i32 %47, 504
   %.not = icmp eq i32 %48, 448
-  br i1 %.not, label %.loopexit.i15, label %35, !llvm.loop !24
+  br i1 %.not, label %.loopexit.i17, label %35, !llvm.loop !24
 
-.loopexit.i15:                                    ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit14, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
+.loopexit.i17:                                    ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
   %.lcssa = phi i32 [ %31, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit ], [ %47, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit14 ]
   %49 = add i32 %.lcssa, 64
   store i32 %49, ptr %3, align 4, !tbaa !8
@@ -376,23 +376,23 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit14: ; preds = %.loopexit.i10, %.lo
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %58
 
-58:                                               ; preds = %.loopexit.i15, %58
-  %indvars.iv40 = phi i64 [ 0, %.loopexit.i15 ], [ %indvars.iv.next41, %58 ]
-  %59 = lshr i64 %indvars.iv40, 2
+58:                                               ; preds = %.loopexit.i17, %58
+  %indvars.iv44 = phi i64 [ 0, %.loopexit.i15 ], [ %indvars.iv.next45, %58 ]
+  %59 = lshr i64 %indvars.iv44, 2
   %60 = and i64 %59, 1073741823
   %61 = getelementptr inbounds nuw i32, ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !8
-  %indvars.iv40.tr = trunc i64 %indvars.iv40 to i32
-  %63 = shl i32 %indvars.iv40.tr, 3
+  %indvars.iv44.tr = trunc i64 %indvars.iv44 to i32
+  %63 = shl i32 %indvars.iv44.tr, 3
   %64 = and i32 %63, 24
   %65 = xor i32 %64, 24
   %66 = lshr i32 %62, %65
   %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv40
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv44
   store i8 %67, ptr %68, align 1, !tbaa !22
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond43.not = icmp eq i64 %indvars.iv.next41, 20
-  br i1 %exitcond43.not, label %69, label %58, !llvm.loop !25
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next45, 20
+  br i1 %exitcond47.not, label %69, label %58, !llvm.loop !25
 
 69:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

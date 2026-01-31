@@ -31870,15 +31870,15 @@ hash_step.exit:                                   ; preds = %33, %30
   %41 = zext nneg i32 %40 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %39, i64 %41, i1 false)
   %42 = and i32 %35, 504
-  %.not35 = icmp eq i32 %42, 448
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not39 = icmp eq i32 %42, 448
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hash_step.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 91
   br label %45
 
-45:                                               ; preds = %.lr.ph, %hash_step.exit30
+45:                                               ; preds = %.lr.ph, %hash_step.exit32
   %46 = phi i32 [ %35, %.lr.ph ], [ %59, %hash_step.exit30 ]
   %47 = add i32 %46, 8
   store i32 %47, ptr %6, align 4, !tbaa !36
@@ -31900,15 +31900,15 @@ hash_step.exit:                                   ; preds = %33, %30
 56:                                               ; preds = %52
   store i8 0, ptr %44, align 1
   tail call fastcc void @SHA1Transform(ptr noundef nonnull %0, ptr noundef nonnull %36)
-  %.pre49 = load i32, ptr %6, align 4, !tbaa !36
-  br label %hash_step.exit30
+  %.pre53 = load i32, ptr %6, align 4, !tbaa !36
+  br label %hash_step.exit32
 
 57:                                               ; preds = %52
   %58 = zext nneg i32 %54 to i64
-  br label %hash_step.exit30
+  br label %hash_step.exit32
 
-hash_step.exit30:                                 ; preds = %57, %56
-  %59 = phi i32 [ %47, %57 ], [ %.pre49, %56 ]
+hash_step.exit32:                                 ; preds = %57, %56
+  %59 = phi i32 [ %47, %57 ], [ %.pre53, %56 ]
   %.1.i28 = phi i32 [ 0, %57 ], [ 1, %56 ]
   %.0.i29 = phi i64 [ %58, %57 ], [ 0, %56 ]
   %60 = getelementptr inbounds nuw i8, ptr %36, i64 %.0.i29
@@ -31921,44 +31921,44 @@ hash_step.exit30:                                 ; preds = %57, %56
   %.not = icmp eq i32 %65, 448
   br i1 %.not, label %._crit_edge, label %45, !llvm.loop !691
 
-._crit_edge:                                      ; preds = %hash_step.exit30, %hash_step.exit
+._crit_edge:                                      ; preds = %hash_step.exit32, %hash_step.exit
   %.lcssa = phi i32 [ %35, %hash_step.exit ], [ %59, %hash_step.exit30 ]
   %66 = add i32 %.lcssa, 64
   store i32 %66, ptr %6, align 4, !tbaa !36
   %67 = icmp ugt i32 %.lcssa, -65
-  br i1 %67, label %68, label %hash_step.exit33
+  br i1 %67, label %68, label %hash_step.exit37
 
 68:                                               ; preds = %._crit_edge
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = load i32, ptr %69, align 4, !tbaa !36
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4, !tbaa !36
-  br label %hash_step.exit33
+  br label %hash_step.exit37
 
-hash_step.exit33:                                 ; preds = %._crit_edge, %68
+hash_step.exit37:                                 ; preds = %._crit_edge, %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %73 = load i64, ptr %4, align 8
   store i64 %73, ptr %72, align 1
   tail call fastcc void @SHA1Transform(ptr noundef nonnull %0, ptr noundef nonnull %36)
   br label %74
 
-74:                                               ; preds = %hash_step.exit33, %74
-  %indvars.iv41 = phi i64 [ 0, %hash_step.exit33 ], [ %indvars.iv.next42, %74 ]
-  %75 = lshr i64 %indvars.iv41, 2
+74:                                               ; preds = %hash_step.exit37, %74
+  %indvars.iv45 = phi i64 [ 0, %hash_step.exit33 ], [ %indvars.iv.next46, %74 ]
+  %75 = lshr i64 %indvars.iv45, 2
   %76 = and i64 %75, 1073741823
   %77 = getelementptr inbounds nuw i32, ptr %0, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !36
-  %indvars.iv41.tr = trunc i64 %indvars.iv41 to i32
-  %79 = shl i32 %indvars.iv41.tr, 3
+  %indvars.iv45.tr = trunc i64 %indvars.iv45 to i32
+  %79 = shl i32 %indvars.iv45.tr, 3
   %80 = and i32 %79, 24
   %81 = xor i32 %80, 24
   %82 = lshr i32 %78, %81
   %83 = trunc i32 %82 to i8
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv41
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv45
   store i8 %83, ptr %84, align 1, !tbaa !25
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next42, 20
-  br i1 %exitcond44.not, label %85, label %74, !llvm.loop !692
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next46, 20
+  br i1 %exitcond48.not, label %85, label %74, !llvm.loop !692
 
 85:                                               ; preds = %74
   %.not27 = icmp eq i32 %2, 0
@@ -31969,14 +31969,14 @@ hash_step.exit33:                                 ; preds = %._crit_edge, %68
   br label %102
 
 .preheader:                                       ; preds = %85, %.preheader
-  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.preheader ], [ 0, %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv45
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.preheader ], [ 0, %85 ]
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv49
   %88 = load i8, ptr %87, align 1, !tbaa !25
   %89 = lshr i8 %88, 4
   %90 = zext nneg i8 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr @hash_finish.zEncode, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !25
-  %93 = shl nuw nsw i64 %indvars.iv45, 1
+  %93 = shl nuw nsw i64 %indvars.iv49, 1
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 %93
   store i8 %92, ptr %94, align 1, !tbaa !25
   %95 = and i8 %88, 15
@@ -31985,9 +31985,9 @@ hash_step.exit33:                                 ; preds = %._crit_edge, %68
   %98 = load i8, ptr %97, align 1, !tbaa !25
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 1
   store i8 %98, ptr %99, align 1, !tbaa !25
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %exitcond48.not = icmp eq i64 %indvars.iv.next46, 20
-  br i1 %exitcond48.not, label %100, label %.preheader, !llvm.loop !693
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next50, 20
+  br i1 %exitcond52.not, label %100, label %.preheader, !llvm.loop !693
 
 100:                                              ; preds = %.preheader
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 40

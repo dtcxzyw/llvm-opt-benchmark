@@ -3400,12 +3400,12 @@ get_provider_store.exit.thread:                   ; preds = %5
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 335, ptr noundef nonnull @__func__.get_provider_store) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef null) #11
-  br label %59
+  br label %58
 
 get_provider_store.exit:                          ; preds = %5
   %10 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 2119) #11
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %59, label %12
+  br i1 %11, label %58, label %12
 
 12:                                               ; preds = %get_provider_store.exit
   store ptr %0, ptr %10, align 8, !tbaa !112
@@ -3425,7 +3425,7 @@ get_provider_store.exit:                          ; preds = %5
 
 20:                                               ; preds = %12
   tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 2129) #11
-  br label %59
+  br label %58
 
 21:                                               ; preds = %12
   %22 = tail call ptr @evp_get_global_properties_str(ptr noundef %7, i32 noundef 0) #11
@@ -3475,20 +3475,20 @@ get_provider_store.exit:                          ; preds = %5
 .thread:                                          ; preds = %.lr.ph, %40, %25
   %.055.lcssa = phi i32 [ 0, %25 ], [ %.05566, %40 ], [ %.05566, %.lr.ph ]
   %44 = icmp eq i32 %.055.lcssa, %28
-  br i1 %44, label %.thread.thread, label %.preheader.preheader
+  br i1 %44, label %.thread.thread, label %.preheader
 
 .thread.thread:                                   ; preds = %42, %.thread
-  %.055.lcssa79 = phi i32 [ %.055.lcssa, %.thread ], [ %28, %42 ]
+  %.055.lcssa80 = phi i32 [ %.055.lcssa, %.thread ], [ %28, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !23
   %47 = tail call i32 @OPENSSL_sk_push(ptr noundef %46, ptr noundef nonnull %10) #11
-  %48 = icmp ne i32 %.055.lcssa79, %28
+  %48 = icmp ne i32 %.055.lcssa80, %28
   %49 = icmp slt i32 %47, 1
   %or.cond = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond, label %.preheader.preheader, label %56
+  br i1 %or.cond, label %.preheader, label %55
 
-.preheader.preheader:                             ; preds = %.thread, %.thread.thread
-  %.171.ph = phi i32 [ %.055.lcssa, %.thread ], [ %.055.lcssa79, %.thread.thread ]
+.preheader:                                       ; preds = %.thread, %.thread.thread
+  %.055.lcssa7985 = phi i32 [ %.055.lcssa, %.thread ], [ %.055.lcssa80, %.thread.thread ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -3502,15 +3502,15 @@ get_provider_store.exit:                          ; preds = %5
 
 55:                                               ; preds = %.preheader
   tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 2170) #11
-  br label %56
+  br label %55
 
-56:                                               ; preds = %.thread.thread, %55
+55:                                               ; preds = %.thread.thread, %55
   %.157 = phi i32 [ 0, %55 ], [ %47, %.thread.thread ]
-  %57 = load ptr, ptr %17, align 8, !tbaa !25
-  %58 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %57) #11
-  br label %59
+  %56 = load ptr, ptr %17, align 8, !tbaa !25
+  %57 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %56) #11
+  br label %58
 
-59:                                               ; preds = %get_provider_store.exit.thread, %get_provider_store.exit, %56, %20
+58:                                               ; preds = %get_provider_store.exit.thread, %get_provider_store.exit, %55, %20
   %.0 = phi i32 [ 0, %20 ], [ 0, %get_provider_store.exit.thread ], [ %.157, %56 ], [ 0, %get_provider_store.exit ]
   ret i32 %.0
 }

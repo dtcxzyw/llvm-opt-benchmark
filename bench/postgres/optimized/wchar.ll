@@ -2335,8 +2335,8 @@ define internal i32 @pg_sjis_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %pg_sjis_verifychar.exit.thread19
-  %.01425 = phi ptr [ %19, %pg_sjis_verifychar.exit.thread19 ], [ %0, %2 ]
-  %.01524 = phi i32 [ %20, %pg_sjis_verifychar.exit.thread19 ], [ %1, %2 ]
+  %.01425 = phi ptr [ %18, %pg_sjis_verifychar.exit.thread19 ], [ %0, %2 ]
+  %.01524 = phi i32 [ %19, %pg_sjis_verifychar.exit.thread19 ], [ %1, %2 ]
   %4 = load i8, ptr %.01425, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
@@ -2376,19 +2376,19 @@ pg_sjis_verifychar.exit:                          ; preds = %7
 
 pg_sjis_verifychar.exit.thread19:                 ; preds = %13, %pg_sjis_verifychar.exit, %5
   %.013 = phi i32 [ 1, %pg_sjis_verifychar.exit ], [ 1, %5 ], [ 2, %13 ]
-  %18 = zext nneg i32 %.013 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %.01425, i64 %18
-  %20 = sub nsw i32 %.01524, %.013
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph, label %.thread
+  %17 = zext nneg i32 %.013 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %.01425, i64 %17
+  %19 = sub nsw i32 %.01524, %.013
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %pg_sjis_verifychar.exit.thread19, %5, %pg_sjis_verifychar.exit, %13, %10, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01425, %10 ], [ %.01425, %13 ], [ %.01425, %pg_sjis_verifychar.exit ], [ %.01425, %5 ], [ %19, %pg_sjis_verifychar.exit.thread19 ]
-  %22 = ptrtoint ptr %.014.lcssa to i64
-  %23 = ptrtoint ptr %0 to i64
-  %24 = sub i64 %22, %23
-  %25 = trunc i64 %24 to i32
-  ret i32 %25
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01425, %10 ], [ %.01425, %13 ], [ %.01425, %pg_sjis_verifychar.exit ], [ %.01425, %5 ], [ %18, %pg_sjis_verifychar.exit.thread19 ]
+  %21 = ptrtoint ptr %.014.lcssa to i64
+  %22 = ptrtoint ptr %0 to i64
+  %23 = sub i64 %21, %22
+  %24 = trunc i64 %23 to i32
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

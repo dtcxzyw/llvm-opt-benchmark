@@ -25,7 +25,7 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
   %6 = alloca %"class.icu_77::internal::LocalOpenPointer", align 8
   %7 = load i32, ptr %4, align 4, !tbaa !3
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %104
+  br i1 %8, label %9, label %106
 
 9:                                                ; preds = %5
   %10 = icmp slt i32 %1, 0
@@ -39,7 +39,7 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
 
 14:                                               ; preds = %11, %9
   store i32 1, ptr %4, align 4, !tbaa !3
-  br label %104
+  br label %106
 
 15:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -50,12 +50,12 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
 
 17:                                               ; preds = %15
   store i32 7, ptr %4, align 4, !tbaa !3
-  br label %102
+  br label %104
 
 18:                                               ; preds = %24, %22
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %103
+  br label %105
 
 20:                                               ; preds = %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 56, i1 false)
@@ -83,7 +83,7 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
 
 31:                                               ; preds = %28
   store i32 7, ptr %4, align 4, !tbaa !3
-  br label %102
+  br label %104
 
 32:                                               ; preds = %28
   store ptr null, ptr %27, align 8, !tbaa !19
@@ -116,7 +116,7 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
 .split.us:                                        ; preds = %.lr.ph.split.us
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %103
+  br label %105
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
@@ -194,26 +194,26 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
 .loopexit.split.us:                               ; preds = %.lr.ph90.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
-  br label %103
+  br label %105
 
 .lr.ph90.split:                                   ; preds = %.lr.ph90
   %70 = load ptr, ptr %6, align 8, !tbaa !7
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %wide.trip.count108 = zext nneg i32 %.066 to i64
   %.pre115 = load ptr, ptr %71, align 8, !tbaa !11
-  br label %74
+  br label %76
 
 72:                                               ; preds = %55
   store i32 7, ptr %4, align 4, !tbaa !3
-  br label %102
+  br label %104
 
 .loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %103
+  br label %105
 
-.preheader:                                       ; preds = %74, %60, %.preheader82
-  %.052.lcssa = phi ptr [ %54, %.preheader82 ], [ %69, %60 ], [ %85, %74 ]
+.preheader:                                       ; preds = %76, %60, %.preheader82
+  %.052.lcssa = phi ptr [ %54, %.preheader82 ], [ %69, %60 ], [ %87, %74 ]
   br i1 %.not73, label %._crit_edge96, label %.lr.ph95.preheader
 
 .lr.ph95.preheader:                               ; preds = %.preheader
@@ -222,73 +222,73 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.052.lcssa, i8 0, i64 %73, i1 false), !tbaa !24
   br label %._crit_edge96
 
-74:                                               ; preds = %.lr.ph90.split, %74
-  %75 = phi ptr [ %.pre115, %.lr.ph90.split ], [ %80, %74 ]
+76:                                               ; preds = %.lr.ph90.split, %76
+  %77 = phi ptr [ %.pre115, %.lr.ph90.split ], [ %82, %74 ]
   %indvars.iv105 = phi i64 [ 0, %.lr.ph90.split ], [ %indvars.iv.next106, %74 ]
-  %.05289 = phi ptr [ %54, %.lr.ph90.split ], [ %85, %74 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv105
-  store ptr %.05289, ptr %76, align 8, !tbaa !19
-  %77 = getelementptr inbounds nuw ptr, ptr %.065, i64 %indvars.iv105
-  %78 = load ptr, ptr %77, align 8, !tbaa !19
-  %79 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.05289, ptr noundef nonnull dereferenceable(1) %78) #17
-  %80 = load ptr, ptr %71, align 8, !tbaa !11
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv105
-  %82 = load ptr, ptr %81, align 8, !tbaa !19
-  %83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #16
-  %84 = getelementptr i8, ptr %.05289, i64 %83
-  %85 = getelementptr i8, ptr %84, i64 1
+  %.05289 = phi ptr [ %54, %.lr.ph90.split ], [ %87, %74 ]
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv105
+  store ptr %.05289, ptr %78, align 8, !tbaa !19
+  %79 = getelementptr inbounds nuw ptr, ptr %.065, i64 %indvars.iv105
+  %80 = load ptr, ptr %79, align 8, !tbaa !19
+  %81 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.05289, ptr noundef nonnull dereferenceable(1) %80) #17
+  %82 = load ptr, ptr %71, align 8, !tbaa !11
+  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv105
+  %84 = load ptr, ptr %83, align 8, !tbaa !19
+  %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #16
+  %86 = getelementptr i8, ptr %.05289, i64 %85
+  %87 = getelementptr i8, ptr %86, i64 1
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.preheader, label %74, !llvm.loop !23
+  br i1 %exitcond109.not, label %.preheader, label %76, !llvm.loop !23
 
 ._crit_edge96:                                    ; preds = %.lr.ph95.preheader, %.preheader
-  %86 = load ptr, ptr %6, align 8, !tbaa !7
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 49
-  store i8 1, ptr %87, align 1, !tbaa !25
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  store i32 %.066, ptr %88, align 8, !tbaa !26
-  %89 = add nsw i32 %.066, 31
-  %90 = sdiv i32 %89, 32
-  %91 = invoke ptr @upvec_open_77(i32 noundef %90, ptr noundef nonnull %4)
-          to label %92 unwind label %98
+  %88 = load ptr, ptr %6, align 8, !tbaa !7
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 49
+  store i8 1, ptr %89, align 1, !tbaa !25
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  store i32 %.066, ptr %90, align 8, !tbaa !26
+  %91 = add nsw i32 %.066, 31
+  %92 = sdiv i32 %91, 32
+  %93 = invoke ptr @upvec_open_77(i32 noundef %92, ptr noundef nonnull %4)
+          to label %92 unwind label %100
 
-92:                                               ; preds = %._crit_edge96
-  %93 = load ptr, ptr %6, align 8, !tbaa !7
-  invoke fastcc void @_ZL20generateSelectorDataP18UConverterSelectorP13UPropsVectorsPK4USet20UConverterUnicodeSetP10UErrorCode(ptr noundef %93, ptr noundef %91, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4)
-          to label %94 unwind label %98
+94:                                               ; preds = %._crit_edge96
+  %95 = load ptr, ptr %6, align 8, !tbaa !7
+  invoke fastcc void @_ZL20generateSelectorDataP18UConverterSelectorP13UPropsVectorsPK4USet20UConverterUnicodeSetP10UErrorCode(ptr noundef %95, ptr noundef %93, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4)
+          to label %94 unwind label %100
 
-94:                                               ; preds = %92
-  invoke void @upvec_close_77(ptr noundef %91)
-          to label %95 unwind label %98
+96:                                               ; preds = %94
+  invoke void @upvec_close_77(ptr noundef %93)
+          to label %95 unwind label %100
 
-95:                                               ; preds = %94
-  %96 = load i32, ptr %4, align 4, !tbaa !3
-  %97 = icmp slt i32 %96, 1
-  br i1 %97, label %100, label %102
+97:                                               ; preds = %96
+  %98 = load i32, ptr %4, align 4, !tbaa !3
+  %99 = icmp slt i32 %98, 1
+  br i1 %99, label %102, label %104
 
-98:                                               ; preds = %94, %92, %._crit_edge96
-  %99 = landingpad { ptr, i32 }
+100:                                              ; preds = %96, %94, %._crit_edge96
+  %101 = landingpad { ptr, i32 }
           cleanup
-  br label %103
+  br label %105
 
-100:                                              ; preds = %95
-  %101 = load ptr, ptr %6, align 8, !tbaa !7
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %6, align 8, !tbaa !7
   store ptr null, ptr %6, align 8, !tbaa !7
-  br label %102
-
-102:                                              ; preds = %72, %95, %100, %31, %17
-  %.1 = phi ptr [ null, %17 ], [ null, %31 ], [ null, %72 ], [ %101, %100 ], [ null, %95 ]
-  call void @_ZN6icu_778internal16LocalOpenPointerI18UConverterSelectorXadL_Z16ucnvsel_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %104
 
-103:                                              ; preds = %.loopexit.split.us, %.loopexit.split-lp, %.split.us, %98, %18
-  %.pn79.pn = phi { ptr, i32 } [ %19, %18 ], [ %41, %.split.us ], [ %99, %98 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+104:                                              ; preds = %72, %97, %102, %31, %17
+  %.1 = phi ptr [ null, %17 ], [ null, %31 ], [ null, %72 ], [ %103, %100 ], [ null, %95 ]
+  call void @_ZN6icu_778internal16LocalOpenPointerI18UConverterSelectorXadL_Z16ucnvsel_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %106
+
+105:                                              ; preds = %.loopexit.split.us, %.loopexit.split-lp, %.split.us, %100, %18
+  %.pn79.pn = phi { ptr, i32 } [ %19, %18 ], [ %41, %.split.us ], [ %101, %98 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_778internal16LocalOpenPointerI18UConverterSelectorXadL_Z16ucnvsel_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn79.pn
 
-104:                                              ; preds = %5, %102, %14
+106:                                              ; preds = %5, %104, %14
   %.0 = phi ptr [ %.1, %102 ], [ null, %14 ], [ null, %5 ]
   ret ptr %.0
 }

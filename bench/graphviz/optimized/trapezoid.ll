@@ -271,11 +271,11 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %154 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  store i32 %22, ptr %155, align 8, !tbaa !43
-  %156 = getelementptr inbounds nuw i8, ptr %154, i64 36
-  store i32 %22, ptr %156, align 4, !tbaa !44
+  %155 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 40
+  store i32 %22, ptr %156, align 8, !tbaa !43
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 36
+  store i32 %22, ptr %157, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph.preheader.i.lr.ph, label %.lr.ph, !llvm.loop !45
@@ -286,15 +286,15 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.06.i = phi double [ %157, %.lr.ph.i ], [ %152, %.lr.ph.preheader.i ]
-  %.045.i = phi i32 [ %158, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %157 = tail call double @llvm.log2.f64(double %.06.i), !tbaa !12
-  %158 = add nuw nsw i32 %.045.i, 1
-  %159 = fcmp ult double %157, 1.000000e+00
-  br i1 %159, label %math_logstar_n.exit.thread, label %.lr.ph.i, !llvm.loop !47
+  %.06.i = phi double [ %158, %.lr.ph.i ], [ %152, %.lr.ph.preheader.i ]
+  %.045.i = phi i32 [ %159, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %158 = tail call double @llvm.log2.f64(double %.06.i), !tbaa !12
+  %159 = add nuw nsw i32 %.045.i, 1
+  %160 = fcmp ult double %158, 1.000000e+00
+  br i1 %160, label %math_logstar_n.exit.thread, label %.lr.ph.i, !llvm.loop !47
 
 math_logstar_n.exit57.thread:                     ; preds = %init_query_structure.exit
-  %160 = sitofp i32 %0 to double
+  %.pre = sitofp i32 %0 to double
   br label %math_N.exit63
 
 math_logstar_n.exit.thread:                       ; preds = %.lr.ph.i
@@ -417,8 +417,8 @@ math_logstar_n.exit57:                            ; preds = %.lr.ph.i53
 
 math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_logstar_n.exit57.thread, %math_logstar_n.exit57
   %.072 = phi i32 [ %.079, %math_logstar_n.exit57 ], [ 2, %math_logstar_n.exit57.thread ], [ %.079, %.lr.ph.i59 ]
-  %207 = phi double [ %152, %math_logstar_n.exit57 ], [ %160, %math_logstar_n.exit57.thread ], [ %152, %.lr.ph.i59 ]
-  %.0.lcssa.i58 = phi double [ %152, %math_logstar_n.exit57 ], [ %160, %math_logstar_n.exit57.thread ], [ %205, %.lr.ph.i59 ]
+  %207 = phi double [ %152, %math_logstar_n.exit57 ], [ %.pre, %math_logstar_n.exit57.thread ], [ %152, %.lr.ph.i59 ]
+  %.0.lcssa.i58 = phi double [ %152, %math_logstar_n.exit57 ], [ %.pre, %math_logstar_n.exit57.thread ], [ %205, %.lr.ph.i59 ]
   %208 = fdiv double %207, %.0.lcssa.i58
   %209 = tail call double @llvm.ceil.f64(double %208)
   %210 = fptosi double %209 to i32

@@ -5664,7 +5664,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   %.not420 = icmp eq ptr %.2, null
   %305 = sext i32 %302 to i64
   %wide.trip.count512 = zext nneg i32 %6 to i64
-  %wide.trip.count517 = zext nneg i32 %6 to i64
+  %wide.trip.count512 = zext nneg i32 %6 to i64
   br label %306
 
 306:                                              ; preds = %.lr.ph465, %._crit_edge455

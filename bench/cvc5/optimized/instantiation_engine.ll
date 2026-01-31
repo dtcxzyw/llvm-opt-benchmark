@@ -769,8 +769,8 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers19InstantiationEngine20
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165: ; preds = %34, %40, %42
   %44 = load ptr, ptr %12, align 8, !tbaa !246
   %45 = load ptr, ptr %11, align 8, !tbaa !252
-  %.not.not408.not = icmp eq ptr %44, %45
-  br i1 %.not.not408.not, label %._crit_edge, label %.critedge
+  %.not408 = icmp eq ptr %44, %45
+  br i1 %.not408, label %._crit_edge, label %.critedge
 
 .critedge:                                        ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165, %93
   %46 = phi ptr [ %98, %93 ], [ %45, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ]
@@ -849,7 +849,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit265: ; preds = %69, %73, %79
           to label %88 unwind label %89
 
 88:                                               ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit265
-  br i1 %87, label %._crit_edge, label %93
+  br i1 %87, label %._crit_edge.loopexit, label %93
 
 89:                                               ; preds = %63, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit265
   %90 = landingpad { ptr, i32 }
@@ -874,10 +874,10 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit265: ; preds = %69, %73, %79
   %101 = sub i64 %99, %100
   %102 = ashr exact i64 %101, 3
   %.not.not = icmp ugt i64 %102, %96
-  br i1 %.not.not, label %.critedge, label %._crit_edge, !llvm.loop !282
+  br i1 %.not.not, label %.critedge, label %._crit_edge.loopexit, !llvm.loop !282
 
-._crit_edge:                                      ; preds = %93, %88, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165
-  %.4.lcssa = phi i1 [ %.1418, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ], [ %.4410, %88 ], [ %spec.select, %93 ]
+._crit_edge.loopexit:                             ; preds = %93, %88, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165
+  %.4.lcssa.ph = phi i1 [ %.1418, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ], [ %.4410, %88 ], [ %spec.select, %93 ]
   %.not.not.lcssa = phi i1 [ false, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ], [ %87, %88 ], [ %87, %93 ]
   %103 = load i64, ptr %28, align 8
   %104 = and i64 %103, 1152920405095219200

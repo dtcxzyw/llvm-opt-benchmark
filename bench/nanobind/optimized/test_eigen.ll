@@ -13020,8 +13020,8 @@ define linkonce_odr hidden void @_ZN5Eigen8internal15unary_evaluatorINS_10Sparse
 27:                                               ; preds = %22
   %28 = add i64 %23, 1
   store i64 %28, ptr %2, align 8, !tbaa !706
-  %exitcond.not = icmp eq i64 %28, %4
-  br i1 %exitcond.not, label %.critedge, label %22, !llvm.loop !719
+  %29 = icmp eq i64 %28, %4
+  br i1 %29, label %.critedge, label %22, !llvm.loop !719
 
 .critedge:                                        ; preds = %22, %27, %1
   ret void

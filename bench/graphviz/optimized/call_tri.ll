@@ -21,13 +21,13 @@ define ptr @call_tri(i32 noundef %0, ptr noundef readonly captures(none) %1) loc
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #8
-  tail call fastcc void @graphviz_exit() #9
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 9:                                                ; preds = %2
   %10 = icmp ne i32 %0, 0
-  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #10
+  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #11
   %12 = icmp eq ptr %11, null
   %or.cond3.i = and i1 %10, %12
   br i1 %or.cond3.i, label %13, label %gv_calloc.exit
@@ -35,12 +35,12 @@ define ptr @call_tri(i32 noundef %0, ptr noundef readonly captures(none) %1) loc
 13:                                               ; preds = %9
   %14 = load ptr, ptr @stderr, align 8, !tbaa !7
   %15 = shl nuw nsw i64 %5, 3
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #8
-  tail call fastcc void @graphviz_exit() #9
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit:                                   ; preds = %9
-  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #10
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #11
   %18 = icmp eq ptr %17, null
   %or.cond3.i49 = and i1 %10, %18
   br i1 %or.cond3.i49, label %19, label %gv_calloc.exit50
@@ -48,8 +48,8 @@ gv_calloc.exit:                                   ; preds = %9
 19:                                               ; preds = %gv_calloc.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !7
   %21 = shl nuw nsw i64 %5, 3
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, i64 noundef %21) #8
-  tail call fastcc void @graphviz_exit() #9
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, i64 noundef %21) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
@@ -82,12 +82,12 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   br i1 %29, label %30, label %._crit_edge.thread
 
 30:                                               ; preds = %._crit_edge
-  %31 = call ptr @delaunay_tri(ptr noundef nonnull %11, ptr noundef nonnull %17, i32 noundef %0, ptr noundef nonnull %4) #11
+  %31 = call ptr @delaunay_tri(ptr noundef nonnull %11, ptr noundef nonnull %17, i32 noundef %0, ptr noundef nonnull %4) #12
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %gv_calloc.exit50, %30, %._crit_edge
   %.046 = phi ptr [ %31, %30 ], [ null, %._crit_edge ], [ null, %gv_calloc.exit50 ]
-  %32 = call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
+  %32 = call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #12
   %33 = load i32, ptr %4, align 4, !tbaa !10
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph54, label %._crit_edge55
@@ -99,7 +99,7 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   %36 = load i32, ptr %35, align 4, !tbaa !10
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !10
-  %39 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %36, i32 noundef %38, ptr noundef nonnull %3) #11
+  %39 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %36, i32 noundef %38, ptr noundef nonnull %3) #12
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %40 = load i32, ptr %4, align 4, !tbaa !10
   %41 = sext i32 %40 to i64
@@ -111,7 +111,7 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   br i1 %43, label %.thread, label %45
 
 .thread:                                          ; preds = %._crit_edge55
-  %44 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #11
+  %44 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #12
   br label %.lr.ph58.preheader
 
 45:                                               ; preds = %._crit_edge55
@@ -122,19 +122,19 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %.256 = phi i32 [ %47, %.lr.ph58 ], [ 0, %.lr.ph58.preheader ]
-  %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %3) #11
+  %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %3) #12
   %47 = add nuw nsw i32 %.256, 1
   %exitcond65.not = icmp eq i32 %47, %0
   br i1 %exitcond65.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !15
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %45
-  %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #11
-  call void @SparseMatrix_delete(ptr noundef %32) #11
-  %49 = call ptr @SparseMatrix_symmetrize(ptr noundef %48, i1 noundef zeroext false) #11
-  call void @SparseMatrix_delete(ptr noundef %48) #11
-  call void @free(ptr noundef %.046) #11
-  call void @free(ptr noundef %11) #11
-  call void @free(ptr noundef %17) #11
+  %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #12
+  call void @SparseMatrix_delete(ptr noundef %32) #12
+  %49 = call ptr @SparseMatrix_symmetrize(ptr noundef %48, i1 noundef zeroext false) #12
+  call void @SparseMatrix_delete(ptr noundef %48) #12
+  call void @free(ptr noundef %.046) #12
+  call void @free(ptr noundef %11) #12
+  call void @free(ptr noundef %17) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %49
@@ -166,13 +166,13 @@ define ptr @call_tri2(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #8
-  tail call fastcc void @graphviz_exit() #9
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 9:                                                ; preds = %3
   %10 = icmp ne i32 %0, 0
-  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #10
+  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #11
   %12 = icmp eq ptr %11, null
   %or.cond3.i = and i1 %10, %12
   br i1 %or.cond3.i, label %13, label %gv_calloc.exit
@@ -180,12 +180,12 @@ define ptr @call_tri2(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
 13:                                               ; preds = %9
   %14 = load ptr, ptr @stderr, align 8, !tbaa !7
   %15 = shl nuw nsw i64 %5, 3
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #8
-  tail call fastcc void @graphviz_exit() #9
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit:                                   ; preds = %9
-  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #10
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #11
   %18 = icmp eq ptr %17, null
   %or.cond3.i49 = and i1 %10, %18
   br i1 %or.cond3.i49, label %20, label %gv_calloc.exit50.preheader
@@ -202,8 +202,8 @@ gv_calloc.exit50.preheader61:                     ; preds = %gv_calloc.exit50.pr
 20:                                               ; preds = %gv_calloc.exit
   %21 = load ptr, ptr @stderr, align 8, !tbaa !7
   %22 = shl nuw nsw i64 %5, 3
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.1, i64 noundef %22) #8
-  tail call fastcc void @graphviz_exit() #9
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.1, i64 noundef %22) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit50:                                 ; preds = %gv_calloc.exit50.preheader61, %gv_calloc.exit50
@@ -222,8 +222,8 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit50.pr
   br i1 %exitcond.not, label %gv_calloc.exit50._crit_edge, label %gv_calloc.exit50, !llvm.loop !16
 
 gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %gv_calloc.exit50.preheader
-  %31 = tail call ptr @UG_graph(ptr noundef %11, ptr noundef %17, i32 noundef %0) #11
-  %32 = tail call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
+  %31 = tail call ptr @UG_graph(ptr noundef %11, ptr noundef %17, i32 noundef %0) #12
+  %32 = tail call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #12
   br i1 %.not, label %._crit_edge58, label %.preheader51.preheader
 
 .preheader51.preheader:                           ; preds = %gv_calloc.exit50._crit_edge
@@ -247,7 +247,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
   %39 = load ptr, ptr %36, align 8, !tbaa !21
   %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv63
   %41 = load i32, ptr %40, align 4, !tbaa !10
-  %42 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %37, i32 noundef %41, ptr noundef nonnull %4) #11
+  %42 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %37, i32 noundef %41, ptr noundef nonnull %4) #12
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %43 = load i32, ptr %33, align 8, !tbaa !17
   %44 = sext i32 %43 to i64
@@ -261,19 +261,19 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
 
 .lr.ph57:                                         ; preds = %._crit_edge, %.lr.ph57
   %.256 = phi i32 [ %47, %.lr.ph57 ], [ 0, %._crit_edge ]
-  %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %4) #11
+  %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %4) #12
   %47 = add nuw nsw i32 %.256, 1
   %exitcond72.not = icmp eq i32 %47, %0
   br i1 %exitcond72.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !24
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %gv_calloc.exit50._crit_edge
-  %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #11
-  %49 = call ptr @SparseMatrix_symmetrize(ptr noundef %48, i1 noundef zeroext false) #11
-  call void @SparseMatrix_delete(ptr noundef %48) #11
-  call void @SparseMatrix_delete(ptr noundef %32) #11
-  call void @free(ptr noundef %11) #11
-  call void @free(ptr noundef %17) #11
-  call void @freeGraph(ptr noundef %31) #11
+  %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #12
+  %49 = call ptr @SparseMatrix_symmetrize(ptr noundef %48, i1 noundef zeroext false) #12
+  call void @SparseMatrix_delete(ptr noundef %48) #12
+  call void @SparseMatrix_delete(ptr noundef %32) #12
+  call void @free(ptr noundef %11) #12
+  call void @free(ptr noundef %17) #12
+  call void @freeGraph(ptr noundef %31) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %49
 }
@@ -287,7 +287,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 ; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #4 {
-  tail call void @exit(i32 noundef 1) #12
+  tail call void @exit(i32 noundef 1) #13
   unreachable
 }
 

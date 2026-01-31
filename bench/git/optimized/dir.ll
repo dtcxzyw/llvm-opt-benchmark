@@ -5416,7 +5416,7 @@ cmp_icase.exit.thread:                            ; preds = %14, %cmp_icase.exit
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @is_inside_dir(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %44, label %2
+  br i1 %.not, label %46, label %2
 
 2:                                                ; preds = %1
   %3 = tail call ptr @xgetcwd() #28
@@ -5500,7 +5500,7 @@ cmp_icase.exit.thread.i:                          ; preds = %cmp_icase.exit.i, %
   %35 = getelementptr inbounds i8, ptr %.017.lcssa.i, i64 -1
   %36 = load i8, ptr %35, align 1, !tbaa !4
   %.not36.i = icmp eq i8 %36, 47
-  br i1 %.not36.i, label %37, label %40
+  br i1 %.not36.i, label %37, label %41
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %.018.lcssa.i, i64 -1
@@ -5508,19 +5508,19 @@ cmp_icase.exit.thread.i:                          ; preds = %cmp_icase.exit.i, %
   %.not37.i = icmp eq i8 %39, 47
   br label %dir_inside_of.exit
 
-40:                                               ; preds = %34
+41:                                               ; preds = %34
   %.not38.i = icmp eq i8 %.pr32.i, 47
   %41 = icmp sgt i32 %.0.lcssa.i, -2
-  %42 = select i1 %.not38.i, i1 %41, i1 false
+  %43 = select i1 %.not38.i, i1 %41, i1 false
   br label %dir_inside_of.exit
 
-dir_inside_of.exit:                               ; preds = %.lr.ph.split.i, %cmp_icase.exit.i, %.lr.ph.split.us.i, %.critedge.i, %37, %40
-  %.019.i = phi i1 [ true, %.critedge.i ], [ %.not37.i, %37 ], [ %42, %40 ], [ false, %.lr.ph.split.us.i ], [ false, %cmp_icase.exit.i ], [ false, %.lr.ph.split.i ]
+dir_inside_of.exit:                               ; preds = %.lr.ph.split.i, %cmp_icase.exit.i, %.lr.ph.split.us.i, %.critedge.i, %37, %41
+  %.019.i = phi i1 [ true, %.critedge.i ], [ %.not37.i, %37 ], [ %43, %40 ], [ false, %.lr.ph.split.us.i ], [ false, %cmp_icase.exit.i ], [ false, %.lr.ph.split.i ]
   %43 = zext i1 %.019.i to i32
   tail call void @free(ptr noundef %3) #28
-  br label %44
+  br label %46
 
-44:                                               ; preds = %1, %dir_inside_of.exit
+46:                                               ; preds = %1, %dir_inside_of.exit
   %.0 = phi i32 [ %43, %dir_inside_of.exit ], [ 0, %1 ]
   ret i32 %.0
 }

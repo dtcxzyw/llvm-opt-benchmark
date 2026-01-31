@@ -924,9 +924,9 @@ isvalid_rfc2428_delimiter.exit.i:                 ; preds = %320
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %342 = icmp sgt i32 %spec.select.i, 1
-  br i1 %342, label %.lr.ph97.i, label %parse_eprt_request.exit.thread407
+  br i1 %342, label %.lr.ph97.preheader.i, label %parse_eprt_request.exit.thread407
 
-.lr.ph97.i:                                       ; preds = %.preheader.i, %374
+.lr.ph97.preheader.i:                             ; preds = %.preheader.i, %374
   %indvars.iv108.i = phi i64 [ %indvars.iv.next109.i, %374 ], [ 1, %.preheader.i ]
   %.26596.i = phi i32 [ %.366.i, %374 ], [ 1, %.preheader.i ]
   %.07095.i = phi i1 [ %.171.i, %374 ], [ true, %.preheader.i ]

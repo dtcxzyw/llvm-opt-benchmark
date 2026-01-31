@@ -2263,23 +2263,23 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly capture
   br label %.thread34
 
 .thread34:                                        ; preds = %..thread34_crit_edge, %54, %51
-  %76 = phi i32 [ %75, %..thread34_crit_edge ], [ %47, %51 ], [ %47, %54 ]
-  %77 = phi i32 [ %73, %..thread34_crit_edge ], [ 0, %51 ], [ 0, %54 ]
-  %78 = getelementptr inbounds nuw i8, ptr %18, i64 92
-  store i32 %77, ptr %78, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %18, i64 144
-  %80 = load i64, ptr %79, align 8
-  %81 = lshr i64 %80, 2
-  %82 = tail call i64 @llvm.umax.i64(i64 %81, i64 131072)
-  %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 6291456)
-  %84 = add nuw i32 %76, %77
+  %75 = phi i32 [ %75, %..thread34_crit_edge ], [ %47, %51 ], [ %47, %54 ]
+  %76 = phi i32 [ %73, %..thread34_crit_edge ], [ 0, %51 ], [ 0, %54 ]
+  %77 = getelementptr inbounds nuw i8, ptr %18, i64 92
+  store i32 %76, ptr %77, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %18, i64 144
+  %79 = load i64, ptr %78, align 8
+  %80 = lshr i64 %79, 2
+  %81 = tail call i64 @llvm.umax.i64(i64 %80, i64 131072)
+  %82 = tail call i64 @llvm.umin.i64(i64 %81, i64 6291456)
+  %84 = add nuw i32 %75, %77
   %85 = sext i32 %84 to i64
   %86 = shl nsw i64 %85, 3
-  %87 = icmp ugt i64 %83, %86
+  %87 = icmp ugt i64 %82, %86
   br i1 %87, label %88, label %.thread29
 
 88:                                               ; preds = %.thread34
-  %89 = sub nsw i64 %86, %83
+  %89 = sub nsw i64 %86, %82
   %90 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %91 = load i64, ptr %90, align 8
   %92 = add i64 %89, %91
@@ -2295,7 +2295,7 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly capture
   %99 = load i64, ptr %90, align 8
   %100 = getelementptr inbounds nuw i8, ptr %18, i64 136
   store i64 %99, ptr %100, align 8
-  %101 = load i32, ptr %78, align 4
+  %101 = load i32, ptr %77, align 4
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %.lr.ph.preheader, label %._crit_edge
 

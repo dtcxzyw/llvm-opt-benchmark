@@ -1267,7 +1267,7 @@ define dso_local void @intel_disable_transcoder(ptr noundef readonly captures(no
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %41, i32 %40, i1 noundef zeroext true) #26
   %45 = icmp sgt i32 %44, -1
-  br i1 %45, label %116, label %46
+  br i1 %45, label %117, label %46
 
 46:                                               ; preds = %.loopexit
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1518
@@ -1311,62 +1311,62 @@ define dso_local void @intel_disable_transcoder(ptr noundef readonly captures(no
 79:                                               ; preds = %73, %46
   br i1 %55, label %80, label %116
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %0, align 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 2632
-  %84 = load i16, ptr %83, align 8
-  %85 = icmp ugt i16 %84, 3
-  br i1 %85, label %86, label %115
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %0, align 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 2632
+  %85 = load i16, ptr %84, align 8
+  %86 = icmp ugt i16 %85, 3
+  br i1 %86, label %87, label %116
 
-86:                                               ; preds = %80
-  %87 = getelementptr inbounds nuw i8, ptr %82, i64 2624
-  %88 = load i32, ptr %4, align 8
-  %89 = load ptr, ptr %87, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 36
-  %91 = sext i32 %88 to i64
-  %92 = getelementptr i32, ptr %90, i64 %91
-  %93 = load i32, ptr %92, align 4
-  %94 = load i32, ptr %90, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %96 = load i32, ptr %95, align 4
-  %97 = add i32 %93, 458760
-  %98 = sub i32 %97, %94
-  %99 = add i32 %98, %96
-  %100 = getelementptr inbounds nuw i8, ptr %82, i64 7368
-  %101 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %100, i32 %99, i32 noundef 1073741824, i32 noundef 0, i32 noundef 2, i32 noundef 100, ptr noundef null) #26
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %116, label %103
+87:                                               ; preds = %81
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 2624
+  %89 = load i32, ptr %4, align 8
+  %90 = load ptr, ptr %88, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 36
+  %92 = sext i32 %89 to i64
+  %93 = getelementptr i32, ptr %91, i64 %92
+  %94 = load i32, ptr %93, align 4
+  %95 = load i32, ptr %91, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  %97 = load i32, ptr %96, align 4
+  %98 = add i32 %94, 458760
+  %99 = sub i32 %98, %95
+  %100 = add i32 %99, %97
+  %101 = getelementptr inbounds nuw i8, ptr %83, i64 7368
+  %102 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %101, i32 %100, i32 noundef 1073741824, i32 noundef 0, i32 noundef 2, i32 noundef 100, ptr noundef null) #26
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %117, label %104
 
-103:                                              ; preds = %86
+104:                                              ; preds = %87
   tail call void asm sideeffect "905: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 905b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 905) #26, !srcloc !39
-  %104 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = tail call ptr @dev_driver_string(ptr noundef %105) #26
-  %107 = load ptr, ptr %104, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 80
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %111, label %113
+  %105 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = tail call ptr @dev_driver_string(ptr noundef %106) #26
+  %108 = load ptr, ptr %105, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 80
+  %110 = load ptr, ptr %109, align 8
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %112, label %114
 
-111:                                              ; preds = %103
-  %112 = load ptr, ptr %107, align 8
-  br label %113
+112:                                              ; preds = %104
+  %113 = load ptr, ptr %108, align 8
+  br label %114
 
-113:                                              ; preds = %111, %103
-  %114 = phi ptr [ %112, %111 ], [ %109, %103 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.260, ptr noundef %106, ptr noundef %114) #26
+114:                                              ; preds = %112, %104
+  %115 = phi ptr [ %113, %111 ], [ %110, %103 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.260, ptr noundef %107, ptr noundef %115) #26
   tail call void asm sideeffect "906: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 906b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 906) #26, !srcloc !40
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 297, i32 2313, i64 12) #26, !srcloc !41
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_end\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #26, !srcloc !42
   tail call void asm sideeffect "908: nop\0A\09.pushsection .discard.instr_end\0A\09.long 908b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 908) #26, !srcloc !43
-  br label %116
+  br label %117
 
-115:                                              ; preds = %80
-  tail call void @intel_wait_for_pipe_scanline_stopped(ptr noundef %81) #26
-  br label %116
+116:                                              ; preds = %81
+  tail call void @intel_wait_for_pipe_scanline_stopped(ptr noundef %82) #26
+  br label %117
 
-116:                                              ; preds = %115, %113, %86, %79, %.loopexit
+117:                                              ; preds = %116, %114, %87, %79, %.loopexit
   ret void
 }
 

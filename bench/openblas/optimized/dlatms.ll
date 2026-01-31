@@ -129,8 +129,8 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1068, label %67, label %.sink.split
 
 .sink.split:                                      ; preds = %65, %63, %61, %58
-  %.sink1845 = phi i32 [ 0, %58 ], [ 1, %63 ], [ 0, %61 ], [ 1, %65 ]
-  store i32 %.sink1845, ptr %38, align 4, !tbaa !3
+  %.sink1846 = phi i32 [ 0, %58 ], [ 1, %63 ], [ 0, %61 ], [ 1, %65 ]
+  store i32 %.sink1846, ptr %38, align 4, !tbaa !3
   br label %67
 
 67:                                               ; preds = %.sink.split, %65
@@ -267,13 +267,13 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 133:                                              ; preds = %131
   %134 = icmp slt i32 %97, 0
-  %brmerge1848 = select i1 %134, i1 true, i1 %59
-  %brmerge1850 = or i1 %brmerge1848, %68
+  %brmerge1849 = select i1 %134, i1 true, i1 %59
+  %brmerge1851 = or i1 %brmerge1849, %68
   %.mux = select i1 %59, i32 -3, i32 -5
   %.mux.mux = select i1 %134, i32 -2, i32 %.mux
-  %.mux1849 = select i1 %59, i32 -3, i32 -5
-  %.mux1849.mux = select i1 %134, i32 -2, i32 %.mux1849
-  br i1 %brmerge1850, label %.thread.sink.split, label %135
+  %.mux1850 = select i1 %59, i32 -3, i32 -5
+  %.mux1850.mux = select i1 %134, i32 -2, i32 %.mux1850
+  br i1 %brmerge1851, label %.thread.sink.split, label %135
 
 135:                                              ; preds = %133
   %136 = load i32, ptr %6, align 4, !tbaa !3
@@ -326,9 +326,9 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1090, label %.preheader, label %.thread
 
 .thread.sink.split:                               ; preds = %133, %150, %147, %145, %143, %140, %135, %131, %127
-  %.sink1846 = phi i32 [ -1, %127 ], [ -1, %131 ], [ -14, %150 ], [ -7, %135 ], [ -10, %143 ], [ -12, %147 ], [ -11, %145 ], [ -8, %140 ], [ %.mux.mux, %133 ]
-  %.ph = phi i32 [ -1, %127 ], [ -1, %131 ], [ -14, %150 ], [ -7, %135 ], [ -10, %143 ], [ -12, %147 ], [ -11, %145 ], [ -8, %140 ], [ %.mux1849.mux, %133 ]
-  store i32 %.sink1846, ptr %15, align 4, !tbaa !3
+  %.sink1847 = phi i32 [ -1, %127 ], [ -1, %131 ], [ -14, %150 ], [ -7, %135 ], [ -10, %143 ], [ -12, %147 ], [ -11, %145 ], [ -8, %140 ], [ %.mux.mux, %133 ]
+  %.ph = phi i32 [ -1, %127 ], [ -1, %131 ], [ -14, %150 ], [ -7, %135 ], [ -10, %143 ], [ -12, %147 ], [ -11, %145 ], [ -8, %140 ], [ %.mux1850.mux, %133 ]
+  store i32 %.sink1847, ptr %15, align 4, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %153
@@ -1877,7 +1877,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.191523 = phi i32 [ 0, %.lr.ph1526 ], [ %spec.select1183, %868 ]
   %.2010271522 = phi i32 [ 1, %.lr.ph1526 ], [ %spec.select1182, %868 ]
   %859 = mul nsw i64 %indvars.iv1710, %856
-  %invariant.gep1843 = getelementptr double, ptr %46, i64 %859
+  %invariant.gep1844 = getelementptr double, ptr %46, i64 %859
   br label %860
 
 860:                                              ; preds = %858, %860
@@ -1889,8 +1889,8 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %862 = zext i1 %.not1158 to i32
   %spec.select1182 = add nsw i32 %.2110281518, %862
   %spec.select1183 = select i1 %.not1158, i32 1, i32 %861
-  %gep1844 = getelementptr double, ptr %invariant.gep1843, i64 %indvars.iv1700
-  %863 = load double, ptr %gep1844, align 8, !tbaa !7
+  %gep1845 = getelementptr double, ptr %invariant.gep1844, i64 %indvars.iv1700
+  %863 = load double, ptr %gep1845, align 8, !tbaa !7
   %864 = mul nsw i32 %spec.select1182, %44
   %865 = add nsw i32 %864, %spec.select1183
   %866 = sext i32 %865 to i64
@@ -1926,7 +1926,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.221512 = phi i32 [ 0, %.lr.ph1515 ], [ %spec.select1185, %885 ]
   %.2310301511 = phi i32 [ 1, %.lr.ph1515 ], [ %spec.select1184, %885 ]
   %876 = mul nsw i64 %indvars.iv1688, %874
-  %invariant.gep1841 = getelementptr double, ptr %46, i64 %876
+  %invariant.gep1842 = getelementptr double, ptr %46, i64 %876
   br label %877
 
 877:                                              ; preds = %875, %877
@@ -1938,8 +1938,8 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %879 = zext i1 %.not1155 to i32
   %spec.select1184 = add nsw i32 %.2410311507, %879
   %spec.select1185 = select i1 %.not1155, i32 1, i32 %878
-  %gep1842 = getelementptr double, ptr %invariant.gep1841, i64 %indvars.iv1690
-  %880 = load double, ptr %gep1842, align 8, !tbaa !7
+  %gep1843 = getelementptr double, ptr %invariant.gep1842, i64 %indvars.iv1690
+  %880 = load double, ptr %gep1843, align 8, !tbaa !7
   %881 = mul nsw i32 %spec.select1184, %44
   %882 = add nsw i32 %881, %spec.select1185
   %883 = sext i32 %882 to i64
@@ -2003,13 +2003,13 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %905 = sub i32 %895, %904
   %906 = trunc nsw i64 %903 to i32
   %907 = add i32 %905, %906
-  %invariant.gep1837 = getelementptr double, ptr %46, i64 %903
+  %invariant.gep1838 = getelementptr double, ptr %46, i64 %903
   br label %908
 
 908:                                              ; preds = %.lr.ph1489, %908
   %indvars.iv1668 = phi i64 [ %smin1667, %.lr.ph1489 ], [ %indvars.iv.next1669, %908 ]
-  %gep1838 = getelementptr double, ptr %invariant.gep1837, i64 %indvars.iv1668
-  %909 = load double, ptr %gep1838, align 8, !tbaa !7
+  %gep1839 = getelementptr double, ptr %invariant.gep1838, i64 %indvars.iv1668
+  %909 = load double, ptr %gep1839, align 8, !tbaa !7
   %910 = trunc nuw nsw i64 %indvars.iv1668 to i32
   %911 = add i32 %907, %910
   %912 = sext i32 %911 to i64
@@ -2058,13 +2058,13 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %932 = sub i32 %919, %931
   %933 = trunc nsw i64 %930 to i32
   %934 = add i32 %932, %933
-  %invariant.gep1839 = getelementptr double, ptr %46, i64 %930
+  %invariant.gep1840 = getelementptr double, ptr %46, i64 %930
   br label %935
 
 935:                                              ; preds = %.lr.ph1500, %935
   %indvars.iv1678 = phi i64 [ %929, %.lr.ph1500 ], [ %indvars.iv.next1679, %935 ]
-  %gep1840 = getelementptr double, ptr %invariant.gep1839, i64 %indvars.iv1678
-  %936 = load double, ptr %gep1840, align 8, !tbaa !7
+  %gep1841 = getelementptr double, ptr %invariant.gep1840, i64 %indvars.iv1678
+  %936 = load double, ptr %gep1841, align 8, !tbaa !7
   %937 = trunc nsw i64 %indvars.iv1678 to i32
   %938 = add i32 %934, %937
   %939 = sext i32 %938 to i64
@@ -2088,19 +2088,19 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond19, label %.loopexit1278.thread, label %957
 
 .loopexit1278.thread:                             ; preds = %870, %853, %.loopexit1278
-  %.181824 = phi i32 [ %.18, %.loopexit1278 ], [ 0, %853 ], [ 0, %870 ]
-  %.1910261823 = phi i32 [ %.191026, %.loopexit1278 ], [ 1, %853 ], [ 1, %870 ]
+  %.181825 = phi i32 [ %.18, %.loopexit1278 ], [ 0, %853 ], [ 0, %870 ]
+  %.1910261824 = phi i32 [ %.191026, %.loopexit1278 ], [ 1, %853 ], [ 1, %870 ]
   %941 = load i32, ptr %0, align 4, !tbaa !3
-  %.not11661565 = icmp sgt i32 %.1910261823, %941
+  %.not11661565 = icmp sgt i32 %.1910261824, %941
   br i1 %.not11661565, label %.thread1196, label %.lr.ph1569
 
 .lr.ph1569:                                       ; preds = %.loopexit1278.thread
-  %942 = add nsw i32 %.181824, 1
+  %942 = add nsw i32 %.181825, 1
   %943 = load i32, ptr %13, align 4, !tbaa !3
   %944 = shl nsw i64 %45, 3
   %scevgep1768 = getelementptr i8, ptr %12, i64 %944
   %945 = add i32 %941, 1
-  %946 = sub i32 %945, %.1910261823
+  %946 = sub i32 %945, %.1910261824
   br label %947
 
 947:                                              ; preds = %.lr.ph1569, %._crit_edge1564
@@ -2110,7 +2110,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not11671560, label %._crit_edge1564, label %.lr.ph1563
 
 .lr.ph1563:                                       ; preds = %947
-  %948 = add i32 %.1910261823, %indvar
+  %948 = add i32 %.1910261824, %indvar
   %949 = mul i32 %948, %44
   %950 = add i32 %.251566, %949
   %951 = sext i32 %950 to i64

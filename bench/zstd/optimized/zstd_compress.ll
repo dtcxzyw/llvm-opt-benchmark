@@ -2849,7 +2849,7 @@ define internal fastcc i64 @ZSTD_estimateCCtxSize_usingCCtxParams_internal(ptr n
   %13 = icmp eq i64 %6, 0
   br i1 %13, label %.thread, label %14
 
-14:                                               ; preds = %9
+14:; preds = %9
   %15 = zext nneg i32 %.fr38.i to i64
   %16 = shl nuw i64 1, %15
   %. = tail call i64 @llvm.umin.i64(i64 %16, i64 %6)
@@ -2868,21 +2868,21 @@ define internal fastcc i64 @ZSTD_estimateCCtxSize_usingCCtxParams_internal(ptr n
   br i1 %.not4.i.i, label %ZSTD_allocateChainTable.exit.thread.i, label %ZSTD_allocateChainTable.exit.i
 
 ZSTD_allocateChainTable.exit.i:                   ; preds = %.thread
-  %23 = add i32 %22, -3
-  %24 = icmp ult i32 %23, 3
-  %25 = icmp eq i32 %3, 1
-  %.not8.i.not.i = and i1 %25, %24
+  %17 = add i32 %22, -3
+  %18 = icmp ult i32 %17, 3
+  %19 = icmp eq i32 %3, 1
+  %.not8.i.not.i = and i1 %19, %18
   br i1 %.not8.i.not.i, label %ZSTD_allocateChainTable.exit.thread.i, label %ZSTD_allocateChainTable.exit.thread29.i
 
 ZSTD_allocateChainTable.exit.thread29.i:          ; preds = %ZSTD_allocateChainTable.exit.i
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !69
-  %28 = zext nneg i32 %27 to i64
-  %29 = shl i64 4, %28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !69
+  %22 = zext nneg i32 %21 to i64
+  %23 = shl i64 4, %22
   br label %ZSTD_allocateChainTable.exit.thread.i
 
 ZSTD_allocateChainTable.exit.thread.i:            ; preds = %ZSTD_allocateChainTable.exit.thread29.i, %ZSTD_allocateChainTable.exit.i, %.thread
-  %30 = phi i64 [ %29, %ZSTD_allocateChainTable.exit.thread29.i ], [ 0, %ZSTD_allocateChainTable.exit.i ], [ 0, %.thread ]
+  %24 = phi i64 [ %23, %ZSTD_allocateChainTable.exit.thread29.i ], [ 0, %ZSTD_allocateChainTable.exit.i ], [ 0, %.thread ]
   %31 = icmp eq i32 %20, 3
   %32 = icmp ne i32 %7, 0
   %33 = or i1 %32, %31
@@ -2944,7 +2944,7 @@ ZSTD_allocateChainTable.exit.thread.i:            ; preds = %ZSTD_allocateChainT
   %77 = add i64 %76, %54
   %78 = add i64 %77, %53
   %79 = add i64 %78, %70
-  %80 = add i64 %79, %30
+  %80 = add i64 %79, %24
   %81 = add i64 %80, %71
   %82 = add i64 %81, %38
   %83 = add i64 %82, %50
