@@ -9,4 +9,5 @@ patch.diff
 .vscode
 build
 .cache
+core.[0-9]*
 __pycache__
