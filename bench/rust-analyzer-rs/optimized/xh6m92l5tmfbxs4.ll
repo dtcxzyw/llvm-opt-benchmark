@@ -3996,14 +3996,14 @@ define hidden void @_ZN14proc_macro_api3msg4flat11SubtreeRepr20read_with_close_s
 switch.lookup:                                    ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 4, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.03.0.vec.insert = load <2 x i32>, ptr %17, align 4
+  %17 = load <4 x i32>, ptr %1, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load i32, ptr %18, align 4, !noundef !4
   %20 = load i32, ptr %1, align 4, !noundef !4
   %switch.shiftamt = shl nuw nsw i32 %7, 3
   %switch.downshift = lshr i32 33619971, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
+  %.sroa.03.0.vec.insert = shufflevector <4 x i32> %17, <4 x i32> poison, <2 x i32> <i32 3, i32 poison>
   %.sroa.03.4.vec.insert = insertelement <2 x i32> %.sroa.03.0.vec.insert, i32 %16, i64 1
   store i32 %20, ptr %0, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4

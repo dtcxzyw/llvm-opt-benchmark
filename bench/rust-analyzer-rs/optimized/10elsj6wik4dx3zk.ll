@@ -53921,8 +53921,8 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h4494
   br label %34
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.sroa.0.0.vec.insert.i = load <2 x i32>, ptr %19, align 16
+  %19 = load <2 x i32>, ptr %7, align 16, !noalias !13003
+  %.sroa.0.0.vec.insert.i = shufflevector <2 x i32> %19, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !12986
   %20 = icmp eq i64 %2, 1
   br i1 %20, label %26, label %21

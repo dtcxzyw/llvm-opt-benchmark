@@ -9606,8 +9606,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3531 = load ptr, ptr %3530, align 8
   %3532 = getelementptr inbounds i8, ptr %3531, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !752)
-  %3533 = getelementptr inbounds i8, ptr %3531, i64 -8
-  %3534 = load <4 x i16>, ptr %3533, align 16, !noalias !752
+  %3533 = load <8 x i16>, ptr %3532, align 16, !noalias !752
+  %3534 = shufflevector <8 x i16> %3533, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %3535 = sext <4 x i16> %3534 to <4 x i32>
   store <4 x i32> %3535, ptr %3532, align 16, !noalias !752
   store i64 1, ptr %0, align 4, !alias.scope !752
@@ -9630,8 +9630,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3545 = load ptr, ptr %3544, align 8
   %3546 = getelementptr inbounds i8, ptr %3545, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !758)
-  %3547 = getelementptr inbounds i8, ptr %3545, i64 -8
-  %3548 = load <4 x i16>, ptr %3547, align 16, !noalias !758
+  %3547 = load <8 x i16>, ptr %3546, align 16, !noalias !758
+  %3548 = shufflevector <8 x i16> %3547, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %3549 = zext <4 x i16> %3548 to <4 x i32>
   store <4 x i32> %3549, ptr %3546, align 16, !noalias !758
   store i64 1, ptr %0, align 4, !alias.scope !758
@@ -9887,8 +9887,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3685 = load ptr, ptr %3684, align 8
   %3686 = getelementptr inbounds i8, ptr %3685, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !794)
-  %3687 = getelementptr inbounds i8, ptr %3685, i64 -8
-  %3688 = load <4 x i16>, ptr %3687, align 16, !noalias !794
+  %3687 = load <8 x i16>, ptr %3686, align 16, !noalias !794
+  %3688 = shufflevector <8 x i16> %3687, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %3689 = sext <4 x i16> %3688 to <4 x i32>
   %3690 = bitcast <2 x i64> %.sroa.02042.8.vec.insert to <8 x i16>
   %3691 = shufflevector <8 x i16> %3690, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
@@ -9931,8 +9931,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3713 = load ptr, ptr %3712, align 8
   %3714 = getelementptr inbounds i8, ptr %3713, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !800)
-  %3715 = getelementptr inbounds i8, ptr %3713, i64 -8
-  %3716 = load <4 x i16>, ptr %3715, align 16, !noalias !800
+  %3715 = load <8 x i16>, ptr %3714, align 16, !noalias !800
+  %3716 = shufflevector <8 x i16> %3715, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %3717 = zext <4 x i16> %3716 to <4 x i32>
   %3718 = bitcast <2 x i64> %.sroa.02038.8.vec.insert to <8 x i16>
   %3719 = shufflevector <8 x i16> %3718, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
@@ -10042,8 +10042,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3781 = load ptr, ptr %3780, align 8
   %3782 = getelementptr inbounds i8, ptr %3781, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !824)
-  %3783 = getelementptr inbounds i8, ptr %3781, i64 -8
-  %3784 = load <2 x i32>, ptr %3783, align 16, !noalias !824
+  %3783 = load <4 x i32>, ptr %3782, align 16, !noalias !824
+  %3784 = shufflevector <4 x i32> %3783, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
   %3785 = sext <2 x i32> %3784 to <2 x i64>
   store <2 x i64> %3785, ptr %3782, align 16, !noalias !824
   store i64 1, ptr %0, align 4, !alias.scope !824
@@ -10066,8 +10066,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3795 = load ptr, ptr %3794, align 8
   %3796 = getelementptr inbounds i8, ptr %3795, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !830)
-  %3797 = getelementptr inbounds i8, ptr %3795, i64 -8
-  %3798 = load <2 x i32>, ptr %3797, align 16, !noalias !830
+  %3797 = load <4 x i32>, ptr %3796, align 16, !noalias !830
+  %3798 = shufflevector <4 x i32> %3797, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
   %3799 = zext <2 x i32> %3798 to <2 x i64>
   store <2 x i64> %3799, ptr %3796, align 16, !noalias !830
   store i64 1, ptr %0, align 4, !alias.scope !830
@@ -10235,8 +10235,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3891 = load ptr, ptr %3890, align 8
   %3892 = getelementptr inbounds i8, ptr %3891, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !854)
-  %3893 = getelementptr inbounds i8, ptr %3891, i64 -8
-  %3894 = load <2 x i32>, ptr %3893, align 16, !noalias !854
+  %3893 = load <4 x i32>, ptr %3892, align 16, !noalias !854
+  %3894 = shufflevector <4 x i32> %3893, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
   %3895 = sext <2 x i32> %3894 to <2 x i64>
   %3896 = bitcast <2 x i64> %.sroa.02017.8.vec.insert to <4 x i32>
   %3897 = shufflevector <4 x i32> %3896, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
@@ -10279,8 +10279,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3919 = load ptr, ptr %3918, align 8
   %3920 = getelementptr inbounds i8, ptr %3919, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !860)
-  %3921 = getelementptr inbounds i8, ptr %3919, i64 -8
-  %3922 = load <2 x i32>, ptr %3921, align 16, !noalias !860
+  %3921 = load <4 x i32>, ptr %3920, align 16, !noalias !860
+  %3922 = shufflevector <4 x i32> %3921, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
   %3923 = zext <2 x i32> %3922 to <2 x i64>
   %3924 = bitcast <2 x i64> %.sroa.02013.8.vec.insert to <4 x i32>
   %3925 = shufflevector <4 x i32> %3924, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
