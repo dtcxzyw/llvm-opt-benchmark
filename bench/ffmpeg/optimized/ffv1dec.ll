@@ -7492,40 +7492,39 @@ get_sr_golomb.exit:                               ; preds = %33, %42
   %75 = add nuw nsw i32 %.0.i18, 1
   %76 = xor i32 %.0.i18, -1
   %.not.i = icmp sgt i32 %.035.i, %76
-  br i1 %.not.i, label %82, label %77
+  br i1 %.not.i, label %81, label %77
 
 77:                                               ; preds = %get_sr_golomb.exit
-  %78 = tail call i8 @llvm.smax.i8(i8 %69, i8 -127)
-  %spec.select.i = add nsw i8 %78, -1
+  %spec.select.i = tail call i8 @llvm.sadd.sat.i8(i8 %69, i8 -1)
   store i8 %spec.select.i, ptr %68, align 2, !tbaa !203
-  %79 = add nsw i32 %.035.i, %75
-  %80 = sub nsw i32 0, %.0.i18
-  %81 = tail call i32 @llvm.smax.i32(i32 %79, i32 %80)
+  %78 = add nsw i32 %.035.i, %75
+  %79 = sub nsw i32 0, %.0.i18
+  %80 = tail call i32 @llvm.smax.i32(i32 %78, i32 %79)
   br label %update_vlc_state.exit
 
-82:                                               ; preds = %get_sr_golomb.exit
-  %83 = icmp sgt i32 %.035.i, 0
-  br i1 %83, label %84, label %update_vlc_state.exit
+81:                                               ; preds = %get_sr_golomb.exit
+  %82 = icmp sgt i32 %.035.i, 0
+  br i1 %82, label %83, label %update_vlc_state.exit
 
-84:                                               ; preds = %82
+83:                                               ; preds = %81
   %spec.select43.i = tail call i8 @llvm.sadd.sat.i8(i8 %69, i8 1)
   store i8 %spec.select43.i, ptr %68, align 2, !tbaa !203
-  %85 = sub nsw i32 %.035.i, %75
-  %86 = tail call i32 @llvm.smin.i32(i32 %85, i32 0)
+  %84 = sub nsw i32 %.035.i, %75
+  %85 = tail call i32 @llvm.smin.i32(i32 %84, i32 0)
   br label %update_vlc_state.exit
 
-update_vlc_state.exit:                            ; preds = %77, %82, %84
-  %.1.i = phi i32 [ %81, %77 ], [ %86, %84 ], [ %.035.i, %82 ]
-  %87 = sext i8 %69 to i32
-  %88 = add nsw i32 %67, %87
-  %89 = sub i32 32, %2
-  %sext.i = shl i32 %88, %89
-  %90 = ashr exact i32 %sext.i, %89
-  %91 = trunc nsw i32 %.1.i to i16
-  store i16 %91, ptr %61, align 4, !tbaa !202
-  %92 = trunc i32 %75 to i8
-  store i8 %92, ptr %4, align 1, !tbaa !198
-  ret i32 %90
+update_vlc_state.exit:                            ; preds = %77, %81, %83
+  %.1.i = phi i32 [ %80, %77 ], [ %85, %83 ], [ %.035.i, %81 ]
+  %86 = sext i8 %69 to i32
+  %87 = add nsw i32 %67, %86
+  %88 = sub i32 32, %2
+  %sext.i = shl i32 %87, %88
+  %89 = ashr exact i32 %sext.i, %88
+  %90 = trunc nsw i32 %.1.i to i16
+  store i16 %90, ptr %61, align 4, !tbaa !202
+  %91 = trunc i32 %75 to i8
+  store i8 %91, ptr %4, align 1, !tbaa !198
+  ret i32 %89
 }
 
 declare void @ff_ffv1_compute_bits_per_plane(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -7552,9 +7551,6 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smax.i8(i8, i8) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.sadd.sat.i8(i8, i8) #10

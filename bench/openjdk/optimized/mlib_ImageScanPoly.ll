@@ -53,20 +53,20 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %46 = tail call double @llvm.fabs.f64(double %27)
   %47 = fcmp ole double %46, 0x7FEFFFFFFFFFFFFF
   %or.cond21 = select i1 %or.cond17, i1 %47, i1 false
-  br i1 %or.cond21, label %48, label %570
+  br i1 %or.cond21, label %48, label %568
 
 48:                                               ; preds = %13
   %49 = icmp sgt i32 %.val995, 32767
   %50 = icmp sgt i32 %.val997, 32767
   %or.cond23 = select i1 %49, i1 true, i1 %50
-  br i1 %or.cond23, label %570, label %51
+  br i1 %or.cond23, label %568, label %51
 
 51:                                               ; preds = %48
   %52 = fneg double %23
   %53 = fmul double %19, %52
   %54 = tail call double @llvm.fmuladd.f64(double %17, double %25, double %53)
   %55 = fcmp oeq double %54, 0.000000e+00
-  br i1 %55, label %570, label %56
+  br i1 %55, label %568, label %56
 
 56:                                               ; preds = %51
   %57 = shl i32 %.val998, 2
@@ -88,7 +88,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %69 = tail call ptr @mlib_malloc(i32 noundef %66) #4
   store ptr %69, ptr %64, align 8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %570, label %71
+  br i1 %70, label %568, label %71
 
 71:                                               ; preds = %68, %56
   %.0789 = phi ptr [ %69, %68 ], [ %3, %56 ]
@@ -252,7 +252,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %148 = fcmp ult double %.0801, %.0807
   %149 = fcmp ult double %.0803, %.0809
   %or.cond956 = select i1 %148, i1 %149, i1 false
-  br i1 %or.cond956, label %150, label %570
+  br i1 %or.cond956, label %150, label %568
 
 150:                                              ; preds = %135
   %151 = fneg double %19
@@ -334,7 +334,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.1830 = select i1 %.inv1001, double 0xC1E0000000000000, double %.0829
   %199 = fptosi double %.1830 to i32
   %.not = icmp sgt i32 %.val998, %199
-  br i1 %.not, label %200, label %570
+  br i1 %.not, label %200, label %568
 
 200:                                              ; preds = %194
   %201 = fcmp ult double %198, 0.000000e+00
@@ -637,7 +637,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %363 = shl i32 %.0819, %12
   %364 = sext i32 %.0838 to i64
   %365 = add nsw i32 %.1842, 1
-  br label %460
+  br label %459
 
 .preheader1083:                                   ; preds = %344
   br i1 %.not9411126, label %.loopexit1084, label %.lr.ph1131
@@ -719,325 +719,321 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %or.cond964.not1057 = select i1 %or.cond963.not1055.not1060, i1 %414, i1 false
   %415 = fcmp ult double %411, %331
   %or.cond965 = select i1 %or.cond964.not1057, i1 %415, i1 false
-  br i1 %or.cond965, label %424, label %416
+  br i1 %or.cond965, label %423, label %416
 
 416:                                              ; preds = %407
   %417 = fsub double %409, %25
   %418 = fadd double %23, %411
-  %.not944 = icmp eq i32 %.0812, -2147483648
-  %419 = add nsw i32 %.0812, -1
-  %spec.select966 = select i1 %.not944, i32 -2147483648, i32 %419
-  %420 = fcmp uge double %417, %328
-  %421 = fcmp ult double %417, %330
-  %or.cond967.not1063.not1068 = select i1 %420, i1 %421, i1 false
-  %422 = fcmp uge double %418, %329
-  %or.cond968.not1065 = select i1 %or.cond967.not1063.not1068, i1 %422, i1 false
-  %423 = fcmp ult double %418, %331
-  %or.cond969 = select i1 %or.cond968.not1065, i1 %423, i1 false
+  %spec.select966 = tail call i32 @llvm.sadd.sat.i32(i32 %.0812, i32 -1)
+  %419 = fcmp uge double %417, %328
+  %420 = fcmp ult double %417, %330
+  %or.cond967.not1063.not1068 = select i1 %419, i1 %420, i1 false
+  %421 = fcmp uge double %418, %329
+  %or.cond968.not1065 = select i1 %or.cond967.not1063.not1068, i1 %421, i1 false
+  %422 = fcmp ult double %418, %331
+  %or.cond969 = select i1 %or.cond968.not1065, i1 %422, i1 false
   %spec.select991 = select i1 %or.cond969, i32 %spec.select966, i32 -1
-  br label %424
+  br label %423
 
-424:                                              ; preds = %416, %407
+423:                                              ; preds = %416, %407
   %.1813 = phi i32 [ %.0812, %407 ], [ %spec.select991, %416 ]
-  %425 = tail call double @llvm.fmuladd.f64(double %.0806, double %345, double %.0799)
-  %426 = fmul double %425, %348
-  %427 = fptosi double %426 to i32
-  %428 = ashr i32 %427, %11
-  %429 = tail call double @llvm.fmuladd.f64(double %.0805, double %345, double %.0799)
-  %430 = fmul double %429, %353
-  %431 = fptosi double %430 to i32
-  %432 = ashr i32 %431, %12
-  %433 = icmp slt i32 %428, %.0820
-  %.not945 = icmp slt i32 %428, %.0818
-  %spec.select1135 = select i1 %.not945, i32 %427, i32 %368
-  %.0811 = select i1 %433, i32 %369, i32 %spec.select1135
-  %434 = icmp slt i32 %432, %.0819
-  %.not946 = icmp slt i32 %432, %.0817
-  %spec.select1136 = select i1 %.not946, i32 %431, i32 %371
-  %.0810 = select i1 %434, i32 %372, i32 %spec.select1136
+  %424 = tail call double @llvm.fmuladd.f64(double %.0806, double %345, double %.0799)
+  %425 = fmul double %424, %348
+  %426 = fptosi double %425 to i32
+  %427 = ashr i32 %426, %11
+  %428 = tail call double @llvm.fmuladd.f64(double %.0805, double %345, double %.0799)
+  %429 = fmul double %428, %353
+  %430 = fptosi double %429 to i32
+  %431 = ashr i32 %430, %12
+  %432 = icmp slt i32 %427, %.0820
+  %.not945 = icmp slt i32 %427, %.0818
+  %spec.select1135 = select i1 %.not945, i32 %426, i32 %368
+  %.0811 = select i1 %432, i32 %369, i32 %spec.select1135
+  %433 = icmp slt i32 %431, %.0819
+  %.not946 = icmp slt i32 %431, %.0817
+  %spec.select1136 = select i1 %.not946, i32 %430, i32 %371
+  %.0810 = select i1 %433, i32 %372, i32 %spec.select1136
   %.not947 = icmp slt i32 %.1813, %.0815
   %.pre = sub i32 %.1813, %.0815
-  br i1 %.not947, label %._crit_edge1189, label %435
+  br i1 %.not947, label %._crit_edge1189, label %434
 
-435:                                              ; preds = %424
-  %436 = mul nsw i32 %.pre, %.08211130
-  %437 = add nsw i32 %.0811, %436
-  %438 = ashr i32 %437, %11
-  %439 = mul nsw i32 %.pre, %.08241129
-  %440 = add nsw i32 %.0810, %439
-  %441 = ashr i32 %440, %12
-  %442 = icmp sge i32 %438, %.0820
-  %.not948 = icmp slt i32 %438, %.0818
-  %or.cond970 = select i1 %442, i1 %.not948, i1 false
-  br i1 %or.cond970, label %449, label %443
+434:                                              ; preds = %423
+  %435 = mul nsw i32 %.pre, %.08211130
+  %436 = add nsw i32 %.0811, %435
+  %437 = ashr i32 %436, %11
+  %438 = mul nsw i32 %.pre, %.08241129
+  %439 = add nsw i32 %.0810, %438
+  %440 = ashr i32 %439, %12
+  %441 = icmp sge i32 %437, %.0820
+  %.not948 = icmp slt i32 %437, %.0818
+  %or.cond970 = select i1 %441, i1 %.not948, i1 false
+  br i1 %or.cond970, label %448, label %442
 
-443:                                              ; preds = %435
-  %444 = icmp sgt i32 %.08211130, 0
-  br i1 %444, label %445, label %447
+442:                                              ; preds = %434
+  %443 = icmp sgt i32 %.08211130, 0
+  br i1 %443, label %444, label %446
 
-445:                                              ; preds = %443
-  %446 = add nsw i32 %.08211130, -1
-  br label %449
+444:                                              ; preds = %442
+  %445 = add nsw i32 %.08211130, -1
+  br label %448
 
-447:                                              ; preds = %443
-  %448 = add nsw i32 %.08211130, 1
-  br label %449
+446:                                              ; preds = %442
+  %447 = add nsw i32 %.08211130, 1
+  br label %448
 
-449:                                              ; preds = %435, %445, %447
-  %.2823 = phi i32 [ %446, %445 ], [ %448, %447 ], [ %.08211130, %435 ]
-  %450 = icmp sge i32 %441, %.0819
-  %.not949 = icmp slt i32 %441, %.0817
-  %or.cond971 = select i1 %450, i1 %.not949, i1 false
-  br i1 %or.cond971, label %._crit_edge1189, label %451
+448:                                              ; preds = %434, %444, %446
+  %.2823 = phi i32 [ %445, %444 ], [ %447, %446 ], [ %.08211130, %434 ]
+  %449 = icmp sge i32 %440, %.0819
+  %.not949 = icmp slt i32 %440, %.0817
+  %or.cond971 = select i1 %449, i1 %.not949, i1 false
+  br i1 %or.cond971, label %._crit_edge1189, label %450
 
-451:                                              ; preds = %449
-  %452 = icmp sgt i32 %.08241129, 0
-  br i1 %452, label %453, label %455
+450:                                              ; preds = %448
+  %451 = icmp sgt i32 %.08241129, 0
+  br i1 %451, label %452, label %454
 
-453:                                              ; preds = %451
-  %454 = add nsw i32 %.08241129, -1
+452:                                              ; preds = %450
+  %453 = add nsw i32 %.08241129, -1
   br label %._crit_edge1189
 
-455:                                              ; preds = %451
-  %456 = add nsw i32 %.08241129, 1
+454:                                              ; preds = %450
+  %455 = add nsw i32 %.08241129, 1
   br label %._crit_edge1189
 
-._crit_edge1189:                                  ; preds = %424, %449, %455, %453
-  %.1825 = phi i32 [ %454, %453 ], [ %.08241129, %449 ], [ %456, %455 ], [ %.08241129, %424 ]
-  %.1822 = phi i32 [ %.2823, %453 ], [ %.2823, %449 ], [ %.2823, %455 ], [ %.08211130, %424 ]
+._crit_edge1189:                                  ; preds = %423, %448, %454, %452
+  %.1825 = phi i32 [ %453, %452 ], [ %.08241129, %448 ], [ %455, %454 ], [ %.08241129, %423 ]
+  %.1822 = phi i32 [ %.2823, %452 ], [ %.2823, %448 ], [ %.2823, %454 ], [ %.08211130, %423 ]
   store i32 %.0815, ptr %376, align 4
   store i32 %.1813, ptr %378, align 4
-  %457 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1173
-  store i32 %.0811, ptr %457, align 4
-  %458 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1173
-  store i32 %.0810, ptr %458, align 4
-  %459 = add i32 %.pre, 1
-  %spec.select972 = tail call i32 @llvm.smax.i32(i32 %.08471128, i32 %459)
+  %456 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1173
+  store i32 %.0811, ptr %456, align 4
+  %457 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1173
+  store i32 %.0810, ptr %457, align 4
+  %458 = add i32 %.pre, 1
+  %spec.select972 = tail call i32 @llvm.smax.i32(i32 %.08471128, i32 %458)
   %indvars.iv.next1174 = add nsw i64 %indvars.iv1173, 1
   %lftr.wideiv1177 = trunc i64 %indvars.iv.next1174 to i32
   %exitcond1178.not = icmp eq i32 %374, %lftr.wideiv1177
   br i1 %exitcond1178.not, label %.loopexit1084, label %375, !llvm.loop !15
 
-460:                                              ; preds = %.lr.ph1122, %._crit_edge1188
+459:                                              ; preds = %.lr.ph1122, %._crit_edge1188
   %indvars.iv1167 = phi i64 [ %364, %.lr.ph1122 ], [ %indvars.iv.next1168, %._crit_edge1188 ]
   %.41121 = phi i32 [ %350, %.lr.ph1122 ], [ %.5, %._crit_edge1188 ]
   %.38271120 = phi i32 [ %355, %.lr.ph1122 ], [ %.4828, %._crit_edge1188 ]
   %.38501119 = phi i32 [ 0, %.lr.ph1122 ], [ %spec.select989, %._crit_edge1188 ]
-  %461 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1167
-  %462 = load i32, ptr %461, align 4
-  %463 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1167
-  %464 = load i32, ptr %463, align 4
-  %465 = tail call i32 @llvm.smax.i32(i32 %462, i32 0)
-  %466 = tail call i32 @llvm.smin.i32(i32 %464, i32 %357)
-  %467 = uitofp nneg i32 %465 to double
-  %468 = fadd double %467, 5.000000e-01
-  %469 = trunc nsw i64 %indvars.iv1167 to i32
-  %470 = sitofp i32 %469 to double
-  %471 = fadd double %470, 5.000000e-01
-  %472 = sitofp i32 %466 to double
-  %473 = fadd double %472, 5.000000e-01
-  %474 = fmul double %471, %151
-  %475 = tail call double @llvm.fmuladd.f64(double %468, double %25, double %474)
-  %476 = fadd double %154, %475
-  %477 = fmul double %17, %471
-  %478 = tail call double @llvm.fmuladd.f64(double %468, double %52, double %477)
-  %479 = fadd double %157, %478
-  %480 = fcmp ule double %476, %328
-  %481 = fcmp ugt double %476, %330
-  %or.cond973.not1007.not1012 = select i1 %480, i1 %481, i1 false
-  %482 = fcmp ule double %479, %329
-  %or.cond974.not1009 = select i1 %or.cond973.not1007.not1012, i1 %482, i1 false
-  %483 = fcmp ugt double %479, %331
-  %or.cond975 = select i1 %or.cond974.not1009, i1 %483, i1 false
-  br i1 %or.cond975, label %492, label %484
+  %460 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1167
+  %461 = load i32, ptr %460, align 4
+  %462 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1167
+  %463 = load i32, ptr %462, align 4
+  %464 = tail call i32 @llvm.smax.i32(i32 %461, i32 0)
+  %465 = tail call i32 @llvm.smin.i32(i32 %463, i32 %357)
+  %466 = uitofp nneg i32 %464 to double
+  %467 = fadd double %466, 5.000000e-01
+  %468 = trunc nsw i64 %indvars.iv1167 to i32
+  %469 = sitofp i32 %468 to double
+  %470 = fadd double %469, 5.000000e-01
+  %471 = sitofp i32 %465 to double
+  %472 = fadd double %471, 5.000000e-01
+  %473 = fmul double %470, %151
+  %474 = tail call double @llvm.fmuladd.f64(double %467, double %25, double %473)
+  %475 = fadd double %154, %474
+  %476 = fmul double %17, %470
+  %477 = tail call double @llvm.fmuladd.f64(double %467, double %52, double %476)
+  %478 = fadd double %157, %477
+  %479 = fcmp ule double %475, %328
+  %480 = fcmp ugt double %475, %330
+  %or.cond973.not1007.not1012 = select i1 %479, i1 %480, i1 false
+  %481 = fcmp ule double %478, %329
+  %or.cond974.not1009 = select i1 %or.cond973.not1007.not1012, i1 %481, i1 false
+  %482 = fcmp ugt double %478, %331
+  %or.cond975 = select i1 %or.cond974.not1009, i1 %482, i1 false
+  br i1 %or.cond975, label %491, label %483
 
-484:                                              ; preds = %460
-  %485 = fadd double %25, %476
-  %486 = fsub double %479, %23
-  %.not933 = icmp eq i32 %462, 2147483647
-  %487 = add nuw nsw i32 %465, 1
-  %spec.select976 = select i1 %.not933, i32 2147483647, i32 %487
-  %488 = fcmp ule double %485, %328
-  %489 = fcmp ugt double %485, %330
-  %or.cond977.not1015.not1020 = select i1 %488, i1 %489, i1 false
-  %490 = fcmp ule double %486, %329
-  %or.cond978.not1017 = select i1 %or.cond977.not1015.not1020, i1 %490, i1 false
-  %491 = fcmp ugt double %486, %331
-  %or.cond979 = select i1 %or.cond978.not1017, i1 %491, i1 false
-  %spec.select992 = select i1 %or.cond979, i32 %466, i32 -1
-  br label %492
+483:                                              ; preds = %459
+  %484 = fadd double %25, %475
+  %485 = fsub double %478, %23
+  %.not933 = icmp eq i32 %461, 2147483647
+  %486 = add nuw nsw i32 %464, 1
+  %spec.select976 = select i1 %.not933, i32 2147483647, i32 %486
+  %487 = fcmp ule double %484, %328
+  %488 = fcmp ugt double %484, %330
+  %or.cond977.not1015.not1020 = select i1 %487, i1 %488, i1 false
+  %489 = fcmp ule double %485, %329
+  %or.cond978.not1017 = select i1 %or.cond977.not1015.not1020, i1 %489, i1 false
+  %490 = fcmp ugt double %485, %331
+  %or.cond979 = select i1 %or.cond978.not1017, i1 %490, i1 false
+  %spec.select992 = select i1 %or.cond979, i32 %465, i32 -1
+  br label %491
 
-492:                                              ; preds = %484, %460
-  %.0797 = phi i32 [ %465, %460 ], [ %spec.select976, %484 ]
-  %.0796 = phi i32 [ %466, %460 ], [ %spec.select992, %484 ]
-  %.0792 = phi double [ %476, %460 ], [ %485, %484 ]
-  %.0791 = phi double [ %479, %460 ], [ %486, %484 ]
-  %493 = tail call double @llvm.fmuladd.f64(double %473, double %25, double %474)
-  %494 = fadd double %154, %493
-  %495 = tail call double @llvm.fmuladd.f64(double %473, double %52, double %477)
-  %496 = fadd double %157, %495
-  %497 = fcmp ule double %494, %328
-  %498 = fcmp ugt double %494, %330
-  %or.cond980.not1023.not1028 = select i1 %497, i1 %498, i1 false
-  %499 = fcmp ule double %496, %329
-  %or.cond981.not1025 = select i1 %or.cond980.not1023.not1028, i1 %499, i1 false
-  %500 = fcmp ugt double %496, %331
-  %or.cond982 = select i1 %or.cond981.not1025, i1 %500, i1 false
-  br i1 %or.cond982, label %509, label %501
+491:                                              ; preds = %483, %459
+  %.0797 = phi i32 [ %464, %459 ], [ %spec.select976, %483 ]
+  %.0796 = phi i32 [ %465, %459 ], [ %spec.select992, %483 ]
+  %.0792 = phi double [ %475, %459 ], [ %484, %483 ]
+  %.0791 = phi double [ %478, %459 ], [ %485, %483 ]
+  %492 = tail call double @llvm.fmuladd.f64(double %472, double %25, double %473)
+  %493 = fadd double %154, %492
+  %494 = tail call double @llvm.fmuladd.f64(double %472, double %52, double %476)
+  %495 = fadd double %157, %494
+  %496 = fcmp ule double %493, %328
+  %497 = fcmp ugt double %493, %330
+  %or.cond980.not1023.not1028 = select i1 %496, i1 %497, i1 false
+  %498 = fcmp ule double %495, %329
+  %or.cond981.not1025 = select i1 %or.cond980.not1023.not1028, i1 %498, i1 false
+  %499 = fcmp ugt double %495, %331
+  %or.cond982 = select i1 %or.cond981.not1025, i1 %499, i1 false
+  br i1 %or.cond982, label %507, label %500
 
-501:                                              ; preds = %492
-  %502 = fsub double %494, %25
-  %503 = fadd double %23, %496
-  %.not934 = icmp eq i32 %.0796, -2147483648
-  %504 = add nsw i32 %.0796, -1
-  %spec.select983 = select i1 %.not934, i32 -2147483648, i32 %504
-  %505 = fcmp ule double %502, %328
-  %506 = fcmp ugt double %502, %330
-  %or.cond984.not1031.not1036 = select i1 %505, i1 %506, i1 false
-  %507 = fcmp ule double %503, %329
-  %or.cond985.not1033 = select i1 %or.cond984.not1031.not1036, i1 %507, i1 false
-  %508 = fcmp ugt double %503, %331
-  %or.cond986 = select i1 %or.cond985.not1033, i1 %508, i1 false
+500:                                              ; preds = %491
+  %501 = fsub double %493, %25
+  %502 = fadd double %23, %495
+  %spec.select983 = tail call i32 @llvm.sadd.sat.i32(i32 %.0796, i32 -1)
+  %503 = fcmp ule double %501, %328
+  %504 = fcmp ugt double %501, %330
+  %or.cond984.not1031.not1036 = select i1 %503, i1 %504, i1 false
+  %505 = fcmp ule double %502, %329
+  %or.cond985.not1033 = select i1 %or.cond984.not1031.not1036, i1 %505, i1 false
+  %506 = fcmp ugt double %502, %331
+  %or.cond986 = select i1 %or.cond985.not1033, i1 %506, i1 false
   %spec.select993 = select i1 %or.cond986, i32 %spec.select983, i32 -1
-  br label %509
+  br label %507
 
-509:                                              ; preds = %501, %492
-  %.1 = phi i32 [ %.0796, %492 ], [ %spec.select993, %501 ]
-  %510 = tail call double @llvm.fmuladd.f64(double %.0792, double %345, double %.0799)
-  %511 = fmul double %510, %348
-  %512 = fptosi double %511 to i32
-  %513 = ashr i32 %512, %11
-  %514 = icmp slt i32 %513, %.0820
-  %.not935 = icmp slt i32 %513, %.0818
-  %spec.select1137 = select i1 %.not935, i32 %512, i32 %359
-  %.0795 = select i1 %514, i32 %360, i32 %spec.select1137
-  %515 = tail call double @llvm.fmuladd.f64(double %.0791, double %345, double %.0799)
-  %516 = fmul double %515, %353
-  %517 = fptosi double %516 to i32
-  %518 = ashr i32 %517, %12
-  %519 = icmp slt i32 %518, %.0819
-  %.not936 = icmp slt i32 %518, %.0817
-  %spec.select1138 = select i1 %.not936, i32 %517, i32 %362
-  %.0794 = select i1 %519, i32 %363, i32 %spec.select1138
+507:                                              ; preds = %500, %491
+  %.1 = phi i32 [ %.0796, %491 ], [ %spec.select993, %500 ]
+  %508 = tail call double @llvm.fmuladd.f64(double %.0792, double %345, double %.0799)
+  %509 = fmul double %508, %348
+  %510 = fptosi double %509 to i32
+  %511 = ashr i32 %510, %11
+  %512 = icmp slt i32 %511, %.0820
+  %.not935 = icmp slt i32 %511, %.0818
+  %spec.select1137 = select i1 %.not935, i32 %510, i32 %359
+  %.0795 = select i1 %512, i32 %360, i32 %spec.select1137
+  %513 = tail call double @llvm.fmuladd.f64(double %.0791, double %345, double %.0799)
+  %514 = fmul double %513, %353
+  %515 = fptosi double %514 to i32
+  %516 = ashr i32 %515, %12
+  %517 = icmp slt i32 %516, %.0819
+  %.not936 = icmp slt i32 %516, %.0817
+  %spec.select1138 = select i1 %.not936, i32 %515, i32 %362
+  %.0794 = select i1 %517, i32 %363, i32 %spec.select1138
   %.not937 = icmp slt i32 %.1, %.0797
   %.pre1190 = sub i32 %.1, %.0797
-  br i1 %.not937, label %._crit_edge1188, label %520
+  br i1 %.not937, label %._crit_edge1188, label %518
 
-520:                                              ; preds = %509
-  %521 = mul nsw i32 %.pre1190, %.41121
-  %522 = add nsw i32 %.0795, %521
-  %523 = ashr i32 %522, %11
-  %524 = mul nsw i32 %.pre1190, %.38271120
-  %525 = add nsw i32 %.0794, %524
-  %526 = ashr i32 %525, %12
-  %527 = icmp sge i32 %523, %.0820
-  %.not938 = icmp slt i32 %523, %.0818
-  %or.cond987 = select i1 %527, i1 %.not938, i1 false
-  br i1 %or.cond987, label %534, label %528
+518:                                              ; preds = %507
+  %519 = mul nsw i32 %.pre1190, %.41121
+  %520 = add nsw i32 %.0795, %519
+  %521 = ashr i32 %520, %11
+  %522 = mul nsw i32 %.pre1190, %.38271120
+  %523 = add nsw i32 %.0794, %522
+  %524 = ashr i32 %523, %12
+  %525 = icmp sge i32 %521, %.0820
+  %.not938 = icmp slt i32 %521, %.0818
+  %or.cond987 = select i1 %525, i1 %.not938, i1 false
+  br i1 %or.cond987, label %532, label %526
 
-528:                                              ; preds = %520
-  %529 = icmp sgt i32 %.41121, 0
-  br i1 %529, label %530, label %532
+526:                                              ; preds = %518
+  %527 = icmp sgt i32 %.41121, 0
+  br i1 %527, label %528, label %530
 
-530:                                              ; preds = %528
-  %531 = add nsw i32 %.41121, -1
-  br label %534
+528:                                              ; preds = %526
+  %529 = add nsw i32 %.41121, -1
+  br label %532
 
-532:                                              ; preds = %528
-  %533 = add nsw i32 %.41121, 1
-  br label %534
+530:                                              ; preds = %526
+  %531 = add nsw i32 %.41121, 1
+  br label %532
 
-534:                                              ; preds = %520, %530, %532
-  %.6 = phi i32 [ %531, %530 ], [ %533, %532 ], [ %.41121, %520 ]
-  %535 = icmp sge i32 %526, %.0819
-  %.not939 = icmp slt i32 %526, %.0817
-  %or.cond988 = select i1 %535, i1 %.not939, i1 false
-  br i1 %or.cond988, label %._crit_edge1188, label %536
+532:                                              ; preds = %518, %528, %530
+  %.6 = phi i32 [ %529, %528 ], [ %531, %530 ], [ %.41121, %518 ]
+  %533 = icmp sge i32 %524, %.0819
+  %.not939 = icmp slt i32 %524, %.0817
+  %or.cond988 = select i1 %533, i1 %.not939, i1 false
+  br i1 %or.cond988, label %._crit_edge1188, label %534
+
+534:                                              ; preds = %532
+  %535 = icmp sgt i32 %.38271120, 0
+  br i1 %535, label %536, label %538
 
 536:                                              ; preds = %534
-  %537 = icmp sgt i32 %.38271120, 0
-  br i1 %537, label %538, label %540
-
-538:                                              ; preds = %536
-  %539 = add nsw i32 %.38271120, -1
+  %537 = add nsw i32 %.38271120, -1
   br label %._crit_edge1188
 
-540:                                              ; preds = %536
-  %541 = add nsw i32 %.38271120, 1
+538:                                              ; preds = %534
+  %539 = add nsw i32 %.38271120, 1
   br label %._crit_edge1188
 
-._crit_edge1188:                                  ; preds = %509, %534, %540, %538
-  %.4828 = phi i32 [ %539, %538 ], [ %.38271120, %534 ], [ %541, %540 ], [ %.38271120, %509 ]
-  %.5 = phi i32 [ %.6, %538 ], [ %.6, %534 ], [ %.6, %540 ], [ %.41121, %509 ]
-  store i32 %.0797, ptr %461, align 4
-  store i32 %.1, ptr %463, align 4
-  %542 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1167
-  store i32 %.0795, ptr %542, align 4
-  %543 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1167
-  store i32 %.0794, ptr %543, align 4
-  %544 = add i32 %.pre1190, 1
-  %spec.select989 = tail call i32 @llvm.smax.i32(i32 %.38501119, i32 %544)
+._crit_edge1188:                                  ; preds = %507, %532, %538, %536
+  %.4828 = phi i32 [ %537, %536 ], [ %.38271120, %532 ], [ %539, %538 ], [ %.38271120, %507 ]
+  %.5 = phi i32 [ %.6, %536 ], [ %.6, %532 ], [ %.6, %538 ], [ %.41121, %507 ]
+  store i32 %.0797, ptr %460, align 4
+  store i32 %.1, ptr %462, align 4
+  %540 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1167
+  store i32 %.0795, ptr %540, align 4
+  %541 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1167
+  store i32 %.0794, ptr %541, align 4
+  %542 = add i32 %.pre1190, 1
+  %spec.select989 = tail call i32 @llvm.smax.i32(i32 %.38501119, i32 %542)
   %indvars.iv.next1168 = add nsw i64 %indvars.iv1167, 1
   %lftr.wideiv1171 = trunc i64 %indvars.iv.next1168 to i32
   %exitcond1172.not = icmp eq i32 %365, %lftr.wideiv1171
-  br i1 %exitcond1172.not, label %.loopexit1084, label %460, !llvm.loop !16
+  br i1 %exitcond1172.not, label %.loopexit1084, label %459, !llvm.loop !16
 
 .loopexit1084:                                    ; preds = %._crit_edge1188, %._crit_edge1189, %.preheader1085, %.preheader1083
   %.2849 = phi i32 [ %spec.select972, %._crit_edge1189 ], [ 0, %.preheader1083 ], [ 0, %.preheader1085 ], [ %spec.select989, %._crit_edge1188 ]
   %.2826 = phi i32 [ %.1825, %._crit_edge1189 ], [ %355, %.preheader1083 ], [ %355, %.preheader1085 ], [ %.4828, %._crit_edge1188 ]
   %.3 = phi i32 [ %.1822, %._crit_edge1189 ], [ %350, %.preheader1083 ], [ %350, %.preheader1085 ], [ %.5, %._crit_edge1188 ]
-  %545 = sext i32 %.0838 to i64
-  %546 = sext i32 %.1842 to i64
-  br label %547
+  %543 = sext i32 %.0838 to i64
+  %544 = sext i32 %.1842 to i64
+  br label %545
 
-547:                                              ; preds = %547, %.loopexit1084
-  %indvars.iv1179 = phi i64 [ %indvars.iv.next1180, %547 ], [ %545, %.loopexit1084 ]
-  %548 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1179
+545:                                              ; preds = %545, %.loopexit1084
+  %indvars.iv1179 = phi i64 [ %indvars.iv.next1180, %545 ], [ %543, %.loopexit1084 ]
+  %546 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1179
+  %547 = load i32, ptr %546, align 4
+  %548 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1179
   %549 = load i32, ptr %548, align 4
-  %550 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1179
-  %551 = load i32, ptr %550, align 4
-  %552 = icmp sgt i32 %549, %551
-  %553 = icmp sle i64 %indvars.iv1179, %546
-  %554 = select i1 %552, i1 %553, i1 false
+  %550 = icmp sgt i32 %547, %549
+  %551 = icmp sle i64 %indvars.iv1179, %544
+  %552 = select i1 %550, i1 %551, i1 false
   %indvars.iv.next1180 = add nsw i64 %indvars.iv1179, 1
-  br i1 %554, label %547, label %555, !llvm.loop !17
+  br i1 %552, label %545, label %553, !llvm.loop !17
 
-555:                                              ; preds = %547
-  %556 = trunc nsw i64 %indvars.iv1179 to i32
-  %557 = icmp sgt i32 %.1842, %556
-  br i1 %557, label %.preheader, label %.loopexit
+553:                                              ; preds = %545
+  %554 = trunc nsw i64 %indvars.iv1179 to i32
+  %555 = icmp sgt i32 %.1842, %554
+  br i1 %555, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %555, %.preheader
-  %indvars.iv1182 = phi i64 [ %indvars.iv.next1183, %.preheader ], [ %546, %555 ]
-  %558 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1182
+.preheader:                                       ; preds = %553, %.preheader
+  %indvars.iv1182 = phi i64 [ %indvars.iv.next1183, %.preheader ], [ %544, %553 ]
+  %556 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1182
+  %557 = load i32, ptr %556, align 4
+  %558 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1182
   %559 = load i32, ptr %558, align 4
-  %560 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1182
-  %561 = load i32, ptr %560, align 4
-  %562 = icmp sgt i32 %559, %561
+  %560 = icmp sgt i32 %557, %559
   %indvars.iv.next1183 = add nsw i64 %indvars.iv1182, -1
-  br i1 %562, label %.preheader, label %.loopexit.loopexit, !llvm.loop !18
+  br i1 %560, label %.preheader, label %.loopexit.loopexit, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %563 = trunc nsw i64 %indvars.iv1182 to i32
+  %561 = trunc nsw i64 %indvars.iv1182 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %555
-  %.2843 = phi i32 [ %.1842, %555 ], [ %563, %.loopexit.loopexit ]
-  %564 = add nsw i32 %556, -1
-  %565 = mul nsw i32 %564, %.val1000
-  %566 = sext i32 %565 to i64
-  %567 = getelementptr inbounds i8, ptr %.val994, i64 %566
-  store ptr %567, ptr %137, align 8
-  store i32 %556, ptr %145, align 8
+.loopexit:                                        ; preds = %.loopexit.loopexit, %553
+  %.2843 = phi i32 [ %.1842, %553 ], [ %561, %.loopexit.loopexit ]
+  %562 = add nsw i32 %554, -1
+  %563 = mul nsw i32 %562, %.val1000
+  %564 = sext i32 %563 to i64
+  %565 = getelementptr inbounds i8, ptr %.val994, i64 %564
+  store ptr %565, ptr %137, align 8
+  store i32 %554, ptr %145, align 8
   store i32 %.2843, ptr %146, align 4
   store i32 %.2849, ptr %144, align 8
-  %568 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %.3, ptr %568, align 8
-  %569 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %.2826, ptr %569, align 4
-  br label %570
+  %566 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %.3, ptr %566, align 8
+  %567 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %.2826, ptr %567, align 4
+  br label %568
 
-570:                                              ; preds = %194, %135, %68, %51, %48, %13, %.loopexit
+568:                                              ; preds = %194, %135, %68, %51, %48, %13, %.loopexit
   %.0 = phi i32 [ 1, %13 ], [ 1, %48 ], [ 1, %51 ], [ 1, %68 ], [ 0, %135 ], [ 0, %.loopexit ], [ 0, %194 ]
   ret i32 %.0
 }
@@ -1055,6 +1051,9 @@ declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.sadd.sat.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

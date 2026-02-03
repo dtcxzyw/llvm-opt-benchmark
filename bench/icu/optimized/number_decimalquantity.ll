@@ -5289,461 +5289,458 @@ switch.early.test:                                ; preds = %42
   br i1 %46, label %.critedge214, label %47
 
 47:                                               ; preds = %43
-  %48 = add i32 %.0.i, -1
-  %49 = icmp eq i32 %.0.i, -2147483648
-  %spec.select.i220 = select i1 %49, i32 -2147483648, i32 %48
-  br i1 %19, label %50, label %58
+  %spec.select.i220 = tail call i32 @llvm.sadd.sat.i32(i32 %.0.i, i32 -1)
+  br i1 %19, label %48, label %56
 
-50:                                               ; preds = %47
-  %51 = icmp sgt i32 %spec.select.i220, -1
+48:                                               ; preds = %47
+  %49 = icmp sgt i32 %spec.select.i220, -1
   %.not.i224 = icmp slt i32 %spec.select.i220, %45
-  %or.cond10.i225 = and i1 %51, %.not.i224
-  br i1 %or.cond10.i225, label %52, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226
+  %or.cond10.i225 = and i1 %49, %.not.i224
+  br i1 %or.cond10.i225, label %50, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %54 = load ptr, ptr %53, align 8, !tbaa !26
-  %55 = zext nneg i32 %spec.select.i220 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !26
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load ptr, ptr %51, align 8, !tbaa !26
+  %53 = zext nneg i32 %spec.select.i220 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
+  %55 = load i8, ptr %54, align 1, !tbaa !26
   br label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226
 
-58:                                               ; preds = %47
+56:                                               ; preds = %47
   %or.cond.i222 = icmp ugt i32 %spec.select.i220, 15
-  br i1 %or.cond.i222, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226, label %59
+  br i1 %or.cond.i222, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226, label %57
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %61 = load i64, ptr %60, align 8, !tbaa !26
-  %62 = shl nuw nsw i32 %spec.select.i220, 2
-  %63 = zext nneg i32 %62 to i64
-  %64 = lshr i64 %61, %63
-  %65 = trunc i64 %64 to i8
-  %66 = and i8 %65, 15
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %59 = load i64, ptr %58, align 8, !tbaa !26
+  %60 = shl nuw nsw i32 %spec.select.i220, 2
+  %61 = zext nneg i32 %60 to i64
+  %62 = lshr i64 %59, %61
+  %63 = trunc i64 %62 to i8
+  %64 = and i8 %63, 15
   br label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226: ; preds = %50, %52, %58, %59
-  %.0.i223 = phi i8 [ %66, %59 ], [ %57, %52 ], [ 0, %50 ], [ 0, %58 ]
-  br i1 %.not187, label %67, label %90
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226: ; preds = %48, %50, %56, %57
+  %.0.i223 = phi i8 [ %64, %57 ], [ %55, %50 ], [ 0, %48 ], [ 0, %56 ]
+  br i1 %.not187, label %65, label %88
 
-67:                                               ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226
-  br i1 %3, label %switch.early.test204, label %74
+65:                                               ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226
+  br i1 %3, label %switch.early.test204, label %72
 
-switch.early.test204:                             ; preds = %67
-  switch i8 %.0.i216, label %68 [
-    i8 7, label %74
-    i8 2, label %74
+switch.early.test204:                             ; preds = %65
+  switch i8 %.0.i216, label %66 [
+    i8 7, label %72
+    i8 2, label %72
   ]
 
-68:                                               ; preds = %switch.early.test204
-  %69 = icmp slt i8 %.0.i216, 2
-  br i1 %69, label %.thread.thread, label %70
+66:                                               ; preds = %switch.early.test204
+  %67 = icmp slt i8 %.0.i216, 2
+  br i1 %67, label %.thread.thread, label %68
+
+68:                                               ; preds = %66
+  %69 = icmp samesign ult i8 %.0.i216, 5
+  br i1 %69, label %.thread297, label %70
 
 70:                                               ; preds = %68
-  %71 = icmp samesign ult i8 %.0.i216, 5
-  br i1 %71, label %.thread297, label %72
-
-72:                                               ; preds = %70
-  %73 = icmp samesign ult i8 %.0.i216, 7
-  %. = select i1 %73, i32 1, i32 3
+  %71 = icmp samesign ult i8 %.0.i216, 7
+  %. = select i1 %71, i32 1, i32 3
   br label %.thread
 
-74:                                               ; preds = %switch.early.test204, %switch.early.test204, %67
-  %75 = icmp slt i8 %.0.i223, 5
-  br i1 %75, label %.loopexit, label %76
+72:                                               ; preds = %switch.early.test204, %switch.early.test204, %65
+  %73 = icmp slt i8 %.0.i223, 5
+  br i1 %73, label %.loopexit, label %74
 
-76:                                               ; preds = %74
+74:                                               ; preds = %72
   %.not189 = icmp eq i8 %.0.i223, 5
-  br i1 %.not189, label %77, label %.loopexit
+  br i1 %.not189, label %75, label %.loopexit
 
-77:                                               ; preds = %76
-  %78 = icmp sgt i32 %.0.i, 1
-  br i1 %78, label %.lr.ph366, label %.loopexit
+75:                                               ; preds = %74
+  %spec.select = tail call i32 @llvm.sadd.sat.i32(i32 %.0.i, i32 -2)
+  %76 = icmp sgt i32 %spec.select, -1
+  br i1 %76, label %.lr.ph366, label %.loopexit
 
-.lr.ph366:                                        ; preds = %77
-  %spec.select = add nsw i32 %.0.i, -2
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %80 = load i64, ptr %79, align 8
-  %.cast380 = inttoptr i64 %80 to ptr
-  %81 = zext nneg i32 %spec.select to i64
+.lr.ph366:                                        ; preds = %75
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %78 = load i64, ptr %77, align 8
+  %.cast380 = inttoptr i64 %78 to ptr
+  %79 = zext nneg i32 %spec.select to i64
   br i1 %19, label %.lr.ph366.split.us.preheader, label %.lr.ph366.split
 
 .lr.ph366.split.us.preheader:                     ; preds = %.lr.ph366
-  %82 = sext i32 %45 to i64
+  %80 = sext i32 %45 to i64
   br label %.lr.ph366.split.us
 
 .lr.ph366.split.us:                               ; preds = %.lr.ph366.split.us.preheader, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread.us
-  %indvars.iv404 = phi i64 [ %81, %.lr.ph366.split.us.preheader ], [ %indvars.iv.next405, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread.us ]
-  %.not.i233.us = icmp slt i64 %indvars.iv404, %82
+  %indvars.iv404 = phi i64 [ %79, %.lr.ph366.split.us.preheader ], [ %indvars.iv.next405, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread.us ]
+  %.not.i233.us = icmp slt i64 %indvars.iv404, %80
   br i1 %.not.i233.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread.us
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.us: ; preds = %.lr.ph366.split.us
-  %83 = getelementptr inbounds nuw i8, ptr %.cast380, i64 %indvars.iv404
-  %84 = load i8, ptr %83, align 1, !tbaa !26
-  %.not190.us = icmp eq i8 %84, 0
+  %81 = getelementptr inbounds nuw i8, ptr %.cast380, i64 %indvars.iv404
+  %82 = load i8, ptr %81, align 1, !tbaa !26
+  %.not190.us = icmp eq i8 %82, 0
   br i1 %.not190.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread.us, label %.loopexit
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread.us: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.us, %.lr.ph366.split.us
   %indvars.iv.next405 = add nsw i64 %indvars.iv404, -1
-  %85 = icmp sgt i64 %indvars.iv404, 0
-  br i1 %85, label %.lr.ph366.split.us, label %.loopexit, !llvm.loop !83
+  %83 = icmp sgt i64 %indvars.iv404, 0
+  br i1 %83, label %.lr.ph366.split.us, label %.loopexit, !llvm.loop !83
 
 .lr.ph366.split:                                  ; preds = %.lr.ph366, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread ], [ %81, %.lr.ph366 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread ], [ %79, %.lr.ph366 ]
   %or.cond.i231 = icmp samesign ugt i64 %indvars.iv, 15
   br i1 %or.cond.i231, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235: ; preds = %.lr.ph366.split
-  %86 = shl nuw nsw i64 %indvars.iv, 2
-  %87 = shl nuw i64 15, %86
-  %88 = and i64 %80, %87
-  %.not190 = icmp eq i64 %88, 0
+  %84 = shl nuw nsw i64 %indvars.iv, 2
+  %85 = shl nuw i64 15, %84
+  %86 = and i64 %78, %85
+  %.not190 = icmp eq i64 %86, 0
   br i1 %.not190, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread, label %.loopexit
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread: ; preds = %.lr.ph366.split, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %89 = icmp sgt i64 %indvars.iv, 0
-  br i1 %89, label %.lr.ph366.split, label %.loopexit, !llvm.loop !83
+  %87 = icmp sgt i64 %indvars.iv, 0
+  br i1 %87, label %.lr.ph366.split, label %.loopexit, !llvm.loop !83
 
-90:                                               ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226
-  %91 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 -2147483646)
-  %spec.select.i238 = add nsw i32 %91, -2
-  %92 = add nsw i32 %45, -14
-  %93 = tail call i32 @uprv_max_77(i32 noundef 0, i32 noundef %92)
-  switch i8 %.0.i223, label %166 [
-    i8 0, label %94
-    i8 4, label %111
-    i8 5, label %130
-    i8 9, label %147
+88:                                               ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit226
+  %spec.select.i238 = tail call i32 @llvm.sadd.sat.i32(i32 %.0.i, i32 -2)
+  %89 = add nsw i32 %45, -14
+  %90 = tail call i32 @uprv_max_77(i32 noundef 0, i32 noundef %89)
+  switch i8 %.0.i223, label %163 [
+    i8 0, label %91
+    i8 4, label %108
+    i8 5, label %127
+    i8 9, label %144
   ]
 
-94:                                               ; preds = %90
-  br i1 %3, label %switch.early.test205, label %95
+91:                                               ; preds = %88
+  br i1 %3, label %switch.early.test205, label %92
 
-switch.early.test205:                             ; preds = %94
-  switch i8 %.0.i216, label %167 [
-    i8 5, label %95
-    i8 0, label %95
-    i8 7, label %173
-    i8 2, label %173
+switch.early.test205:                             ; preds = %91
+  switch i8 %.0.i216, label %164 [
+    i8 5, label %92
+    i8 0, label %92
+    i8 7, label %170
+    i8 2, label %170
   ]
 
-95:                                               ; preds = %switch.early.test205, %switch.early.test205, %94
-  %.not197356 = icmp slt i32 %spec.select.i238, %93
+92:                                               ; preds = %switch.early.test205, %switch.early.test205, %91
+  %.not197356 = icmp slt i32 %spec.select.i238, %90
   br i1 %.not197356, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, label %.lr.ph359
 
-.lr.ph359:                                        ; preds = %95
-  %96 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
-  %97 = trunc nuw i8 %96 to i1
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %99 = load i64, ptr %98, align 8
-  %100 = load i32, ptr %44, align 8
-  %.cast379 = inttoptr i64 %99 to ptr
-  br i1 %97, label %.lr.ph359.split.us, label %.lr.ph359.split
+.lr.ph359:                                        ; preds = %92
+  %93 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
+  %94 = trunc nuw i8 %93 to i1
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %96 = load i64, ptr %95, align 8
+  %97 = load i32, ptr %44, align 8
+  %.cast379 = inttoptr i64 %96 to ptr
+  br i1 %94, label %.lr.ph359.split.us, label %.lr.ph359.split
 
 .lr.ph359.split.us:                               ; preds = %.lr.ph359, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us
-  %.0178357.us = phi i32 [ %105, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us ], [ %spec.select.i238, %.lr.ph359 ]
-  %101 = icmp sgt i32 %.0178357.us, -1
-  %.not.i242.us = icmp slt i32 %.0178357.us, %100
-  %or.cond10.i243.us = select i1 %101, i1 %.not.i242.us, i1 false
+  %.0178357.us = phi i32 [ %102, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us ], [ %spec.select.i238, %.lr.ph359 ]
+  %98 = icmp sgt i32 %.0178357.us, -1
+  %.not.i242.us = icmp slt i32 %.0178357.us, %97
+  %or.cond10.i243.us = select i1 %98, i1 %.not.i242.us, i1 false
   br i1 %or.cond10.i243.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us: ; preds = %.lr.ph359.split.us
-  %102 = zext nneg i32 %.0178357.us to i64
-  %103 = getelementptr inbounds nuw i8, ptr %.cast379, i64 %102
-  %104 = load i8, ptr %103, align 1, !tbaa !26
-  %.not198.us = icmp eq i8 %104, 0
+  %99 = zext nneg i32 %.0178357.us to i64
+  %100 = getelementptr inbounds nuw i8, ptr %.cast379, i64 %99
+  %101 = load i8, ptr %100, align 1, !tbaa !26
+  %.not198.us = icmp eq i8 %101, 0
   br i1 %.not198.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us, %.lr.ph359.split.us
-  %105 = add nsw i32 %.0178357.us, -1
-  %.not197.us.not = icmp sgt i32 %.0178357.us, %93
+  %102 = add nsw i32 %.0178357.us, -1
+  %.not197.us.not = icmp sgt i32 %.0178357.us, %90
   br i1 %.not197.us.not, label %.lr.ph359.split.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, !llvm.loop !84
 
 .lr.ph359.split:                                  ; preds = %.lr.ph359, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread
-  %.0178357 = phi i32 [ %110, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread ], [ %spec.select.i238, %.lr.ph359 ]
+  %.0178357 = phi i32 [ %107, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread ], [ %spec.select.i238, %.lr.ph359 ]
   %or.cond.i240 = icmp ugt i32 %.0178357, 15
   br i1 %or.cond.i240, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244: ; preds = %.lr.ph359.split
-  %106 = shl nuw nsw i32 %.0178357, 2
-  %107 = zext nneg i32 %106 to i64
-  %108 = shl nuw i64 15, %107
-  %109 = and i64 %99, %108
-  %.not198 = icmp eq i64 %109, 0
+  %103 = shl nuw nsw i32 %.0178357, 2
+  %104 = zext nneg i32 %103 to i64
+  %105 = shl nuw i64 15, %104
+  %106 = and i64 %96, %105
+  %.not198 = icmp eq i64 %106, 0
   br i1 %.not198, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread: ; preds = %.lr.ph359.split, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244
-  %110 = add nsw i32 %.0178357, -1
-  %.not197.not = icmp sgt i32 %.0178357, %93
+  %107 = add nsw i32 %.0178357, -1
+  %.not197.not = icmp sgt i32 %.0178357, %90
   br i1 %.not197.not, label %.lr.ph359.split, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, !llvm.loop !84
 
-111:                                              ; preds = %90
-  br i1 %3, label %switch.early.test206, label %112
+108:                                              ; preds = %88
+  br i1 %3, label %switch.early.test206, label %109
 
-switch.early.test206:                             ; preds = %111
-  switch i8 %.0.i216, label %167 [
-    i8 7, label %112
-    i8 2, label %112
+switch.early.test206:                             ; preds = %108
+  switch i8 %.0.i216, label %164 [
+    i8 7, label %109
+    i8 2, label %109
   ]
 
-112:                                              ; preds = %switch.early.test206, %switch.early.test206, %111
-  %.not195337 = icmp slt i32 %spec.select.i238, %93
+109:                                              ; preds = %switch.early.test206, %switch.early.test206, %108
+  %.not195337 = icmp slt i32 %spec.select.i238, %90
   br i1 %.not195337, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, label %.lr.ph339
 
-.lr.ph339:                                        ; preds = %112
-  %113 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
-  %114 = trunc nuw i8 %113 to i1
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %116 = load i64, ptr %115, align 8
-  %.cast378 = inttoptr i64 %116 to ptr
-  br i1 %114, label %.lr.ph339.split.us.preheader, label %.lr.ph339.split
+.lr.ph339:                                        ; preds = %109
+  %110 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
+  %111 = trunc nuw i8 %110 to i1
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %113 = load i64, ptr %112, align 8
+  %.cast378 = inttoptr i64 %113 to ptr
+  br i1 %111, label %.lr.ph339.split.us.preheader, label %.lr.ph339.split
 
 .lr.ph339.split.us.preheader:                     ; preds = %.lr.ph339
-  %117 = load i32, ptr %44, align 8
-  %.not.i247.us = icmp slt i32 %spec.select.i238, %117
+  %114 = load i32, ptr %44, align 8
+  %.not.i247.us = icmp slt i32 %spec.select.i238, %114
   br label %.lr.ph339.split.us
 
-.lr.ph339.split.us:                               ; preds = %.lr.ph339.split.us.preheader, %119
-  %.1179338.us = phi i32 [ %120, %119 ], [ %spec.select.i238, %.lr.ph339.split.us.preheader ]
-  %118 = icmp sgt i32 %.1179338.us, -1
-  %or.cond10.i248.us = select i1 %118, i1 %.not.i247.us, i1 false
+.lr.ph339.split.us:                               ; preds = %.lr.ph339.split.us.preheader, %116
+  %.1179338.us = phi i32 [ %117, %116 ], [ %spec.select.i238, %.lr.ph339.split.us.preheader ]
+  %115 = icmp sgt i32 %.1179338.us, -1
+  %or.cond10.i248.us = select i1 %115, i1 %.not.i247.us, i1 false
   br i1 %or.cond10.i248.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
-119:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us
-  %120 = add nsw i32 %.1179338.us, -1
-  %.not195.us.not = icmp sgt i32 %.1179338.us, %93
+116:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us
+  %117 = add nsw i32 %.1179338.us, -1
+  %.not195.us.not = icmp sgt i32 %.1179338.us, %90
   br i1 %.not195.us.not, label %.lr.ph339.split.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, !llvm.loop !85
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us: ; preds = %.lr.ph339.split.us
-  %121 = zext nneg i32 %.1179338.us to i64
-  %122 = getelementptr inbounds nuw i8, ptr %.cast378, i64 %121
-  %123 = load i8, ptr %122, align 1, !tbaa !26
-  %.not196.us = icmp eq i8 %123, 9
-  br i1 %.not196.us, label %119, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
+  %118 = zext nneg i32 %.1179338.us to i64
+  %119 = getelementptr inbounds nuw i8, ptr %.cast378, i64 %118
+  %120 = load i8, ptr %119, align 1, !tbaa !26
+  %.not196.us = icmp eq i8 %120, 9
+  br i1 %.not196.us, label %116, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
-124:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249
-  %125 = add nsw i32 %.1179338, -1
-  %.not195.not = icmp sgt i32 %.1179338, %93
+121:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249
+  %122 = add nsw i32 %.1179338, -1
+  %.not195.not = icmp sgt i32 %.1179338, %90
   br i1 %.not195.not, label %.lr.ph339.split, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, !llvm.loop !85
 
-.lr.ph339.split:                                  ; preds = %.lr.ph339, %124
-  %.1179338 = phi i32 [ %125, %124 ], [ %spec.select.i238, %.lr.ph339 ]
+.lr.ph339.split:                                  ; preds = %.lr.ph339, %121
+  %.1179338 = phi i32 [ %122, %121 ], [ %spec.select.i238, %.lr.ph339 ]
   %or.cond.i245 = icmp ugt i32 %.1179338, 15
   br i1 %or.cond.i245, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249: ; preds = %.lr.ph339.split
-  %126 = shl nuw nsw i32 %.1179338, 2
-  %127 = zext nneg i32 %126 to i64
-  %128 = lshr i64 %116, %127
-  %129 = and i64 %128, 15
-  %.not196 = icmp eq i64 %129, 9
-  br i1 %.not196, label %124, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
+  %123 = shl nuw nsw i32 %.1179338, 2
+  %124 = zext nneg i32 %123 to i64
+  %125 = lshr i64 %113, %124
+  %126 = and i64 %125, 15
+  %.not196 = icmp eq i64 %126, 9
+  br i1 %.not196, label %121, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
-130:                                              ; preds = %90
-  br i1 %3, label %switch.early.test207, label %131
+127:                                              ; preds = %88
+  br i1 %3, label %switch.early.test207, label %128
 
-switch.early.test207:                             ; preds = %130
-  switch i8 %.0.i216, label %167 [
-    i8 7, label %131
-    i8 2, label %131
+switch.early.test207:                             ; preds = %127
+  switch i8 %.0.i216, label %164 [
+    i8 7, label %128
+    i8 2, label %128
   ]
 
-131:                                              ; preds = %switch.early.test207, %switch.early.test207, %130
-  %.not193325 = icmp slt i32 %spec.select.i238, %93
+128:                                              ; preds = %switch.early.test207, %switch.early.test207, %127
+  %.not193325 = icmp slt i32 %spec.select.i238, %90
   br i1 %.not193325, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, label %.lr.ph328
 
-.lr.ph328:                                        ; preds = %131
-  %132 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
-  %133 = trunc nuw i8 %132 to i1
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %135 = load i64, ptr %134, align 8
-  %136 = load i32, ptr %44, align 8
-  %.cast377 = inttoptr i64 %135 to ptr
-  br i1 %133, label %.lr.ph328.split.us, label %.lr.ph328.split
+.lr.ph328:                                        ; preds = %128
+  %129 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
+  %130 = trunc nuw i8 %129 to i1
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %132 = load i64, ptr %131, align 8
+  %133 = load i32, ptr %44, align 8
+  %.cast377 = inttoptr i64 %132 to ptr
+  br i1 %130, label %.lr.ph328.split.us, label %.lr.ph328.split
 
 .lr.ph328.split.us:                               ; preds = %.lr.ph328, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us
-  %.2180326.us = phi i32 [ %141, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us ], [ %spec.select.i238, %.lr.ph328 ]
-  %137 = icmp sgt i32 %.2180326.us, -1
-  %.not.i252.us = icmp slt i32 %.2180326.us, %136
-  %or.cond10.i253.us = select i1 %137, i1 %.not.i252.us, i1 false
+  %.2180326.us = phi i32 [ %138, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us ], [ %spec.select.i238, %.lr.ph328 ]
+  %134 = icmp sgt i32 %.2180326.us, -1
+  %.not.i252.us = icmp slt i32 %.2180326.us, %133
+  %or.cond10.i253.us = select i1 %134, i1 %.not.i252.us, i1 false
   br i1 %or.cond10.i253.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us: ; preds = %.lr.ph328.split.us
-  %138 = zext nneg i32 %.2180326.us to i64
-  %139 = getelementptr inbounds nuw i8, ptr %.cast377, i64 %138
-  %140 = load i8, ptr %139, align 1, !tbaa !26
-  %.not194.us = icmp eq i8 %140, 0
+  %135 = zext nneg i32 %.2180326.us to i64
+  %136 = getelementptr inbounds nuw i8, ptr %.cast377, i64 %135
+  %137 = load i8, ptr %136, align 1, !tbaa !26
+  %.not194.us = icmp eq i8 %137, 0
   br i1 %.not194.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us, %.lr.ph328.split.us
-  %141 = add nsw i32 %.2180326.us, -1
-  %.not193.us.not = icmp sgt i32 %.2180326.us, %93
+  %138 = add nsw i32 %.2180326.us, -1
+  %.not193.us.not = icmp sgt i32 %.2180326.us, %90
   br i1 %.not193.us.not, label %.lr.ph328.split.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, !llvm.loop !86
 
 .lr.ph328.split:                                  ; preds = %.lr.ph328, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread
-  %.2180326 = phi i32 [ %146, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread ], [ %spec.select.i238, %.lr.ph328 ]
+  %.2180326 = phi i32 [ %143, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread ], [ %spec.select.i238, %.lr.ph328 ]
   %or.cond.i250 = icmp ugt i32 %.2180326, 15
   br i1 %or.cond.i250, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254: ; preds = %.lr.ph328.split
-  %142 = shl nuw nsw i32 %.2180326, 2
-  %143 = zext nneg i32 %142 to i64
-  %144 = shl nuw i64 15, %143
-  %145 = and i64 %135, %144
-  %.not194 = icmp eq i64 %145, 0
+  %139 = shl nuw nsw i32 %.2180326, 2
+  %140 = zext nneg i32 %139 to i64
+  %141 = shl nuw i64 15, %140
+  %142 = and i64 %132, %141
+  %.not194 = icmp eq i64 %142, 0
   br i1 %.not194, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread: ; preds = %.lr.ph328.split, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254
-  %146 = add nsw i32 %.2180326, -1
-  %.not193.not = icmp sgt i32 %.2180326, %93
+  %143 = add nsw i32 %.2180326, -1
+  %.not193.not = icmp sgt i32 %.2180326, %90
   br i1 %.not193.not, label %.lr.ph328.split, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, !llvm.loop !86
 
-147:                                              ; preds = %90
-  br i1 %3, label %switch.early.test208, label %148
+144:                                              ; preds = %88
+  br i1 %3, label %switch.early.test208, label %145
 
-switch.early.test208:                             ; preds = %147
-  switch i8 %.0.i216, label %167 [
-    i8 9, label %148
-    i8 4, label %148
-    i8 7, label %173
-    i8 2, label %173
+switch.early.test208:                             ; preds = %144
+  switch i8 %.0.i216, label %164 [
+    i8 9, label %145
+    i8 4, label %145
+    i8 7, label %170
+    i8 2, label %170
   ]
 
-148:                                              ; preds = %switch.early.test208, %switch.early.test208, %147
-  %.not191316 = icmp slt i32 %spec.select.i238, %93
+145:                                              ; preds = %switch.early.test208, %switch.early.test208, %144
+  %.not191316 = icmp slt i32 %spec.select.i238, %90
   br i1 %.not191316, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %148
-  %149 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
-  %150 = trunc nuw i8 %149 to i1
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %152 = load i64, ptr %151, align 8
-  %.cast = inttoptr i64 %152 to ptr
-  br i1 %150, label %.lr.ph.split.us.preheader, label %.lr.ph.split
+.lr.ph:                                           ; preds = %145
+  %146 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
+  %147 = trunc nuw i8 %146 to i1
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %149 = load i64, ptr %148, align 8
+  %.cast = inttoptr i64 %149 to ptr
+  br i1 %147, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %153 = load i32, ptr %44, align 8
-  %.not.i257.us = icmp slt i32 %spec.select.i238, %153
+  %150 = load i32, ptr %44, align 8
+  %.not.i257.us = icmp slt i32 %spec.select.i238, %150
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %155
-  %.3181317.us = phi i32 [ %156, %155 ], [ %spec.select.i238, %.lr.ph.split.us.preheader ]
-  %154 = icmp sgt i32 %.3181317.us, -1
-  %or.cond10.i258.us = select i1 %154, i1 %.not.i257.us, i1 false
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %152
+  %.3181317.us = phi i32 [ %153, %152 ], [ %spec.select.i238, %.lr.ph.split.us.preheader ]
+  %151 = icmp sgt i32 %.3181317.us, -1
+  %or.cond10.i258.us = select i1 %151, i1 %.not.i257.us, i1 false
   br i1 %or.cond10.i258.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
-155:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us
-  %156 = add nsw i32 %.3181317.us, -1
-  %.not191.us.not = icmp sgt i32 %.3181317.us, %93
+152:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us
+  %153 = add nsw i32 %.3181317.us, -1
+  %.not191.us.not = icmp sgt i32 %.3181317.us, %90
   br i1 %.not191.us.not, label %.lr.ph.split.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, !llvm.loop !87
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us: ; preds = %.lr.ph.split.us
-  %157 = zext nneg i32 %.3181317.us to i64
-  %158 = getelementptr inbounds nuw i8, ptr %.cast, i64 %157
-  %159 = load i8, ptr %158, align 1, !tbaa !26
-  %.not192.us = icmp eq i8 %159, 9
-  br i1 %.not192.us, label %155, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
+  %154 = zext nneg i32 %.3181317.us to i64
+  %155 = getelementptr inbounds nuw i8, ptr %.cast, i64 %154
+  %156 = load i8, ptr %155, align 1, !tbaa !26
+  %.not192.us = icmp eq i8 %156, 9
+  br i1 %.not192.us, label %152, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
-160:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259
-  %161 = add nsw i32 %.3181317, -1
-  %.not191.not = icmp sgt i32 %.3181317, %93
+157:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259
+  %158 = add nsw i32 %.3181317, -1
+  %.not191.not = icmp sgt i32 %.3181317, %90
   br i1 %.not191.not, label %.lr.ph.split, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, !llvm.loop !87
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %160
-  %.3181317 = phi i32 [ %161, %160 ], [ %spec.select.i238, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %157
+  %.3181317 = phi i32 [ %158, %157 ], [ %spec.select.i238, %.lr.ph ]
   %or.cond.i255 = icmp ugt i32 %.3181317, 15
   br i1 %or.cond.i255, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259: ; preds = %.lr.ph.split
-  %162 = shl nuw nsw i32 %.3181317, 2
-  %163 = zext nneg i32 %162 to i64
-  %164 = lshr i64 %152, %163
-  %165 = and i64 %164, 15
-  %.not192 = icmp eq i64 %165, 9
-  br i1 %.not192, label %160, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
+  %159 = shl nuw nsw i32 %.3181317, 2
+  %160 = zext nneg i32 %159 to i64
+  %161 = lshr i64 %149, %160
+  %162 = and i64 %161, 15
+  %.not192 = icmp eq i64 %162, 9
+  br i1 %.not192, label %157, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
-166:                                              ; preds = %90
-  br i1 %3, label %switch.early.test209, label %173
+163:                                              ; preds = %88
+  br i1 %3, label %switch.early.test209, label %170
 
-switch.early.test209:                             ; preds = %166
-  switch i8 %.0.i216, label %167 [
-    i8 7, label %173
-    i8 2, label %173
+switch.early.test209:                             ; preds = %163
+  switch i8 %.0.i216, label %164 [
+    i8 7, label %170
+    i8 2, label %170
   ]
 
-167:                                              ; preds = %switch.early.test208, %switch.early.test205, %switch.early.test206, %switch.early.test207, %switch.early.test209
-  %168 = icmp slt i8 %.0.i216, 2
-  br i1 %168, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, label %169
+164:                                              ; preds = %switch.early.test208, %switch.early.test205, %switch.early.test206, %switch.early.test207, %switch.early.test209
+  %165 = icmp slt i8 %.0.i216, 2
+  br i1 %165, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, label %166
 
-169:                                              ; preds = %167
-  %170 = icmp samesign ult i8 %.0.i216, 5
-  br i1 %170, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, label %171
+166:                                              ; preds = %164
+  %167 = icmp samesign ult i8 %.0.i216, 5
+  br i1 %167, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread, label %168
 
-171:                                              ; preds = %169
-  %172 = icmp samesign ult i8 %.0.i216, 7
-  %.210 = select i1 %172, i32 1, i32 3
+168:                                              ; preds = %166
+  %169 = icmp samesign ult i8 %.0.i216, 7
+  %.210 = select i1 %169, i32 1, i32 3
   br label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
-173:                                              ; preds = %switch.early.test208, %switch.early.test208, %switch.early.test205, %switch.early.test205, %switch.early.test209, %switch.early.test209, %166
-  %174 = icmp slt i8 %.0.i223, 5
-  %.211 = select i1 %174, i32 1, i32 3
+170:                                              ; preds = %switch.early.test208, %switch.early.test208, %switch.early.test205, %switch.early.test205, %switch.early.test209, %switch.early.test209, %163
+  %171 = icmp slt i8 %.0.i223, 5
+  %.211 = select i1 %171, i32 1, i32 3
   br label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread: ; preds = %160, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259, %.lr.ph.split, %155, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us, %.lr.ph.split.us, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us, %124, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249, %.lr.ph339.split, %119, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us, %.lr.ph339.split.us, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us, %148, %131, %112, %95, %173, %171, %169, %167
-  %175 = phi i1 [ false, %173 ], [ false, %167 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254 ], [ false, %169 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us ], [ false, %171 ], [ false, %95 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread ], [ false, %.lr.ph339.split ], [ false, %148 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us ], [ true, %131 ], [ false, %.lr.ph339.split.us ], [ false, %155 ], [ true, %112 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244 ], [ true, %119 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249 ], [ true, %124 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread ], [ false, %.lr.ph.split.us ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us ], [ false, %.lr.ph.split ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259 ], [ false, %160 ]
-  %.not199 = phi i1 [ true, %173 ], [ true, %167 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread ], [ true, %169 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us ], [ true, %171 ], [ false, %95 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread ], [ true, %124 ], [ false, %148 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us ], [ true, %131 ], [ true, %119 ], [ true, %.lr.ph.split.us ], [ true, %112 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244 ], [ true, %.lr.ph339.split.us ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us ], [ true, %.lr.ph339.split ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us ], [ false, %155 ], [ false, %160 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259 ], [ true, %.lr.ph.split ]
-  %spec.store.select68 = phi i32 [ %.211, %173 ], [ 1, %167 ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254 ], [ 3, %169 ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us ], [ %.210, %171 ], [ 1, %95 ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread ], [ 1, %.lr.ph339.split ], [ 3, %148 ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us ], [ 2, %131 ], [ 1, %.lr.ph339.split.us ], [ 3, %155 ], [ 2, %112 ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244 ], [ 2, %119 ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249 ], [ 2, %124 ], [ 2, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us ], [ 2, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread ], [ 3, %.lr.ph.split.us ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us ], [ 3, %.lr.ph.split ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259 ], [ 3, %160 ]
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread: ; preds = %157, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259, %.lr.ph.split, %152, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us, %.lr.ph.split.us, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us, %121, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249, %.lr.ph339.split, %116, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us, %.lr.ph339.split.us, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us, %145, %128, %109, %92, %170, %168, %166, %164
+  %172 = phi i1 [ false, %170 ], [ false, %164 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254 ], [ false, %166 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us ], [ false, %168 ], [ false, %92 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread ], [ false, %.lr.ph339.split ], [ false, %145 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us ], [ true, %128 ], [ false, %.lr.ph339.split.us ], [ false, %152 ], [ true, %109 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244 ], [ true, %116 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249 ], [ true, %121 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread ], [ false, %.lr.ph.split.us ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us ], [ false, %.lr.ph.split ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259 ], [ false, %157 ]
+  %.not199 = phi i1 [ true, %170 ], [ true, %164 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread ], [ true, %166 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us ], [ true, %168 ], [ false, %92 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread ], [ true, %121 ], [ false, %145 ], [ false, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us ], [ true, %128 ], [ true, %116 ], [ true, %.lr.ph.split.us ], [ true, %109 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244 ], [ true, %.lr.ph339.split.us ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us ], [ true, %.lr.ph339.split ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us ], [ false, %152 ], [ false, %157 ], [ true, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259 ], [ true, %.lr.ph.split ]
+  %spec.store.select68 = phi i32 [ %.211, %170 ], [ 1, %164 ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254 ], [ 3, %166 ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.us ], [ %.210, %168 ], [ 1, %92 ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread ], [ 1, %.lr.ph339.split ], [ 3, %145 ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.thread.us ], [ 2, %128 ], [ 1, %.lr.ph339.split.us ], [ 3, %152 ], [ 2, %109 ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244.us ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit244 ], [ 2, %116 ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.us ], [ 1, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249 ], [ 2, %121 ], [ 2, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread.us ], [ 2, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit254.thread ], [ 3, %.lr.ph.split.us ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259.us ], [ 3, %.lr.ph.split ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit259 ], [ 3, %157 ]
   %switch.i = icmp ugt i32 %2, 3
-  %176 = load i32, ptr %44, align 8, !tbaa !28
-  %177 = add nsw i32 %176, -14
-  %178 = icmp slt i32 %spec.select.i220, %177
-  %or.cond48 = and i1 %switch.i, %175
-  %or.cond = or i1 %or.cond48, %178
+  %173 = load i32, ptr %44, align 8, !tbaa !28
+  %174 = add nsw i32 %173, -14
+  %175 = icmp slt i32 %spec.select.i220, %174
+  %or.cond48 = and i1 %switch.i, %172
+  %or.cond = or i1 %or.cond48, %175
   %or.cond.not = xor i1 %or.cond, true
   %or.cond51.not = or i1 %switch.i, %.not199
   %or.cond212 = and i1 %or.cond51.not, %or.cond.not
-  br i1 %or.cond212, label %196, label %179
+  br i1 %or.cond212, label %193, label %176
 
-179:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %181 = load i32, ptr %180, align 8, !tbaa !31
+176:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %178 = load i32, ptr %177, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %183 = load double, ptr %182, align 8, !tbaa !30
-  call void @_ZN6icu_7717double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %183, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 18, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %184 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
-  %185 = trunc nuw i8 %184 to i1
-  br i1 %185, label %186, label %_ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %180 = load double, ptr %179, align 8, !tbaa !30
+  call void @_ZN6icu_7717double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %180, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 18, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %181 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
+  %182 = trunc nuw i8 %181 to i1
+  br i1 %182, label %183, label %_ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit
 
-186:                                              ; preds = %179
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %188 = load ptr, ptr %187, align 8, !tbaa !26
-  call void @uprv_free_77(ptr noundef %188)
+183:                                              ; preds = %176
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %185 = load ptr, ptr %184, align 8, !tbaa !26
+  call void @uprv_free_77(ptr noundef %185)
   store i8 0, ptr %17, align 8, !tbaa !22
   br label %_ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit
 
-_ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit: ; preds = %179, %186
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %189, align 8, !tbaa !26
+_ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit: ; preds = %176, %183
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 0, ptr %186, align 8, !tbaa !26
   store i32 0, ptr %10, align 4, !tbaa !27
   store i32 0, ptr %44, align 8, !tbaa !28
   store i8 0, ptr %40, align 1, !tbaa !29
-  store double 0.000000e+00, ptr %182, align 8, !tbaa !30
-  store i32 0, ptr %180, align 8, !tbaa !31
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %190, align 4, !tbaa !32
-  %191 = load i32, ptr %8, align 4, !tbaa !12
-  %192 = load i32, ptr %9, align 4, !tbaa !12
-  call void @_ZN6icu_776number4impl15DecimalQuantity25readDoubleConversionToBcdEPKcii(ptr noundef nonnull align 8 dereferenceable(66) %0, ptr noundef nonnull %6, i32 noundef %191, i32 noundef %192)
-  %193 = load i32, ptr %10, align 4, !tbaa !27
-  %194 = add nsw i32 %193, %181
-  store i32 %194, ptr %10, align 4, !tbaa !27
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  store i8 1, ptr %195, align 1, !tbaa !23
+  store double 0.000000e+00, ptr %179, align 8, !tbaa !30
+  store i32 0, ptr %177, align 8, !tbaa !31
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 0, ptr %187, align 4, !tbaa !32
+  %188 = load i32, ptr %8, align 4, !tbaa !12
+  %189 = load i32, ptr %9, align 4, !tbaa !12
+  call void @_ZN6icu_776number4impl15DecimalQuantity25readDoubleConversionToBcdEPKcii(ptr noundef nonnull align 8 dereferenceable(66) %0, ptr noundef nonnull %6, i32 noundef %188, i32 noundef %189)
+  %190 = load i32, ptr %10, align 4, !tbaa !27
+  %191 = add nsw i32 %190, %178
+  store i32 %191, ptr %10, align 4, !tbaa !27
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 65
+  store i8 1, ptr %192, align 1, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5751,330 +5748,330 @@ _ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit: ; preds
   call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModebR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %.critedge214
 
-196:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
+193:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit249.thread
   store i8 0, ptr %40, align 1, !tbaa !29
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double 0.000000e+00, ptr %197, align 8, !tbaa !30
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %198, align 8, !tbaa !31
-  br i1 %39, label %199, label %.loopexit
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double 0.000000e+00, ptr %194, align 8, !tbaa !30
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 0, ptr %195, align 8, !tbaa !31
+  br i1 %39, label %196, label %.loopexit
 
-199:                                              ; preds = %196
+196:                                              ; preds = %193
   br i1 %3, label %switch.early.test213, label %.critedge214
 
-switch.early.test213:                             ; preds = %199
+switch.early.test213:                             ; preds = %196
   switch i8 %.0.i216, label %.thread [
     i8 5, label %.critedge214
     i8 0, label %.critedge214
   ]
 
-.loopexit:                                        ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.us, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread.us, %77, %196, %76, %74
-  %.1 = phi i32 [ %spec.store.select68, %196 ], [ 3, %76 ], [ 1, %74 ], [ 2, %77 ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.us ], [ 2, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread.us ], [ 2, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235 ]
-  br i1 %3, label %.thread, label %207
+.loopexit:                                        ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.us, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread.us, %75, %193, %74, %72
+  %.1 = phi i32 [ %spec.store.select68, %193 ], [ 3, %74 ], [ 1, %72 ], [ 2, %75 ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.us ], [ 2, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread.us ], [ 2, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235.thread ], [ 3, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit235 ]
+  br i1 %3, label %.thread, label %204
 
-.thread:                                          ; preds = %switch.early.test213, %72, %.loopexit
-  %.1287 = phi i32 [ %.1, %.loopexit ], [ %., %72 ], [ %spec.store.select68, %switch.early.test213 ]
-  %200 = add i8 %.0.i216, -8
-  %or.cond61 = icmp ult i8 %200, -6
-  br i1 %or.cond61, label %.thread.thread, label %201
+.thread:                                          ; preds = %switch.early.test213, %70, %.loopexit
+  %.1287 = phi i32 [ %.1, %.loopexit ], [ %., %70 ], [ %spec.store.select68, %switch.early.test213 ]
+  %197 = add i8 %.0.i216, -8
+  %or.cond61 = icmp ult i8 %197, -6
+  br i1 %or.cond61, label %.thread.thread, label %198
 
-201:                                              ; preds = %.thread
-  %202 = icmp eq i8 %.0.i216, 2
-  %203 = icmp ne i32 %.1287, 3
-  %or.cond63 = and i1 %202, %203
+198:                                              ; preds = %.thread
+  %199 = icmp eq i8 %.0.i216, 2
+  %200 = icmp ne i32 %.1287, 3
+  %or.cond63 = and i1 %199, %200
   br i1 %or.cond63, label %.thread.thread, label %.thread297
 
-.thread297:                                       ; preds = %70, %201
-  %.1287296300 = phi i32 [ %.1287, %201 ], [ 3, %70 ]
-  %204 = icmp eq i8 %.0.i216, 7
-  %205 = icmp eq i32 %.1287296300, 3
-  %206 = and i1 %204, %205
+.thread297:                                       ; preds = %68, %198
+  %.1287296300 = phi i32 [ %.1287, %198 ], [ 3, %68 ]
+  %201 = icmp eq i8 %.0.i216, 7
+  %202 = icmp eq i32 %.1287296300, 3
+  %203 = and i1 %201, %202
   br label %.thread.thread
 
-207:                                              ; preds = %.loopexit
-  %208 = and i8 %.0.i216, 1
-  %209 = icmp eq i8 %208, 0
+204:                                              ; preds = %.loopexit
+  %205 = and i8 %.0.i216, 1
+  %206 = icmp eq i8 %205, 0
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %68, %.thread, %.thread297, %201, %207
-  %.1288 = phi i32 [ %.1, %207 ], [ %.1287, %201 ], [ %.1287296300, %.thread297 ], [ %.1287, %.thread ], [ 1, %68 ]
-  %210 = phi i1 [ %209, %207 ], [ true, %201 ], [ %206, %.thread297 ], [ true, %.thread ], [ true, %68 ]
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %212 = load i8, ptr %211, align 4, !tbaa !35
-  %213 = and i8 %212, 1
-  %214 = icmp ne i8 %213, 0
-  %215 = load i32, ptr %4, align 4, !tbaa !13
-  %216 = icmp slt i32 %215, 1
-  br i1 %216, label %217, label %.critedge214
+.thread.thread:                                   ; preds = %66, %.thread, %.thread297, %198, %204
+  %.1288 = phi i32 [ %.1, %204 ], [ %.1287, %198 ], [ %.1287296300, %.thread297 ], [ %.1287, %.thread ], [ 1, %66 ]
+  %207 = phi i1 [ %206, %204 ], [ true, %198 ], [ %203, %.thread297 ], [ true, %.thread ], [ true, %66 ]
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %209 = load i8, ptr %208, align 4, !tbaa !35
+  %210 = and i8 %209, 1
+  %211 = icmp ne i8 %210, 0
+  %212 = load i32, ptr %4, align 4, !tbaa !13
+  %213 = icmp slt i32 %212, 1
+  br i1 %213, label %214, label %.critedge214
 
-217:                                              ; preds = %.thread.thread
-  switch i32 %2, label %240 [
-    i32 3, label %241
-    i32 2, label %218
-    i32 0, label %219
-    i32 1, label %220
-    i32 6, label %222
-    i32 5, label %224
-    i32 4, label %226
-    i32 8, label %229
-    i32 9, label %233
-    i32 10, label %236
+214:                                              ; preds = %.thread.thread
+  switch i32 %2, label %237 [
+    i32 3, label %238
+    i32 2, label %215
+    i32 0, label %216
+    i32 1, label %217
+    i32 6, label %219
+    i32 5, label %221
+    i32 4, label %223
+    i32 8, label %226
+    i32 9, label %230
+    i32 10, label %233
   ]
 
-218:                                              ; preds = %217
-  br label %241
+215:                                              ; preds = %214
+  br label %238
 
-219:                                              ; preds = %217
-  br label %241
+216:                                              ; preds = %214
+  br label %238
 
-220:                                              ; preds = %217
-  %221 = xor i1 %214, true
-  br label %241
+217:                                              ; preds = %214
+  %218 = xor i1 %211, true
+  br label %238
 
-222:                                              ; preds = %217
-  %223 = icmp eq i32 %.1288, 1
-  br label %241
+219:                                              ; preds = %214
+  %220 = icmp eq i32 %.1288, 1
+  br label %238
 
-224:                                              ; preds = %217
-  %225 = icmp ne i32 %.1288, 3
-  br label %241
+221:                                              ; preds = %214
+  %222 = icmp ne i32 %.1288, 3
+  br label %238
 
-226:                                              ; preds = %217
+223:                                              ; preds = %214
   switch i32 %.1288, label %default.unreachable302 [
-    i32 2, label %241
-    i32 1, label %227
-    i32 3, label %228
+    i32 2, label %238
+    i32 1, label %224
+    i32 3, label %225
+  ]
+
+224:                                              ; preds = %223
+  br label %238
+
+225:                                              ; preds = %223
+  br label %238
+
+226:                                              ; preds = %214
+  switch i32 %.1288, label %default.unreachable303 [
+    i32 2, label %227
+    i32 1, label %238
+    i32 3, label %229
   ]
 
 227:                                              ; preds = %226
-  br label %241
+  %228 = xor i1 %207, true
+  br label %238
 
-228:                                              ; preds = %226
-  br label %241
+229:                                              ; preds = %226
+  br label %238
 
-229:                                              ; preds = %217
-  switch i32 %.1288, label %default.unreachable303 [
-    i32 2, label %230
-    i32 1, label %241
+230:                                              ; preds = %214
+  switch i32 %.1288, label %default.unreachable304 [
+    i32 2, label %238
+    i32 1, label %231
     i32 3, label %232
   ]
 
-230:                                              ; preds = %229
-  %231 = xor i1 %210, true
-  br label %241
+231:                                              ; preds = %230
+  br label %238
 
-232:                                              ; preds = %229
-  br label %241
+232:                                              ; preds = %230
+  br label %238
 
-233:                                              ; preds = %217
-  switch i32 %.1288, label %default.unreachable304 [
-    i32 2, label %241
-    i32 1, label %234
-    i32 3, label %235
+233:                                              ; preds = %214
+  switch i32 %.1288, label %default.unreachable305 [
+    i32 2, label %234
+    i32 1, label %238
+    i32 3, label %236
   ]
 
 234:                                              ; preds = %233
-  br label %241
+  %235 = xor i1 %211, true
+  br label %238
 
-235:                                              ; preds = %233
-  br label %241
+236:                                              ; preds = %233
+  br label %238
 
-236:                                              ; preds = %217
-  switch i32 %.1288, label %default.unreachable305 [
-    i32 2, label %237
-    i32 1, label %241
-    i32 3, label %239
-  ]
-
-237:                                              ; preds = %236
-  %238 = xor i1 %214, true
-  br label %241
-
-239:                                              ; preds = %236
-  br label %241
-
-default.unreachable302:                           ; preds = %226
+default.unreachable302:                           ; preds = %223
   unreachable
 
-default.unreachable303:                           ; preds = %229
+default.unreachable303:                           ; preds = %226
   unreachable
 
-default.unreachable304:                           ; preds = %233
+default.unreachable304:                           ; preds = %230
   unreachable
 
-default.unreachable305:                           ; preds = %236
+default.unreachable305:                           ; preds = %233
   unreachable
 
-240:                                              ; preds = %217
+237:                                              ; preds = %214
   store i32 65809, ptr %4, align 4, !tbaa !13
   br label %.critedge214
 
-241:                                              ; preds = %239, %218, %219, %220, %217, %233, %236, %235, %222, %237, %224, %227, %228, %230, %226, %232, %229, %234
-  %.0.i264.ph = phi i1 [ true, %234 ], [ true, %229 ], [ false, %232 ], [ %210, %226 ], [ %231, %230 ], [ false, %228 ], [ true, %227 ], [ %225, %224 ], [ %238, %237 ], [ %223, %222 ], [ false, %235 ], [ true, %236 ], [ %214, %233 ], [ false, %217 ], [ %221, %220 ], [ %214, %219 ], [ true, %218 ], [ false, %239 ]
-  %242 = load i32, ptr %44, align 8, !tbaa !28
-  %.not201 = icmp slt i32 %.0.i, %242
-  %243 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
-  %244 = trunc nuw i8 %243 to i1
-  br i1 %.not201, label %253, label %245
+238:                                              ; preds = %236, %215, %216, %217, %214, %230, %233, %232, %219, %234, %221, %224, %225, %227, %223, %229, %226, %231
+  %.0.i264.ph = phi i1 [ true, %231 ], [ true, %226 ], [ false, %229 ], [ %207, %223 ], [ %228, %227 ], [ false, %225 ], [ true, %224 ], [ %222, %221 ], [ %235, %234 ], [ %220, %219 ], [ false, %232 ], [ true, %233 ], [ %211, %230 ], [ false, %214 ], [ %218, %217 ], [ %211, %216 ], [ true, %215 ], [ false, %236 ]
+  %239 = load i32, ptr %44, align 8, !tbaa !28
+  %.not201 = icmp slt i32 %.0.i, %239
+  %240 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
+  %241 = trunc nuw i8 %240 to i1
+  br i1 %.not201, label %250, label %242
 
-245:                                              ; preds = %241
-  br i1 %244, label %246, label %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit
+242:                                              ; preds = %238
+  br i1 %241, label %243, label %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
-246:                                              ; preds = %245
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %248 = load ptr, ptr %247, align 8, !tbaa !26
-  tail call void @uprv_free_77(ptr noundef %248)
+243:                                              ; preds = %242
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %245 = load ptr, ptr %244, align 8, !tbaa !26
+  tail call void @uprv_free_77(ptr noundef %245)
   store i8 0, ptr %17, align 8, !tbaa !22
   br label %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
-_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %245, %246
-  %249 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %249, align 8, !tbaa !26
+_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %242, %243
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 0, ptr %246, align 8, !tbaa !26
   store i32 0, ptr %44, align 8, !tbaa !28
   store i8 0, ptr %40, align 1, !tbaa !29
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double 0.000000e+00, ptr %250, align 8, !tbaa !30
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %251, align 8, !tbaa !31
-  %252 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %252, align 4, !tbaa !32
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double 0.000000e+00, ptr %247, align 8, !tbaa !30
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 0, ptr %248, align 8, !tbaa !31
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 0, ptr %249, align 4, !tbaa !32
   store i32 %1, ptr %10, align 4, !tbaa !27
-  br label %284
+  br label %281
 
-253:                                              ; preds = %241
-  br i1 %244, label %.lr.ph.i, label %274
+250:                                              ; preds = %238
+  br i1 %241, label %.lr.ph.i, label %271
 
-.lr.ph.i:                                         ; preds = %253
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %255 = sext i32 %.0.i to i64
-  br label %259
+.lr.ph.i:                                         ; preds = %250
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %252 = sext i32 %.0.i to i64
+  br label %256
 
-.preheader.i:                                     ; preds = %259
-  %256 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %257 = icmp sgt i32 %264, %256
-  br i1 %257, label %.lr.ph15.i, label %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit
+.preheader.i:                                     ; preds = %256
+  %253 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %254 = icmp sgt i32 %261, %253
+  br i1 %254, label %.lr.ph15.i, label %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit
 
 .lr.ph15.i:                                       ; preds = %.preheader.i
-  %258 = and i64 %indvars.iv.next.i, 4294967295
-  br label %268
+  %255 = and i64 %indvars.iv.next.i, 4294967295
+  br label %265
 
-259:                                              ; preds = %259, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %259 ]
-  %260 = load ptr, ptr %254, align 8, !tbaa !26
-  %261 = getelementptr i8, ptr %260, i64 %indvars.iv.i
-  %262 = getelementptr i8, ptr %261, i64 %255
-  %263 = load i8, ptr %262, align 1, !tbaa !26
-  store i8 %263, ptr %261, align 1, !tbaa !26
+256:                                              ; preds = %256, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %256 ]
+  %257 = load ptr, ptr %251, align 8, !tbaa !26
+  %258 = getelementptr i8, ptr %257, i64 %indvars.iv.i
+  %259 = getelementptr i8, ptr %258, i64 %252
+  %260 = load i8, ptr %259, align 1, !tbaa !26
+  store i8 %260, ptr %258, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %264 = load i32, ptr %44, align 8, !tbaa !28
-  %265 = sub nsw i32 %264, %.0.i
-  %266 = sext i32 %265 to i64
-  %267 = icmp slt i64 %indvars.iv.next.i, %266
-  br i1 %267, label %259, label %.preheader.i, !llvm.loop !39
+  %261 = load i32, ptr %44, align 8, !tbaa !28
+  %262 = sub nsw i32 %261, %.0.i
+  %263 = sext i32 %262 to i64
+  %264 = icmp slt i64 %indvars.iv.next.i, %263
+  br i1 %264, label %256, label %.preheader.i, !llvm.loop !39
 
-268:                                              ; preds = %268, %.lr.ph15.i
-  %indvars.iv17.i = phi i64 [ %258, %.lr.ph15.i ], [ %indvars.iv.next18.i, %268 ]
-  %269 = load ptr, ptr %254, align 8, !tbaa !26
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 %indvars.iv17.i
-  store i8 0, ptr %270, align 1, !tbaa !26
+265:                                              ; preds = %265, %.lr.ph15.i
+  %indvars.iv17.i = phi i64 [ %255, %.lr.ph15.i ], [ %indvars.iv.next18.i, %265 ]
+  %266 = load ptr, ptr %251, align 8, !tbaa !26
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 %indvars.iv17.i
+  store i8 0, ptr %267, align 1, !tbaa !26
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
-  %271 = load i32, ptr %44, align 8, !tbaa !28
-  %272 = trunc nuw i64 %indvars.iv.next18.i to i32
-  %273 = icmp sgt i32 %271, %272
-  br i1 %273, label %268, label %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit, !llvm.loop !40
+  %268 = load i32, ptr %44, align 8, !tbaa !28
+  %269 = trunc nuw i64 %indvars.iv.next18.i to i32
+  %270 = icmp sgt i32 %268, %269
+  br i1 %270, label %265, label %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit, !llvm.loop !40
 
-274:                                              ; preds = %253
-  %275 = shl nsw i32 %.0.i, 2
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %277 = load i64, ptr %276, align 8, !tbaa !26
-  %278 = zext nneg i32 %275 to i64
-  %279 = lshr i64 %277, %278
-  store i64 %279, ptr %276, align 8, !tbaa !26
+271:                                              ; preds = %250
+  %272 = shl nsw i32 %.0.i, 2
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %274 = load i64, ptr %273, align 8, !tbaa !26
+  %275 = zext nneg i32 %272 to i64
+  %276 = lshr i64 %274, %275
+  store i64 %276, ptr %273, align 8, !tbaa !26
   br label %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit
 
-_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit: ; preds = %268, %.preheader.i, %274
-  %280 = phi i32 [ %242, %274 ], [ %264, %.preheader.i ], [ %271, %268 ]
-  %281 = load i32, ptr %10, align 4, !tbaa !27
-  %282 = add nsw i32 %281, %.0.i
-  store i32 %282, ptr %10, align 4, !tbaa !27
-  %283 = sub nsw i32 %280, %.0.i
-  store i32 %283, ptr %44, align 8, !tbaa !28
-  br label %284
+_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit: ; preds = %265, %.preheader.i, %271
+  %277 = phi i32 [ %239, %271 ], [ %261, %.preheader.i ], [ %268, %265 ]
+  %278 = load i32, ptr %10, align 4, !tbaa !27
+  %279 = add nsw i32 %278, %.0.i
+  store i32 %279, ptr %10, align 4, !tbaa !27
+  %280 = sub nsw i32 %277, %.0.i
+  store i32 %280, ptr %44, align 8, !tbaa !28
+  br label %281
 
-284:                                              ; preds = %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit, %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit
-  br i1 %3, label %285, label %312
+281:                                              ; preds = %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit, %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit
+  br i1 %3, label %282, label %309
 
-285:                                              ; preds = %284
-  %286 = icmp slt i8 %.0.i216, 5
-  %or.cond65 = and i1 %286, %.0.i264.ph
-  br i1 %or.cond65, label %287, label %307
+282:                                              ; preds = %281
+  %283 = icmp slt i8 %.0.i216, 5
+  %or.cond65 = and i1 %283, %.0.i264.ph
+  br i1 %or.cond65, label %284, label %304
 
-287:                                              ; preds = %285
-  %288 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
-  %289 = trunc nuw i8 %288 to i1
-  br i1 %289, label %290, label %303
+284:                                              ; preds = %282
+  %285 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25
+  %286 = trunc nuw i8 %285 to i1
+  br i1 %286, label %287, label %300
 
-290:                                              ; preds = %287
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %292 = load i32, ptr %291, align 8
-  %.not12.i = icmp sgt i32 %292, 0
-  br i1 %.not12.i, label %._crit_edge416, label %293
+287:                                              ; preds = %284
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %289 = load i32, ptr %288, align 8
+  %.not12.i = icmp sgt i32 %289, 0
+  br i1 %.not12.i, label %._crit_edge416, label %290
 
-._crit_edge416:                                   ; preds = %290
+._crit_edge416:                                   ; preds = %287
   %.phi.trans.insert417 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre418 = load ptr, ptr %.phi.trans.insert417, align 8, !tbaa !26
-  br label %301
+  br label %298
 
-293:                                              ; preds = %290
-  %294 = tail call noalias dereferenceable_or_null(2) ptr @uprv_malloc_77(i64 noundef 2) #27
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %296 = load ptr, ptr %295, align 8, !tbaa !26
-  %297 = sext i32 %292 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %294, ptr align 1 %296, i64 %297, i1 false)
-  %298 = getelementptr inbounds i8, ptr %294, i64 %297
-  %299 = sub nsw i32 1, %292
-  %300 = zext nneg i32 %299 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %298, i8 0, i64 %300, i1 false)
-  tail call void @uprv_free_77(ptr noundef %296)
-  store ptr %294, ptr %295, align 8, !tbaa !26
-  store i32 2, ptr %291, align 8, !tbaa !26
-  br label %301
+290:                                              ; preds = %287
+  %291 = tail call noalias dereferenceable_or_null(2) ptr @uprv_malloc_77(i64 noundef 2) #27
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %293 = load ptr, ptr %292, align 8, !tbaa !26
+  %294 = sext i32 %289 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %291, ptr align 1 %293, i64 %294, i1 false)
+  %295 = getelementptr inbounds i8, ptr %291, i64 %294
+  %296 = sub nsw i32 1, %289
+  %297 = zext nneg i32 %296 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %295, i8 0, i64 %297, i1 false)
+  tail call void @uprv_free_77(ptr noundef %293)
+  store ptr %291, ptr %292, align 8, !tbaa !26
+  store i32 2, ptr %288, align 8, !tbaa !26
+  br label %298
 
-301:                                              ; preds = %._crit_edge416, %293
-  %302 = phi ptr [ %.pre418, %._crit_edge416 ], [ %294, %293 ]
+298:                                              ; preds = %._crit_edge416, %290
+  %299 = phi ptr [ %.pre418, %._crit_edge416 ], [ %291, %290 ]
   store i8 1, ptr %17, align 8, !tbaa !22
-  store i8 0, ptr %302, align 1, !tbaa !26
+  store i8 0, ptr %299, align 1, !tbaa !26
   br label %_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit
 
-303:                                              ; preds = %287
-  %304 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %305 = load i64, ptr %304, align 8, !tbaa !26
-  %306 = and i64 %305, -16
-  store i64 %306, ptr %304, align 8, !tbaa !26
+300:                                              ; preds = %284
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %302 = load i64, ptr %301, align 8, !tbaa !26
+  %303 = and i64 %302, -16
+  store i64 %303, ptr %301, align 8, !tbaa !26
   br label %_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit
 
-_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit: ; preds = %301, %303
+_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit: ; preds = %298, %300
   tail call void @_ZN6icu_776number4impl15DecimalQuantity7compactEv(ptr noundef nonnull align 8 dereferenceable(66) %0)
   br label %.critedge214
 
-307:                                              ; preds = %285
-  %or.cond67 = or i1 %286, %.0.i264.ph
-  br i1 %or.cond67, label %308, label %.thread434
+304:                                              ; preds = %282
+  %or.cond67 = or i1 %283, %.0.i264.ph
+  br i1 %or.cond67, label %305, label %.thread434
 
-308:                                              ; preds = %307
+305:                                              ; preds = %304
   tail call void @_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia(ptr noundef nonnull align 8 dereferenceable(66) %0, i32 noundef 0, i8 noundef signext 5)
-  %309 = load i32, ptr %44, align 8, !tbaa !28
-  %310 = icmp eq i32 %309, 0
-  br i1 %310, label %311, label %.critedge214
+  %306 = load i32, ptr %44, align 8, !tbaa !28
+  %307 = icmp eq i32 %306, 0
+  br i1 %307, label %308, label %.critedge214
 
-311:                                              ; preds = %308
+308:                                              ; preds = %305
   store i32 1, ptr %44, align 8, !tbaa !28
   br label %.critedge214
 
-312:                                              ; preds = %284
-  br i1 %.0.i264.ph, label %.critedge, label %313
+309:                                              ; preds = %281
+  br i1 %.0.i264.ph, label %.critedge, label %310
 
-.thread434:                                       ; preds = %307
+.thread434:                                       ; preds = %304
   tail call void @_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia(ptr noundef nonnull align 8 dereferenceable(66) %0, i32 noundef 0, i8 noundef signext 9)
   br i1 %.0.i264.ph, label %.critedge, label %.thread437
 
@@ -6082,138 +6079,138 @@ _ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit: ; preds = %301, %3
   %.pre414439 = load i8, ptr %17, align 8, !tbaa !22, !range !24
   br label %.preheader
 
-313:                                              ; preds = %312
-  %314 = icmp eq i8 %.0.i216, 9
+310:                                              ; preds = %309
+  %311 = icmp eq i8 %.0.i216, 9
   %.pre414 = load i8, ptr %17, align 8, !tbaa !22, !range !24
-  br i1 %314, label %.preheader, label %330
+  br i1 %311, label %.preheader, label %327
 
-.preheader:                                       ; preds = %.thread437, %313
-  %.pre414440 = phi i8 [ %.pre414439, %.thread437 ], [ %.pre414, %313 ]
-  %315 = trunc nuw i8 %.pre414440 to i1
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %317 = load i64, ptr %316, align 8
-  %318 = load i32, ptr %44, align 8
-  %.cast381 = inttoptr i64 %317 to ptr
-  br i1 %315, label %.preheader.split.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269
+.preheader:                                       ; preds = %.thread437, %310
+  %.pre414440 = phi i8 [ %.pre414439, %.thread437 ], [ %.pre414, %310 ]
+  %312 = trunc nuw i8 %.pre414440 to i1
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %314 = load i64, ptr %313, align 8
+  %315 = load i32, ptr %44, align 8
+  %.cast381 = inttoptr i64 %314 to ptr
+  br i1 %312, label %.preheader.split.us, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269
 
 .preheader.split.us:                              ; preds = %.preheader
-  %.not.i267.us373 = icmp sgt i32 %318, 0
+  %.not.i267.us373 = icmp sgt i32 %315, 0
   br i1 %.not.i267.us373, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us.preheader, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us.preheader: ; preds = %.preheader.split.us
-  %wide.trip.count = zext nneg i32 %318 to i64
+  %wide.trip.count = zext nneg i32 %315 to i64
   br label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us.preheader, %322
-  %indvars.iv410 = phi i64 [ 0, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us.preheader ], [ %indvars.iv.next411, %322 ]
-  %319 = getelementptr inbounds nuw i8, ptr %.cast381, i64 %indvars.iv410
-  %320 = load i8, ptr %319, align 1, !tbaa !26
-  %321 = icmp eq i8 %320, 9
-  br i1 %321, label %322, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit.split.loop.exit464
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us.preheader, %319
+  %indvars.iv410 = phi i64 [ 0, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us.preheader ], [ %indvars.iv.next411, %319 ]
+  %316 = getelementptr inbounds nuw i8, ptr %.cast381, i64 %indvars.iv410
+  %317 = load i8, ptr %316, align 1, !tbaa !26
+  %318 = icmp eq i8 %317, 9
+  br i1 %318, label %319, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit.split.loop.exit464
 
-322:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us
+319:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %exitcond413.not = icmp eq i64 %indvars.iv.next411, %wide.trip.count
   br i1 %exitcond413.not, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us, !llvm.loop !88
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269: ; preds = %.preheader, %327
-  %indvars.iv407 = phi i64 [ %indvars.iv.next408, %327 ], [ 0, %.preheader ]
-  %323 = shl nuw nsw i64 %indvars.iv407, 2
-  %324 = lshr i64 %317, %323
-  %325 = and i64 %324, 15
-  %326 = icmp eq i64 %325, 9
-  br i1 %326, label %327, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit441.split.loop.exit462
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269: ; preds = %.preheader, %324
+  %indvars.iv407 = phi i64 [ %indvars.iv.next408, %324 ], [ 0, %.preheader ]
+  %320 = shl nuw nsw i64 %indvars.iv407, 2
+  %321 = lshr i64 %314, %320
+  %322 = and i64 %321, 15
+  %323 = icmp eq i64 %322, 9
+  br i1 %323, label %324, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit441.split.loop.exit462
 
-327:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269
+324:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %exitcond = icmp eq i64 %indvars.iv.next408, 16
   br i1 %exitcond, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269, !llvm.loop !88
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit.split.loop.exit464: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.us
-  %328 = trunc nuw nsw i64 %indvars.iv410 to i32
+  %325 = trunc nuw nsw i64 %indvars.iv410 to i32
   br label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit441.split.loop.exit462: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269
-  %329 = trunc nuw nsw i64 %indvars.iv407 to i32
+  %326 = trunc nuw nsw i64 %indvars.iv407 to i32
   br label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread: ; preds = %327, %322, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit441.split.loop.exit462, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit.split.loop.exit464, %.preheader.split.us
-  %.us-phi371 = phi i32 [ %318, %322 ], [ 0, %.preheader.split.us ], [ %328, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit.split.loop.exit464 ], [ %329, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit441.split.loop.exit462 ], [ 16, %327 ]
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread: ; preds = %324, %319, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit441.split.loop.exit462, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit.split.loop.exit464, %.preheader.split.us
+  %.us-phi371 = phi i32 [ %315, %319 ], [ 0, %.preheader.split.us ], [ %325, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit.split.loop.exit464 ], [ %326, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread.loopexit441.split.loop.exit462 ], [ 16, %324 ]
   tail call void @_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi(ptr noundef nonnull align 8 dereferenceable(66) %0, i32 noundef %.us-phi371)
   %.pre = load i8, ptr %17, align 8, !tbaa !22, !range !24
-  br label %330
+  br label %327
 
-330:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread, %313
-  %331 = phi i8 [ %.pre, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread ], [ %.pre414, %313 ]
-  %332 = trunc nuw i8 %331 to i1
-  br i1 %332, label %333, label %353
+327:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread, %310
+  %328 = phi i8 [ %.pre, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit269.thread ], [ %.pre414, %310 ]
+  %329 = trunc nuw i8 %328 to i1
+  br i1 %329, label %330, label %350
 
-333:                                              ; preds = %330
-  %334 = load i32, ptr %44, align 8
-  %.not.i271 = icmp sgt i32 %334, 0
-  br i1 %.not.i271, label %335, label %340
+330:                                              ; preds = %327
+  %331 = load i32, ptr %44, align 8
+  %.not.i271 = icmp sgt i32 %331, 0
+  br i1 %.not.i271, label %332, label %337
 
-335:                                              ; preds = %333
-  %336 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %337 = load ptr, ptr %336, align 8, !tbaa !26
-  %338 = load i8, ptr %337, align 1, !tbaa !26
-  %339 = add i8 %338, 1
-  br label %340
+332:                                              ; preds = %330
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %334 = load ptr, ptr %333, align 8, !tbaa !26
+  %335 = load i8, ptr %334, align 1, !tbaa !26
+  %336 = add i8 %335, 1
+  br label %337
 
-340:                                              ; preds = %333, %335
-  %.0.i270.ph = phi i8 [ 1, %333 ], [ %339, %335 ]
-  %341 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %342 = load i32, ptr %341, align 8
-  %.not12.i274 = icmp sgt i32 %342, 0
-  br i1 %.not12.i274, label %._crit_edge, label %343
+337:                                              ; preds = %330, %332
+  %.0.i270.ph = phi i8 [ 1, %330 ], [ %336, %332 ]
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %339 = load i32, ptr %338, align 8
+  %.not12.i274 = icmp sgt i32 %339, 0
+  br i1 %.not12.i274, label %._crit_edge, label %340
 
-._crit_edge:                                      ; preds = %340
+._crit_edge:                                      ; preds = %337
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre415 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !26
-  br label %351
+  br label %348
 
-343:                                              ; preds = %340
-  %344 = tail call noalias dereferenceable_or_null(2) ptr @uprv_malloc_77(i64 noundef 2) #27
-  %345 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %346 = load ptr, ptr %345, align 8, !tbaa !26
-  %347 = sext i32 %342 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %344, ptr align 1 %346, i64 %347, i1 false)
-  %348 = getelementptr inbounds i8, ptr %344, i64 %347
-  %349 = sub nsw i32 1, %342
-  %350 = zext nneg i32 %349 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %348, i8 0, i64 %350, i1 false)
-  tail call void @uprv_free_77(ptr noundef %346)
-  store ptr %344, ptr %345, align 8, !tbaa !26
-  store i32 2, ptr %341, align 8, !tbaa !26
-  br label %351
+340:                                              ; preds = %337
+  %341 = tail call noalias dereferenceable_or_null(2) ptr @uprv_malloc_77(i64 noundef 2) #27
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %343 = load ptr, ptr %342, align 8, !tbaa !26
+  %344 = sext i32 %339 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %341, ptr align 1 %343, i64 %344, i1 false)
+  %345 = getelementptr inbounds i8, ptr %341, i64 %344
+  %346 = sub nsw i32 1, %339
+  %347 = zext nneg i32 %346 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %345, i8 0, i64 %347, i1 false)
+  tail call void @uprv_free_77(ptr noundef %343)
+  store ptr %341, ptr %342, align 8, !tbaa !26
+  store i32 2, ptr %338, align 8, !tbaa !26
+  br label %348
 
-351:                                              ; preds = %._crit_edge, %343
-  %352 = phi ptr [ %.pre415, %._crit_edge ], [ %344, %343 ]
+348:                                              ; preds = %._crit_edge, %340
+  %349 = phi ptr [ %.pre415, %._crit_edge ], [ %341, %340 ]
   store i8 1, ptr %17, align 8, !tbaa !22
-  store i8 %.0.i270.ph, ptr %352, align 1, !tbaa !26
+  store i8 %.0.i270.ph, ptr %349, align 1, !tbaa !26
   br label %_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit275
 
-353:                                              ; preds = %330
-  %354 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %355 = load i64, ptr %354, align 8, !tbaa !26
-  %356 = and i64 %355, 15
-  %357 = add nuw nsw i64 %356, 1
-  %358 = and i64 %355, -16
-  %359 = or i64 %357, %358
-  store i64 %359, ptr %354, align 8, !tbaa !26
+350:                                              ; preds = %327
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %352 = load i64, ptr %351, align 8, !tbaa !26
+  %353 = and i64 %352, 15
+  %354 = add nuw nsw i64 %353, 1
+  %355 = and i64 %352, -16
+  %356 = or i64 %354, %355
+  store i64 %356, ptr %351, align 8, !tbaa !26
   br label %_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit275
 
-_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit275: ; preds = %351, %353
-  %360 = load i32, ptr %44, align 8, !tbaa !28
-  %361 = add nsw i32 %360, 1
-  store i32 %361, ptr %44, align 8, !tbaa !28
+_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit275: ; preds = %348, %350
+  %357 = load i32, ptr %44, align 8, !tbaa !28
+  %358 = add nsw i32 %357, 1
+  store i32 %358, ptr %44, align 8, !tbaa !28
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread434, %_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit275, %312
+.critedge:                                        ; preds = %.thread434, %_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit275, %309
   tail call void @_ZN6icu_776number4impl15DecimalQuantity7compactEv(ptr noundef nonnull align 8 dereferenceable(66) %0)
   br label %.critedge214
 
-.critedge214:                                     ; preds = %240, %.thread.thread, %308, %_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit, %311, %199, %switch.early.test213, %switch.early.test213, %_ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit, %43, %42, %switch.early.test, %switch.early.test, %.critedge
+.critedge214:                                     ; preds = %237, %.thread.thread, %305, %_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia.exit, %308, %196, %switch.early.test213, %switch.early.test213, %_ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit, %43, %42, %switch.early.test, %switch.early.test, %.critedge
   ret void
 }
 
@@ -7910,6 +7907,9 @@ declare i32 @llvm.smin.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.sadd.sat.i32(i32, i32) #25
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
